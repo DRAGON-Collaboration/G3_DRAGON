@@ -1,0 +1,75 @@
+# Input namelist for 21Ne(p,g)22Mg reaction
+#  M.Anderson 9th August, 2004
+# Note: All mass excesses in GeV
+#       All widths in MeV
+#       All elevels in MeV
+#
+# beam_mass_excess and recoil_mass_excess is energy difference from
+# (abeam or atarg)*(GeV/amu) to real value
+#
+# Resonant particle's mass/energy/level defined by resenerg, not level(rstate)
+# Resonant mass = Beam mass + Target mass + resenergy
+# level(rstate) value only "names" resonant state
+#
+# part_width/gam_width/spin_stat_fac/ell, define resonance width of rstate 
+#
+# rstate is the energy level that GEANT creates resonant particles at
+#
+# level(x), specifies energy of energy level x
+# life(x), specifies lifetime of level(x)
+#
+# Branching ratios:
+# br(x,z), sets branching ratio of level(x) decay mode z
+# md(x,z) = y, sets decay mode z, for level(x), to level(y)
+# example
+# br(2,1) = 100
+# md(2,1) = 0
+# sets braching ratio from level(2) to level index 1 to 100%
+# sets level index 1, for level(2), to level(0)
+# or, sets branching ratio from leve(2) to level(0) to 100%
+#
+ $params
+  life = 15*1000.
+  level = 15*0.
+  beamtyp = '21Ne'
+  rectyp = '22Na'
+  zbeam = 10.
+  abeam = 21.
+  atarg = 1.
+  ztarg = 1.
+  zprod = 11.
+  beamlifetime = 1000.
+  beam_mass_excess = -5731.78E-6
+  recoil_mass_excess = -397.0E-6
+  resenerg = .259
+  part_width = 0.0001
+  gam_width = 0.0001
+  spin_stat_fac = .625
+  ell = 0.
+  rstate = 4
+  level( 0) = 0.0
+  level( 1) = 0.583
+  level( 2) = 1.952
+  level( 3) = 1.984
+  level( 4) = 7.00
+  life( 0) = 1000.
+  life( 1) = 1.E-12
+  life( 2) = 1.E-12
+  life( 3) = 1.E-12
+  life( 4) = 1.E-12
+  br(1,1) = 100.
+  md(1,1) = 0
+  br(2,1) = 100.
+  md(2,1) = 1
+  br(3,1) = 100
+  md(3,1) = 1
+  br(4,1) = 51
+  md(4,1) = 0
+  br(4,2) = 1.8
+  md(4,2) = 1
+  br(4,3) = 29
+  md(4,3) = 2
+  br(4,4) = 7
+  md(4,4) = 3
+$[end]
+  
