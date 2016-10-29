@@ -1,0 +1,5 @@
+MACRO PLAN
+mess Drawing DRAGON....
+next
+DRAW WRLD 90 90 0 3 18 0.015 0.015
+DXYZ

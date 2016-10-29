@@ -1,0 +1,16 @@
+ne
+pair 1
+comp 1
+phot 1
+pfis 0
+dray 0
+anni 1
+brem 1
+hadr 1
+munu 1
+dcay 1
+loss 2
+muls 1
+cuts 0.0001 0.001
+call ugeom3.f
+kine 3 1. 0. 0. 0. 0. 0.

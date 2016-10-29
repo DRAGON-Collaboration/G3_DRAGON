@@ -1,0 +1,29 @@
+ MACRO ic
+ vec/create z(2) R 1 6
+ vec/create a(2) R 1 12
+ vec/create wmat(2) R 0.7143 0.2857
+ /GEANT/CONTROL/SMIXT '60' 'isobutane' 'a' 'z' '0.00267' '-2' 'wmat'
+ /GEANT/GEOMETRY/STMED '60' 'isobutane' '60' '1' '0' '0' '0.01' '1.E+10' '0.01' '0.01' '0.1'
+ vec/create z(3) R 1 6 8
+ vec/create a(3) R 1 12 16
+ vec/create wmat(3) R 0.041959 0.625017 0.333025
+ /GEANT/CONTROL/SMIXT '61' 'mylar' 'a' 'z' '1.39' '-3' 'wmat'
+ /GEANT/GEOMETRY/STMED '61' 'mylar' '61' '1' '0' '0' '0.01' '1.E+10' '0.01' '0.01' '0.1'
+ vec/create x(3) R 8.7 6.78 20.05
+ /GEANT/GEOMETRY/SVOLU 'ICAC' 'BOX' '9' '3' 'x'
+ vec/create x(3) R 4.5 5.25 12.6
+ /GEANT/GEOMETRY/SVOLU 'ICGB' 'BOX' '60' '3' 'x'
+ vec/create x(3) R 0.0 1.25 5.25
+ /GEANT/GEOMETRY/SVOLU 'ICVT' 'TUBE' '9' '3' 'x'
+ vec/create x(3) R 4.5 5.25 0.1
+ /GEANT/GEOMETRY/SVOLU 'ICDL' 'BOX' '60' '3' 'x'
+ vec/create x(3) R 0 1.375 0.000047
+ /GEANT/GEOMETRY/SVOLU 'ICMW' 'TUBE' '61' '3' 'x'
+
+ /GEANT/GEOMETRY/SPOS 'ICMW' '1' 'ICVT' '0' '0' '-5.25' '0' 'ONLY'
+ /GEANT/GEOMETRY/SPOS 'ICDL' '1' 'ICGB' '0' '0' '12.5' '0' 'ONLY'
+ /GEANT/GEOMETRY/SPOS 'ICGB' '1' 'ICAC' '0' '0' '-3.05' '0' 'ONLY
+ /GEANT/GEOMETRY/SPOS 'ICVT' '1' 'ICAC' '0' '-0.75' '14.8' '0' 'ONLY'
+ /GEANT/GEOMETRY/SPOS 'ICAC' '1' 'WRLD' '-300' '0' '0' '0' 'ONLY'
+
+ draw ICAC 40 40 0 10 10 0.4 0.4

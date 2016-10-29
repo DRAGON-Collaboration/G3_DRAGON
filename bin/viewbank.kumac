@@ -1,0 +1,34 @@
+next
+call ugeom2.f
+satt * seen 1
+delet 1
+dopen 1
+dcut  vol1 z 0. 10.3 9.5 .75 .75
+dscal 10.3 .5
+daxis -12 -12 0 2
+dclos 1
+delet 2
+dopen 2
+dcut  vol1 y 0. 10.3 9.5 .75 .75
+dscal 10.3 .5
+daxis -12 -12 0 2
+dclos 2
+pair 0
+comp 0
+phot 0
+rayl 0
+pfis 0
+brem 0
+anni 0
+munu 0
+hadr 0
+dcay 0
+muls 0
+loss 4
+dray 0
+cuts 0.00001 0.00001
+phys
+dhead 110110 'Process'
+next
+kine 3 .2 90 0 -12. 0 0
+dshow 1

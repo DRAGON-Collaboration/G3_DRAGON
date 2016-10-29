@@ -1,0 +1,79 @@
+*** Begin of history file: Tue Sep 16 17:55:24 2003
+Ntuple/Plot //LUN1/999.energy_gbox ! 0 0 1 ' ' 1000000
+Ntuple/Plot //LUN1/999.energy_gbox ! 0 0 1 ' ' 1000000
+Ntuple/Plot //LUN1/999.energy_gbox ! 0 0 1 ' ' 1000000
+Ntuple/Plot //LUN1/999 ! 0 0 1 ' ' 1000000
+Ntuple/Plot //LUN1/1000.E_int ! 100 1 101 ' ' 1000000
+Ntuple/Plot //LUN1/1000.E_rec ! 100 1 101 ' ' 1000000
+Ntuple/Plot //LUN1/1000.E_g ! 100 1 101 ' ' 1000000
+Ntuple/Plot //LUN1/1000.E_gp ! 100 1 101 ' ' 1000000
+Ntuple/Plot //LUN1/1000.cost_r ! 100 1 101 ' ' 1000000
+Ntuple/Plot //LUN1/1000.Nodec ! 100 1 101 ' ' 1000000
+Ntuple/Plot //LUN1/1000.react ! 100 1 101 ' ' 1000000
+Ntuple/Plot //LUN1/1000.x_r ! 100 1 101 ' ' 1000000
+Ntuple/Plot //LUN1/1000.z_r ! 100 1 101 ' ' 1000000
+Ntuple/Plot //LUN1/1000.y_r ! 100 1 101 ' ' 1000000
+Ntuple/Plot //LUN1/1000.cost_gp ! 100 1 101 ' ' 1000000
+Ntuple/Plot //LUN1/1000.cosp_r ! 100 1 101 ' ' 1000000
+Ntuple/Plot //LUN1/1000.E_int ! 100 1 101 ' ' 1000000
+ Ntuple/Plot //LUN1/1000.E_int ! 100
+Ntuple/Plot //LUN1/1000 ! 100 1 101 ' ' 1000000
+Ntuple/Plot //LUN1/1000.E_int ! 100 1 101 ' ' 1000000
+ Ntuple/Plot //LUN1/1000.E_int !
+ Ntuple/Plot //LUN1/1000.E_int ! 1000 1 1000
+ Ntuple/Plot //LUN1/1000.E_int ! 1000 1 101 ' ' 1000000
+ Ntuple/Plot //LUN1/1000.E_int ! 100 10 20 ' ' 1000000
+ //LUN1/1000.E_int ! 100 10 101 ' ' 1000000
+ Ntuple/Plot //LUN1/1000.E_int ! 100 10 101  ' ' 1000000
+next
+ Ntuple/Plot //LUN1/1000.E_int ! 100 10 101  ' ' 1000000
+next
+ //LUN1/1000.E_int ! 100 10 20 ' ' 1000000
+ Ntuple/Plot //LUN1/1000.E_int ! 100 10 20 ' ' 1000000
+help
+Option STAT
+Ntuple/Plot //LUN1/100.GML19 ! 0 0 1 'D  ' 1000000
+Ntuple/Plot //LUN1/100 ! 0 0 1 'D  ' 1000000
+Ntuple/Plot //LUN1/100 ! 0 0 1 'D  ' 1000000
+Option NSTA
+Option STAT
+Set STAT 0011111
+Set STAT 0111111
+Set STAT 1111111
+Ntuple/Plot //LUN1/998.z1_fngr ! 1 1 2 'D  ' 1000000
+Ntuple/Plot //LUN1/998.z2_fngr ! 1 1 2 'D  ' 1000000
+Ntuple/Plot //LUN1/998.x1_fngr ! 1 1 2 'D  ' 1000000
+Ntuple/Plot //LUN1/1000.E_int ! 100 1 101 'D  ' 1000000
+Ntuple/Plot //LUN1/1000.react ! 100 1 101 'D  ' 1000000
+Ntuple/Plot //LUN1/1000.E_rec ! 100 1 101 'D  ' 1000000
+Ntuple/Plot //LUN1/1000.E_int ! 100 1 101 'D  ' 1000000
+Ntuple/Plot //LUN1/1000.cost_g ! 100 1 101 'D  ' 1000000
+Ntuple/Plot //LUN1/1000.phi_g ! 100 1 101 'D  ' 1000000
+Ntuple/Plot //LUN1/1000.cost_gp ! 100 1 101 'D  ' 1000000
+Ntuple/Plot //LUN1/1000.cost_r ! 100 1 101 'D  ' 1000000
+Ntuple/Plot //LUN1/1000.cosp_r ! 100 1 101 'D  ' 1000000
+Ntuple/Plot //LUN1/1000.Nodec ! 100 1 101 'D  ' 1000000
+Ntuple/Plot //LUN1/1000.react ! 100 1 101 'D  ' 1000000
+Ntuple/Plot //LUN1/1000.x_r ! 100 1 101 'D  ' 1000000
+Ntuple/Plot //LUN1/1000.y_r ! 100 1 101 'D  ' 1000000
+Ntuple/Plot //LUN1/1000.z_r ! 100 1 101 'D  ' 1000000
+Ntuple/Plot //LUN1/1000 ! 100 1 101 'D  ' 1000000
+Ntuple/Project 1000000 //LUN1/1000 ! 100 1
+Ntuple/Plot //LUN1/1000.E_g ! 100 1 101 'D  ' 1000000
+Ntuple/Plot //LUN1/1000.E_rec ! 100 1 101 'D  ' 1000000
+Ntuple/Cuts $0 -
+Ntuple/Cuts $1 E_rec>2
+Ntuple/Plot //LUN1/1000 $1 100 1 101 'D  ' 1000000
+Ntuple/Plot //LUN1/1000 $1 100 1 101 'D  ' 1000000
+Ntuple/Plot //LUN1/1000 $1 100 1 101 'D  ' 1000000
+Ntuple/Plot //LUN1/1000.E_rec $1 100 1 101 'D  ' 1000000
+Ntuple/Plot //LUN1/1000.E_g $1 100 1 101 'D  ' 1000000
+Ntuple/Plot //LUN1/1000.E_gp $1 100 1 101 'D  ' 1000000
+Ntuple/Plot //LUN1/1000.E_int $1 100 1 101 'D  ' 1000000
+Ntuple/Plot //LUN1/1000.cost_gp $1 100 1 101 'D  ' 1000000
+Ntuple/Plot //LUN1/1000.Nodec $1 100 1 101 'D  ' 1000000
+Ntuple/Plot //LUN1/1000.react $1 100 1 101 'D  ' 1000000
+Ntuple/Plot //LUN1/1000.y_r $1 100 1 101 'D  ' 1000000
+Ntuple/Plot //LUN1/1000.x_r $1 100 1 101 'D  ' 1000000
+Ntuple/Plot //LUN1/1000.z_r $1 100 1 101 'D  ' 1000000
+*** End   of history file: Tue Sep 16 18:30:46 2003

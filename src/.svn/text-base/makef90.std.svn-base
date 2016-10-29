@@ -1,0 +1,108 @@
+#---------------------------------------------------------------------#
+#                                                                     #
+#                       E614 rules when using f90                     #
+#                       Renee Poutissou                               #
+#                       23-jul-1999                                   #
+#                       Linux-Absoft version                          #
+#                        Art Olin 23-Sep99                            #
+#                                                                     #
+#  usage:                                                             #
+#                                                                     #
+#  include at the end of your favorite Makefile                       #
+#  include $(MAKESTD)                                                 #
+#                                                                     #
+#---------------------------------------------------------------------#
+
+# clear default suffix list
+
+.SUFFIXES:
+
+# define E787 suffix list
+
+.SUFFIXES: .F .f90 .c .C .o .a .cpp .f
+
+# define targets
+# use symbol "-" to ignore error return from shell command
+
+library : $(OBJS)
+	ar s $(LIB)
+	ar t $(LIB)
+
+clean ::
+	-rm -f $(OUTPUT) $(LIB) $(PROGS) *.o *_cpp.f90 *_cpp.f *.mod Dependencies
+
+# define rules
+
+# NB: default compilation flags (FFLAGS and CFLAGS) can be defined on
+# the make command line, or passed as environment variables.
+
+.F.o:
+	@echo " "
+	@echo using .F.o rules
+	/lib/cpp -P -traditional -E $(IFLAGS) $(DFLAGS) $<  $*_cpp.f
+	$(F90) -c  -o $*.o -W132 $(F90FLAGS)  $(IFLAGS)  $*_cpp.f
+
+.f.o:
+	@echo " "
+	@echo using .f.o rules
+	$(F90) -c  -o $*.o -W132 $(F90FLAGS)  $(IFLAGS)  $*.f
+
+.F.a:
+	@echo " "
+	@echo using .F.a rules
+	/lib/cpp -P -traditional -E $(IFLAGS) $(DFLAGS) $<  $*_cpp.f
+	$(F90) -c  -o $*.o -W132 $(F90FLAGS)  $(IFLAGS)  $*_cpp.f
+	ar r $@ $*.o
+	rm -f $*.o
+
+.f90.o:
+	@echo " "
+	@echo using .f90.o rules
+	/lib/cpp -P -traditional -E $(IFLAGS) $(DFLAGS) $<  $*_cpp.f90
+	$(F90) -c  -o $*.o $(F90FLAGS)  $(I90FLAGS)  $*_cpp.f90
+
+.f90.a:
+	@echo " "
+	@echo using .f90.a rules
+	/lib/cpp -P -traditional -E $(IFLAGS) $(DFLAGS) $<  $*_cpp.f90
+	$(F90) -c  -o $*.o $(F90FLAGS)  $(I90FLAGS)  $*_cpp.f90
+	ar r $@ $*.o
+	rm -f $*.o
+
+.cpp.o:
+	@echo " "
+	@echo using .cpp.o rules
+	$(CXX) -c $(CXXFLAGS) $(DFLAGS) $(IFLAGS) $<
+
+.cpp.a:
+	@echo " "
+	@echo using .cpp.a rules
+	$(CXX) -c $(CXXFLAGS) $(DFLAGS) $(IFLAGS) $<
+	ar r $@ $*.o
+	rm -f $*.o
+
+.c.o:
+	@echo " "
+	@echo using .c.o rules
+	$(CC) -c  $(DFLAGS) $(IFLAGS) $(CFLAGS) $<
+
+.c.a:
+	@echo " "
+	@echo using .c.a rules
+	$(CC) -c  $(DFLAGS) $(IFLAGS) $(CFLAGS) $<
+	ar r $@ $*.o
+	rm -f $*.o
+
+.C.o:
+	@echo " "
+	@echo using .C.o rules
+	$(CXX) -c $(CXXFLAGS) $(DFLAGS) $(IFLAGS) $<
+
+.C.a:
+	@echo " "
+	@echo using .C.a rules
+	$(CXX) -c $(CXXFLAGS) $(IFLAGS) $<
+	ar r $@ $*.o
+	rm -f $*.o
+
+# end file

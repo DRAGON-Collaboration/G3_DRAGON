@@ -1,0 +1,11 @@
+MACRO HITS
+mess "Drawing hit points"
+vec/read x,y,z,e fort.4
+CALL GDCOL(2)
+set hcol 2 
+set plci 2
+DXYZ
+do i= 1, 11
+CALL GDAHIT(x([i]),y([i]),z([i]),550,0.5)
+enddo
+CALL GDCOL(1)

@@ -1,0 +1,8 @@
+next
+drmat 10 8 all
+wait 'Hit OK button for the proton cross section'
+next
+drmat 10 14 all
+wait 'Hit OK button for the neutron cross section'
+next
+drmat 10 13 all

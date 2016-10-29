@@ -1,0 +1,6 @@
+next
+dopt rayt on
+dopt mapp 4
+satt * fill 30
+valcut 10000 10000 10000
+tim

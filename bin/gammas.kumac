@@ -1,0 +1,9 @@
+next
+satt * seen 0
+satt tub1 seen 1
+satt tub2 seen 1
+draw univ 0 90 0 10 10 .1 .1
+kine 1 1 
+debug
+swit 2 3
+tim

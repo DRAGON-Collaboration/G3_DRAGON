@@ -1,0 +1,6 @@
+mess
+mess PAWLOGON says ==> Enter the DRAGON!
+mess
+*
+* this points to the directory where we keep our macros
+MACRO/DEFAULT $DSBIN,$DSSOURCE AUTO	| search path for macros

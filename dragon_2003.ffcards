@@ -1,0 +1,506 @@
+ Dragon Spectrometer at TRIUMF, Monte Carlo: P.G.
+C
+LIST
+C
+C **** Geant FFKEYs: see GEANT manual for more details ****
+C
+C ========== RUNG: IDRUN IDEVT [1,0]
+C == IDRUN ==   User run number
+C == IDEVT ==   User event number
+C
+RUNG 1
+C
+C ========== TRIG: NEVENT ==========
+C
+C == NEVENT ==  Number of events to be processed
+C
+TRIG 5000
+C
+C ========== TIME: TIMINT TIMEND ITIME    ==========
+C == TIMINT  == Time used for initialization
+C               NOTE: FFCARD input for TIMINT is ignored/overwritten
+C == TIMEND  == Time required for termination [10.]
+C == ITIME   == Test every ITIME events
+C               NOTE: User must optimize TIMEND/ITIME so that ITIME is
+C                     as large as is save! - Program termination is
+C                     initiated as soon as the time left on a particular
+C                     queue is smaller than TIMEND.
+TIME 0.0 100. -1
+C
+C ========== RNDM: NRNDM(1) NRNDM(2) ==========
+C
+C == NRNDM ==   Initial value of random number seeds NRNDM(1), NRNDM(2).
+C          If NRNDM(2) is 0, the independent sequence NRNDM(1) is used.
+C          If NRNDM(1) is 0, the default sequence is used. (9876, 54321)
+C
+CRNDM 3414567 18346136
+RNDM 0 0 
+C
+C ========= AUTO: IGAUTO =========
+C
+C          1 = Automatic computation of STMIN,STEMAX,DEEMAX,TMAXFD (default)
+C          0 = Tracking media parameters taken from the argument list of GSTMED
+C
+AUTO 0
+C
+C ========== HADR: IHADR ==========
+C
+C          0 = no hadron interactions effect
+C          1 = hadron interactions with generation of secondaries (default)
+C          2 = same without generation of secondaries
+C
+C          GHEISHA hadronic shower code if IHADR = 1
+C          FLUKA   hadronic shower code if IHADR = 4
+C          FLUKA/MICAP had. shower code if IHADR = 5
+C
+C HADR 0
+C DCAY 0
+C
+C ========== MULS: IMULS ==========
+C
+C          0 = no multiple scattering
+C          1 = Moliere or single Coulomb scattering
+C          2 = same as 1
+C          3 = Gaussian scattering with Rossi formula
+C
+C MULS 1
+C
+C ========== LOSS: ILOSS ==========
+C
+C          0 = no energy loss effect
+C          1 = delta ray and reduced Landau fluctuations (default)
+C          2 = full Landau fluctuations and no delta rays
+C          3 = same as 1
+C          4 = average Energy loss and no fluctuations
+C
+C LOSS 1
+C
+C ========== STRA: ISTRA ==========
+C
+C          0 = Urban model for energy loss for thin layer (default)
+C          1 = PAI model    "    "     "    "    "    "
+C          2 = ASHO model for 1<delta<=30
+C
+C STRA 0
+C
+C ========== MUNU: IMUNU ==========
+C
+C          0 = no muon  nuclear interaction effect
+C          1 = muon nucl. inter. with gen. of secondaries (default)
+C          2 = same without generation of secondaries
+C          Note: (IMUNU .NE. 0) only for GHEISHA!
+C
+C MUNU 1
+C
+C ========== ANNI: IANNI ==========
+C
+C          0 = no positron annihilation effect
+C          1 = positron annihilation with generation of secondaries
+C          2 = same without generation of secondaries
+C
+ANNI 1
+C
+C ========== PFIS: IPFIS ==========
+C
+C          0 = no resonant photon absorption/photonfission
+C          1 = photonfission with generation of secondaries
+C          2 = resonant photon absorption/photonfission without secondaries
+C
+PFIS 2
+C
+C ========== SCNT: ISCNT ==========
+C
+C          0 = no scintillation process enabled
+C          1 = scintillation process enabled
+C          2 = (limited) scintillation process [1% of yield]
+C
+SCNT 0
+C
+C ========== CKOV: ITCKOV ==========
+C
+C == CKOV = 0 No Cerenkov photon production [0]
+C == CKOV = 1 Sequential parent particle tracking
+C == CKOV = 2 Interrupted parent particle tracking
+C
+CKOV 0
+C
+C ========== YILD: PHOTON_YIELD RESOLUTION_SCALE ==========
+C
+C          photon_yield     = scintillation photons/MeV deposited energy
+C          resolution_scale = > 1.0 => resolution worse than statitical
+C
+YILD 10000.0 1.0
+C
+C ========== THLD: TOT_THRSHLD PMT_THRSHLD ==========
+C
+C          tot_thrshld = threshold on the total number of photons
+C                        detected in all PMTs
+C          pmt_thrshld = threshold on the number of photons detected
+C                        in each PMT (only the PMTs above pmt_thrshld
+C                        contribute to the sum to which tot_thrshld is
+C                        applied, and only those PMTs are used in the
+C                        reconstruction)
+C
+THLD 0.0 0.0
+C
+C *** The ENERGY RANGE of the cross section and energy loss tables can
+C     be fixed by the user with the new data card :
+C                   'ERAN'   EKMIN  EKMAX    NKBIN
+C     which defines nkbin bins from Ekmin to Ekmax in a logarithmic scale.
+C     The default is, as before, 90 bins from 10 Kev to 10 Tev but in
+C     logarithmic scale. NKBIN must be 50<NKBIN<200.
+C
+ERAN 0.00001 10.0 180
+C
+C ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+C
+C         **** Geant User FFKEYs for debugging purposes ****
+C
+C ========== DEBU: IDEMIN IDEMAX ITEST ==========
+C == IDEMIN  == First event to debug. If negative the debug flag IDEBUG
+C               is set for the initialization phase
+C == IDEMAX ==  Last event to debug.
+C == ITEST  ==  Print control frequency (for all events!)
+C
+DEBU -1 10000 1
+C
+C    *** The convention for GDEBUG is followed (see GEANT manual) ***
+C
+C == ISWIT(1) = 2: the content of the temporary stack for secondaries in
+C                  the common /GCKING/ is printed;
+C == ISWIT(2) = 1: the current point of the track is stored in the JDXYZ
+C                  bank via the routine GSXYZ;
+C             = 2: the current information on the track is printed via
+C                  the routine GPCXYZ;
+C             = 3: the current step is drawn via the routine GDCXYZ;
+C             = 4: the current point of the track is stored in the JDXYZ
+C                  bank via the routine GSXYZ. When the particle stops
+C                  the track is drawn via the routine GDTRAK and the
+C                  space occupied by the track in the structure JDXYZ
+C                  released;
+C             = 5: print GEANT vertex information via GPVERT at the end 
+C                  of the event (in GUOUT)
+C == ISWIT(3) = 1: the current point of the track is stored in the JDXYZ
+C                  bank via the routine GSXYZ;
+C == ISWIT(4) = 0: no input RAYFILE 
+C               1: read input RAYFILE (REVMOC   format)
+C             > 1: start reading at ISWIT(4)th input ray
+C == ISWIT(5) = 0: individual rays as input
+C             = 1: distribution of rays (origin and direction)
+C             = 2: output rays to unit 10
+C == ISWIT(6) = 0: No diagnostic printout of MITRAY field routines
+C             = 1: Enable diagnostic printout of MITRAY field routines
+C == ISWIT(7) = 0: Simulate physics in jaws and slits
+C             = 1: Stop all particles (jaws/slits)
+C             = 2: Write out original ray (for filtering purposes  )
+C             = 3: Write out final    ray (for detector Monte Carlo)
+C == ISWIT(8) = 0: Batch version
+C             = 1: Interactive version
+C == ISWIT(9) = 0: write NO output information
+C             = 1: ASCII output for analysis to unit 22
+C               2: PAW Ntuple output : nt# 998, 999;
+C
+SWIT 0 0 0 0 0 0 0 0 0
+C
+C ========== HSTA: LHSTA
+C == LHSTA ==   NHSTA names of required standard histograms
+C
+C HSTA 'TIME' 'SIZE' 'MULT' 'NTRA' 'STAK'
+C
+C ========== PRIN: LPRIN
+C == LPRIN ==   NPRIN names of GEANT data structures to be printed
+C
+C PRIN 'PART' 'MATE' 'TMED' 'VOLU' 'SETS'
+C
+C ========== RGET: LRGET
+C == LRGET ==   NRGET names of GEANT data structures to fetch from RZ
+C
+C RGET 'INIT'
+C
+C ========== RSAV: LRSAV
+C == LRSAV ==   NRSAVE names of GEANT data structures to fetch from RZ
+C
+C RSAV 'INIT'
+C
+C ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+C                                                                      C
+C    ***** FULL_MONTE Run directives for full simulation *****         C
+C                                                                      C
+C ========== FKIN: LKINE FKINE(10) ==========                          C
+C                                                                      C
+C      LKINE reaction number                                           C
+C                                                                      C
+C      ( 1) 13N(p,g)14O                                                C
+C      ( 2) 15O(alpha,g)19Ne                                           C
+C      ( 3) 25Al(p,g)26Si                                              C
+C      ( 4) 17F(p,g)18Ne                                               C
+C      ( 5) 18F(p,g)19Ne                                               C
+C      ( 6) 19Ne(p,g)20Na                                              C
+C      ( 7) 20Na(p,g)21Mg                                              C
+C      ( 8) 21Na(p,g)22Mg                                              C
+C      ( 9) 23Mg(p,g)24Al                                              C
+C      (10) 26mAl(p,g)27Si                                             C
+C      (11) 7Be(p,g)8B                                                 C
+C      (12) 21Na(d,n)22Mg                                              C
+C      (19) 12C(a,g)16O	                                               C
+C      (20) Read from input file defined by environment variable INPUT C
+C      (21) Gadolinium source at (0,0,0)                               C
+C                                                                      C
+C     FKINE (1) = effective charge of the BEAM in vacuum               C
+C     FKINE (2) = effective charge of reaction PRODUCT in vacuum       C
+C                                                                      C
+C++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++C
+C
+FKIN 20 2.0 6.0
+C
+C REFERENCE TUNE E=1.8885 MeV, A=19, Q=4
+TUNE 1.8885 19. 4.
+C    MTUN x(cm) y(cm) dx(rad) dy(rad) separator tune(%/100)
+C MTUN -0.0 -0.0 -0.000 -0.000 0.02
+C    BEAM incoming beam energy (MeV=MeV/u*BeamMass)
+C BEAM 10.207
+C SCAL  1.75898  2.30782 
+C
+C++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++C
+C                                                                      C
+C    ***** FULL_MONTE Run directives for DRAGON test *****             C
+C                                                                      C
+C ========== KINE: IKINE PKINE(10) ==========                          C
+C                                                                      C
+C     For iswit(4).eq.0 and iswit(5).eq.0                              C
+C     -----------------------------------                              C
+C     IKINE     = GEANT Particle type                                  C
+C     PKINE (1) = Particle origin x [cm]                               C
+C     PKINE (2) = Particle origin y [cm]                               C
+C     PKINE (3) = Particle origin z [cm]                               C 
+C     PKINE (4) = Particle momentum [MeV/c]                            C
+C     PKINE (5) = RAYTRACE theta [in mr]                               C
+C     PKINE (6) = RAYTRACE phi   [in mr]                               C
+C                                                                      C
+C     For iswit(4).eq.0 and iswit(5).eq.1                              C
+C     -----------------------------------                              C
+C     IKINE     = GEANT Particle type                                  C
+C     PKINE (1) = Particle origin x [cm]                               C
+C     PKINE (2) = Particle origin y [cm]                               C
+C     PKINE (3) = Particle origin z [cm]                               C
+C     PKINE (4) = Particle momentum [MeV/c]                            C
+C     PKINE (5) = width of x origin [cm]                               C
+C     PKINE (6) = width of y origin [1cm]                              C
+C     PKINE (7) = horizontal emittance [0mr]                           C
+C     PKINE (8) = vertical   emittance [0mr]                           C
+C     PKINE (9) = 1 +- deltaP/P                                        C
+C                                                                      C
+C++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++C
+C
+C KINE 61 0.0 0.0 0.0 258.55443 0.0 0.0 50.0 50.0 1.0 0.0
+C KINE 61 0.0 0.0 0.0 258.55443 0.0 0.0 0.0 0.0 1.0 0.0
+C
+C ========== MAXS: MAX_STEP LEN_MAX ==========
+C
+C     Maximum number of steps == max_step
+C     Maximum path length     == len_max
+C
+MAXS 100000 20000.
+C
+C ========== REVS: IREVS ==========
+C
+C     Flag for time-reversal tracking
+C
+C     irevs = 0 -> forward  tracking
+C     irevs = 1 -> backward tracking
+C
+REVS 0
+C
+C++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++C
+C                                                                      C
+C    ***** FULL_MONTE Run directives for GBOX test *****               C
+C                                                                      C
+C ========== GKIN: MKINE GKINE(10) ==========                          C
+C                                                                      C
+C                     (generation of photons)                          C
+C                     -----------------------                          C
+C  GKIN card:  MKINE    : number of photons at initial vertex          C
+C              GKINE 1  : x of photon origin distribution [cm]         C
+C                    2  : y of photon origin distribution [cm]         C
+C                    3  : z of photon origin distribution [cm]         C
+C                    4  : length of photon origin x-dimension [cm]     C
+C                    5  : length of photon origin y-dimension [cm]     C
+C                    6  : length of photon origin z-dimension [cm]     C
+C              GKINE 7  : photon energy [MeV]                          C
+C                    8  : theta [degree]                               C
+C                    9  : phi [degree]                                 C
+C                   10  : emittance [mrad]                             C
+C                                                                      C
+C++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++C
+C
+C GKIN 2 0.0 0.0 0.0 0.0 0.0 0.0 4.44 0.0 0.0 0.0
+C GKIN 0 0.0 0.0 0.0 0.0 0.0 0.0 0.511 0.0 0.0 0.0
+C
+C ========== TARG: targtype ==========
+C             0 : Gas target   (gas cell, gas volumes, etc.)
+C             1 : Solid target (solid disc, vacuum volumes, etc.)
+C
+TARG 0
+C
+C ========== TUBE: tubetype ==========
+C             0 : smaller pumping tubes
+C             1 : larger pumping tubes
+C	      2 : small pumping tubes  <up notch> (for acceptance)
+C	      3 : small pumping tubes  <down notch> (for acceptance)
+C	      4 : small pumping tubes  <left(looking downstream) notch> (for acceptance)
+C	      5 : small pumping tubes  <right(looking downstream) notch> (for acceptance)
+C	      6 : small pumping tubes  <hole notch> (for acceptance)
+C
+TUBE 0
+C
+C ========== EGAM: egamma(10) ==========
+C
+C             egamma(i) == energy if ith gamma [MeV]
+C
+EGAM 3.44 1.0
+C
+C
+C ========== DMAT: n_detmate ==========
+C
+DMAT 14
+C
+C ========== FSID: s_finger z_finger air_gap d_air(1) d_air(2) d_mtl ==========
+C
+C             s_finger == side of scintillator finger [cm]
+C             z_finger == length of scintillator finger [cm]
+C             air_gap  == air gap between hexagons [cm]
+C             d_air(1) == MGO gap/film around the finger side [cm]
+C             d_air(2) == MGO gap/film around the finger front [cm]
+C             d_mtl    == metal/aluminium sheet thickness [cm]
+C
+FSID 5.588 7.620 0.1270 .0355 0.3175 0.0635
+C
+C ========== WALL: wall(3) ==========
+C
+C              wall(1) == steel    beam box wall thickness [cm]
+C              wall(2) == aluminum beam box wall thickness [cm]
+C              wall(3) == pumping collimator wall thickness [cm]
+C
+WALL 0.1 0.3175 0.4978
+C
+C ========== BGAP: gap ==========
+C
+C              gap == 'pizza' box width [cm]
+C
+BGAP 5.08
+C ========== HOLE: pinh ==========
+C
+C              pinh == radius of small beam aperture
+C
+HOLE 0.4496
+C
+C ========== SHLD: shield_end ==========
+C
+C              shield_end(1) == distance of 'near' end from vacuum box [cm]
+C              shield_end(2) == distance of 'far ' end from vacuum box [cm]
+C
+C SHLD 10.0 20.0
+C
+C ========== MPMT: mtype_pmt ==========
+C
+C             mtype_pmt == 1 : circular
+C             mtype_pmt == 2 : square
+MPMT 1
+C
+C ========== PMTR: pmt_size pmt_length ==========
+C
+C             pmt_size   == half size or radius of PMT [cm]
+C             pmt_length == length of PMT [cm]
+C
+PMTR 2.54 2.5
+C PMTR 2.54 15.24
+C
+C ========== BLKA: bulk_absorption ==========
+C
+C             bulk_absorption == bulk absorption coefficient of LSO [cm]
+C
+BLKA 100.0
+C
+C ========== REFL: paint_absorption  ==========
+C
+C             paint_absorption == 1-reflectivity
+C
+C             paint_absorption(1) - crystal sides/ends
+C
+REFL 0.11
+C
+C ========== ANAL: xtnd_block E_threshold
+C
+C             xtnd_block  == Extra reach of extended energy sum-block [cm]
+C             E_threshold == Energy threshold for Photo Peak Efficiency [MeV] 
+C
+ANAL 2.0
+C
+C ========== PBON: lead_on
+C
+C             lead_on == parameter to turn on series of four lead blocks
+C			in front of the gas cell opposite the array
+C	      lead_on = 1, blocks included
+C		      = 0, blocks not included		 
+C
+C PBON 0
+C ========== PBPS: shld_pos
+C
+C	      shld_pos = set the position of the four lead bricks which
+C	       		make up the lead shield. Position origin is centre
+C			gas cell in dimension z. Looking at cell negative
+C			numbers move blocks right, positive numbers left
+C PBPS 0.0
+STOP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

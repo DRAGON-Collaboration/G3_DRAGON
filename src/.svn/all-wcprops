@@ -1,0 +1,563 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/dragon/!svn/ver/655/trunk/geant/src
+END
+uginit.f
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/dragon/!svn/ver/495/trunk/geant/src/uginit.f
+END
+mitray_zone.f
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/dragon/!svn/ver/4/trunk/geant/src/mitray_zone.f
+END
+gukine_full_right.f
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/dragon/!svn/ver/527/trunk/geant/src/gukine_full_right.f
+END
+ugeom_mitray.f
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/dragon/!svn/ver/653/trunk/geant/src/ugeom_mitray.f
+END
+guskip.f
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/dragon/!svn/ver/4/trunk/geant/src/guskip.f
+END
+gukine_full.f
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/dragon/!svn/ver/526/trunk/geant/src/gukine_full.f
+END
+gustep_trgt.f
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/dragon/!svn/ver/643/trunk/geant/src/gustep_trgt.f
+END
+gustep.f
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/dragon/!svn/ver/526/trunk/geant/src/gustep.f
+END
+guphad.f
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/dragon/!svn/ver/4/trunk/geant/src/guphad.f
+END
+gudigi.f
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/dragon/!svn/ver/415/trunk/geant/src/gudigi.f
+END
+gukine_full_up.f
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/dragon/!svn/ver/527/trunk/geant/src/gukine_full_up.f
+END
+ugstmed.f
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/dragon/!svn/ver/370/trunk/geant/src/ugstmed.f
+END
+ugeom_test.f
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/dragon/!svn/ver/4/trunk/geant/src/ugeom_test.f
+END
+ugeom_trgt.f
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/dragon/!svn/ver/526/trunk/geant/src/ugeom_trgt.f
+END
+ugffgo.f
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/dragon/!svn/ver/78/trunk/geant/src/ugffgo.f
+END
+ugeom_ion.f
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/dragon/!svn/ver/4/trunk/geant/src/ugeom_ion.f
+END
+make.std
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/dragon/!svn/ver/5/trunk/geant/src/make.std
+END
+gukine.f
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/dragon/!svn/ver/526/trunk/geant/src/gukine.f
+END
+mitray_setup.f
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/dragon/!svn/ver/653/trunk/geant/src/mitray_setup.f
+END
+gdeca2.f
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/dragon/!svn/ver/18/trunk/geant/src/gdeca2.f
+END
+gloren.F
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/dragon/!svn/ver/4/trunk/geant/src/gloren.F
+END
+gthion.f
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/dragon/!svn/ver/4/trunk/geant/src/gthion.f
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/dragon/!svn/ver/655/trunk/geant/src/Makefile
+END
+gukine_full_down.f
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/dragon/!svn/ver/527/trunk/geant/src/gukine_full_down.f
+END
+gdecay.f
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/dragon/!svn/ver/225/trunk/geant/src/gdecay.f
+END
+geant_mod.f
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/dragon/!svn/ver/655/trunk/geant/src/geant_mod.f
+END
+grkuta.f
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/dragon/!svn/ver/4/trunk/geant/src/grkuta.f
+END
+uglast.f
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/dragon/!svn/ver/30/trunk/geant/src/uglast.f
+END
+Xsetlocale.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/dragon/!svn/ver/4/trunk/geant/src/Xsetlocale.c
+END
+mitray_solnd.f
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/dragon/!svn/ver/4/trunk/geant/src/mitray_solnd.f
+END
+Makef90
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/dragon/!svn/ver/78/trunk/geant/src/Makef90
+END
+ugstmed_trgt.f
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/dragon/!svn/ver/495/trunk/geant/src/ugstmed_trgt.f
+END
+uvinit_soltarg.f
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/dragon/!svn/ver/495/trunk/geant/src/uvinit_soltarg.f
+END
+guhadr.f
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/dragon/!svn/ver/4/trunk/geant/src/guhadr.f
+END
+gukine_full_hole.f
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/dragon/!svn/ver/527/trunk/geant/src/gukine_full_hole.f
+END
+gutrev.f
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/dragon/!svn/ver/4/trunk/geant/src/gutrev.f
+END
+gdopt.f
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/dragon/!svn/ver/22/trunk/geant/src/gdopt.f
+END
+Makef90db
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/dragon/!svn/ver/78/trunk/geant/src/Makef90db
+END
+gukine_full_left.f
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/dragon/!svn/ver/527/trunk/geant/src/gukine_full_left.f
+END
+gumain.f
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/dragon/!svn/ver/4/trunk/geant/src/gumain.f
+END
+ugeom_defin.f
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/dragon/!svn/ver/526/trunk/geant/src/ugeom_defin.f
+END
+gfang.F
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/dragon/!svn/ver/4/trunk/geant/src/gfang.F
+END
+sig.f
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/dragon/!svn/ver/4/trunk/geant/src/sig.f
+END
+ugmate_trgt.f
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/dragon/!svn/ver/655/trunk/geant/src/ugmate_trgt.f
+END
+hisran.F
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/dragon/!svn/ver/4/trunk/geant/src/hisran.F
+END
+interac.f
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/dragon/!svn/ver/80/trunk/geant/src/interac.f
+END
+ugeom_gbox_soltarg.f
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/dragon/!svn/ver/76/trunk/geant/src/ugeom_gbox_soltarg.f
+END
+mitray_sasp.f
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/dragon/!svn/ver/4/trunk/geant/src/mitray_sasp.f
+END
+func.f
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/dragon/!svn/ver/4/trunk/geant/src/func.f
+END
+gustep_mitray.f
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/dragon/!svn/ver/653/trunk/geant/src/gustep_mitray.f
+END
+uhinit.f
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/dragon/!svn/ver/653/trunk/geant/src/uhinit.f
+END
+mitray_dipole.f
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/dragon/!svn/ver/4/trunk/geant/src/mitray_dipole.f
+END
+makef90.std
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/dragon/!svn/ver/29/trunk/geant/src/makef90.std
+END
+gufld.f
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/dragon/!svn/ver/4/trunk/geant/src/gufld.f
+END
+gukine_gbox.f
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/dragon/!svn/ver/4/trunk/geant/src/gukine_gbox.f
+END
+ugeom_trgt_small_right.f
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/dragon/!svn/ver/527/trunk/geant/src/ugeom_trgt_small_right.f
+END
+hack.c
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/dragon/!svn/ver/4/trunk/geant/src/hack.c
+END
+guout.f
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/dragon/!svn/ver/4/trunk/geant/src/guout.f
+END
+ugeom_trgt_small.f
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/dragon/!svn/ver/526/trunk/geant/src/ugeom_trgt_small.f
+END
+guefld.f
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/dragon/!svn/ver/4/trunk/geant/src/guefld.f
+END
+mitray_poles.f
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/dragon/!svn/ver/4/trunk/geant/src/mitray_poles.f
+END
+junk.f
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/dragon/!svn/ver/4/trunk/geant/src/junk.f
+END
+mitray_field.f
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/dragon/!svn/ver/4/trunk/geant/src/mitray_field.f
+END
+ugeom_trgt_small_up.f
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/dragon/!svn/ver/527/trunk/geant/src/ugeom_trgt_small_up.f
+END
+guswim.f
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/dragon/!svn/ver/4/trunk/geant/src/guswim.f
+END
+uvinit.f
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/dragon/!svn/ver/415/trunk/geant/src/uvinit.f
+END
+gxint321.f
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/dragon/!svn/ver/4/trunk/geant/src/gxint321.f
+END
+ugmate.f
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/dragon/!svn/ver/370/trunk/geant/src/ugmate.f
+END
+ggscnt.f
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/dragon/!svn/ver/4/trunk/geant/src/ggscnt.f
+END
+gustep_gbox.f
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/dragon/!svn/ver/80/trunk/geant/src/gustep_gbox.f
+END
+ugeom_trgt_large.f
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/dragon/!svn/ver/496/trunk/geant/src/ugeom_trgt_large.f
+END
+angdist.f
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/dragon/!svn/ver/502/trunk/geant/src/angdist.f
+END
+gureact.f
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/dragon/!svn/ver/4/trunk/geant/src/gureact.f
+END
+ugeom_gbox.f
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/dragon/!svn/ver/526/trunk/geant/src/ugeom_gbox.f
+END
+ugeom_trgt_small_down.f
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/dragon/!svn/ver/527/trunk/geant/src/ugeom_trgt_small_down.f
+END
+gutrak.f
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/dragon/!svn/ver/4/trunk/geant/src/gutrak.f
+END
+mitray_edipol.f
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/dragon/!svn/ver/4/trunk/geant/src/mitray_edipol.f
+END
+gustep_trgt_soltarg.f
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/dragon/!svn/ver/56/trunk/geant/src/gustep_trgt_soltarg.f
+END
+guplsh.f
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/dragon/!svn/ver/4/trunk/geant/src/guplsh.f
+END
+ghidet.f
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/dragon/!svn/ver/4/trunk/geant/src/ghidet.f
+END
+ugeo_ion.f
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/dragon/!svn/ver/4/trunk/geant/src/ugeo_ion.f
+END
+neighborhood.f
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/dragon/!svn/ver/4/trunk/geant/src/neighborhood.f
+END
+gukine_mitray.f
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/dragon/!svn/ver/4/trunk/geant/src/gukine_mitray.f
+END
+ugeom_trgt_soltarg.f
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/dragon/!svn/ver/53/trunk/geant/src/ugeom_trgt_soltarg.f
+END
+ugeom_trgt_small_hole.f
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/dragon/!svn/ver/527/trunk/geant/src/ugeom_trgt_small_hole.f
+END
+ugeom.f
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/dragon/!svn/ver/526/trunk/geant/src/ugeom.f
+END
+chmass.f
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/dragon/!svn/ver/4/trunk/geant/src/chmass.f
+END
+ugeom_trgt_small_left.f
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/dragon/!svn/ver/527/trunk/geant/src/ugeom_trgt_small_left.f
+END
+gcclose.f
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/dragon/!svn/ver/22/trunk/geant/src/gcclose.f
+END
+ureact.f
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/dragon/!svn/ver/638/trunk/geant/src/ureact.f
+END
+beaminit.f
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/dragon/!svn/ver/495/trunk/geant/src/beaminit.f
+END
+ghipmt.f
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/dragon/!svn/ver/4/trunk/geant/src/ghipmt.f
+END
+hrndm1.f
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/dragon/!svn/ver/4/trunk/geant/src/hrndm1.f
+END
