@@ -2,8 +2,7 @@
 
 ## Prerequisites:
 
-The GEANT3 simulation of DRAGON requires [cernlib2006](http://cernlib.web.cern.ch/cernlib/index.html) and [ROOT](https://root.cern.ch) to 
-run
+The GEANT3 simulation of DRAGON requires [cernlib2006](http://cernlib.web.cern.ch/cernlib/index.html), [ROOT](https://root.cern.ch), and a g77 compiler.
 
 ## Quick Start:
 

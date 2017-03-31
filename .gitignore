@@ -2,6 +2,8 @@
 *.o
 *.root
 *.hbook
+bin/dsbatch
+bin/dsinter
 
 # Whitelist files
 !thresholds.root
