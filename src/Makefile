@@ -7,7 +7,7 @@
 #  usage examples:                                                 #
 #                                                                  #
 #  % make                                                          #
-#  % make dsbatch                                                    # 
+#  % make dsbatch                                                    #
 #------------------------------------------------------------------#
 # 09-feb-1998 Renee - Fix the make file : add IFLAGS, add rules    #
 # 10-feb-1998 Renee - adapt for Linux                              #
@@ -16,7 +16,7 @@
 # (Say "make OUTPUT=progname", for example.)
 #
 DSROOT=.
-DSBIN=.
+DSBIN=../bin
 
 # KJR - comment out hard-coded paths
 #CERN_LIBRARY= /usr/lib64/cernlib/2006-g77/lib
@@ -38,7 +38,7 @@ GINCLUDE = /usr/include/cernlib/2006
 IFLAGS= -I../inc -I$(GINCLUDE)
 
 
-OUTPUT= $(DSBIN)/dsbatch
+OUTPUT= $(DSBIN)/dsbatch $(DSBIN)/dsinter
 #------------------------------linux needs ------------------------------#
 # KJR : Use cernlib to automatically generate cernlib switches
 
@@ -61,85 +61,85 @@ OBJECTS=
 
 # KJR: Not needed , using cernlib util
 #LIBDIRS= \
-#   -L$(CERN_LIBRARY) -L$(X11) 
+#   -L$(CERN_LIBRARY) -L$(X11)
 
 #------------------------------------------------------------------#
 # add your object files and personal libraries to the end of this list
 
 OBJS_BATCH = \
-    gumain.o
+	gumain.o
 
 OBJS_INTER = \
-    gxint321.o 
+	gxint321.o
 
 OBJS = \
 	beaminit.o \
 	ghidet.o \
 	ghipmt.o \
 	ggscnt.o \
-       gudigi.o \
-       guhadr.o \
-       gukine.o \
-       gukine_full.o \
-       gukine_full_up.o \
-       gukine_full_down.o \
-       gukine_full_right.o \
-       gukine_full_left.o \
-       gukine_full_hole.o \
-       gukine_gbox.o \
-       gukine_mitray.o \
-       guout.o  \
-       guphad.o \
+	gudigi.o \
+	guhadr.o \
+	gukine.o \
+	gukine_full.o \
+	gukine_full_up.o \
+	gukine_full_down.o \
+	gukine_full_right.o \
+	gukine_full_left.o \
+	gukine_full_hole.o \
+	gukine_gbox.o \
+	gukine_mitray.o \
+	guout.o  \
+	guphad.o \
 	gureact.o \
-       gustep.o \
+	gustep.o \
 	gustep_trgt.o \
 	gustep_mitray.o \
 	gustep_gbox.o \
-       gutrak.o \
-       gutrev.o \
-       uginit.o \
-       uvinit.o \
-       ugffgo.o \
-       uhinit.o \
-       ugmate.o \
-       ugmate_trgt.o \
-       ugstmed.o \
-       ugstmed_trgt.o \
-       ureact.o \
-       uglast.o \
-       ugeom.o \
-       ugeom_gbox.o \
+	gutrak.o \
+	gutrev.o \
+	uginit.o \
+	uvinit.o \
+	ugffgo.o \
+	uhinit.o \
+	ugmate.o \
+	ugmate_trgt.o \
+	ugstmed.o \
+	ugstmed_trgt.o \
+	ureact.o \
+	uglast.o \
+	ugeom.o \
+	ugeom_gbox.o \
 	ugeom_trgt_large.o \
 	ugeom_trgt_small.o \
-       ugeom_trgt_small_up.o \
-       ugeom_trgt_small_down.o \
-       ugeom_trgt_small_right.o \
-       ugeom_trgt_small_left.o \
-       ugeom_trgt_small_hole.o \
-       ugeom_mitray.o \
+	ugeom_trgt_small_up.o \
+	ugeom_trgt_small_down.o \
+	ugeom_trgt_small_right.o \
+	ugeom_trgt_small_left.o \
+	ugeom_trgt_small_hole.o \
+	ugeom_mitray.o \
 	ugeom_defin.o \
-       guswim.o \
-       grkuta.o \
-       guefld.o \
-       mitray_setup.o \
-       mitray_field.o \
-       mitray_dipole.o \
-       mitray_edipol.o \
-       mitray_solnd.o \
-       mitray_poles.o \
-       mitray_zone.o \
-       mitray_sasp.o \
-       neighborhood.o \
-       gthion.o \
-       geant_mod.o \
-       sig.o \
-       chmass.o \
-       gdeca2.o \
-       angdist.o \
-       gdecay.o \
-       interac.o \
-       hack.o \
-       hrndm1.o 
+	guswim.o \
+	grkuta.o \
+	guefld.o \
+	mitray_setup.o \
+	mitray_field.o \
+	mitray_dipole.o \
+	mitray_edipol.o \
+	mitray_solnd.o \
+	mitray_poles.o \
+	mitray_zone.o \
+	mitray_sasp.o \
+	neighborhood.o \
+	gthion.o \
+	geant_mod.o \
+	sig.o \
+	chmass.o \
+	gdeca2.o \
+	angdist.o \
+	gdecay.o \
+	interac.o \
+	hack.o \
+	hrndm1.o
 #	alphapos.o
 #
 #------------------------------------------------------------------#
@@ -150,7 +150,7 @@ OBJS = \
 #   -lgeant321 \
 #   -lmathlib \
 #   -lkernlib \
-#   -lpacklib  
+#   -lpacklib
 
 LIBS = $(shell cernlib-g77 geant321 mathlib kernlib packlib)
 
@@ -164,7 +164,7 @@ LIBS = $(shell cernlib-g77 geant321 mathlib kernlib packlib)
 #    -lmathlib \
 #    -lkernlib \
 #    -lblas \
-#    -lnsl 
+#    -lnsl
 
 GLIBS = $(shell cernlib-g77 geant321 pawlib graflib grafX11 mathlib kernlib packlib blas nsl)
 
@@ -210,9 +210,7 @@ library : $(OBJS)
 	ar ts $(LIB)
 
 clean :
-	@rm -f $(OUTPUT) $(LIB) *.o
+	rm -f $(OUTPUT) $(LIB) *.o
 
 # define rules
 include $(DSROOT)/make.std
-
-

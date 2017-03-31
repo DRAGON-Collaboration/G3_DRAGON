@@ -1,0 +1,7 @@
+#Blacklist files/folders
+*.o
+*.root
+*.hbook
+
+# Whitelist files
+!thresholds.root

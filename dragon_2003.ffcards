@@ -14,7 +14,7 @@ C ========== TRIG: NEVENT ==========
 C
 C == NEVENT ==  Number of events to be processed
 C
-TRIG 5000
+TRIG 100
 C
 C ========== TIME: TIMINT TIMEND ITIME    ==========
 C == TIMINT  == Time used for initialization
