@@ -66,7 +66,7 @@ root> .L efficiency.C
 
 to load the Macro, then:
 ```
-root> efficiency("23napg_646keV.root")
+root> efficiency("26alpg_368keV.root")
 ```
 
 You will be prompted to enter a number from 1 to 4 to choose which thresholds were used. Once this has been entered, the macro will spit 
