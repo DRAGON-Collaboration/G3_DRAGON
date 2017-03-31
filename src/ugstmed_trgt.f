@@ -8,7 +8,7 @@
 C
 C     Define tracking media
 C
-C     Magnetic field 
+C     Magnetic field
       ifield = 0
       fieldm = 0.0
       tmaxfd = 10.0
@@ -36,11 +36,11 @@ C
       endif
 C
 C     Box, entrance and exit mediums
-C     
+C
       epsil = 1.e-05
       stemax = 1.
 C
-      print*,'******************mbox',mbox 
+      print*,'******************mbox',mbox
       CALL gstmed(mbox,'baseline',mbox,isvol,ifield,
      &        fieldm,tmaxfd,stemax,deemax,epsil,stmin,0,0)
 C     stemax = 10.

@@ -54,7 +54,7 @@ C
       par(2) = 2.67/2.
       par(3) = Rrms
       par(4) = 2.67/2.
-      par(5) = Rrms      
+      par(5) = Rrms
       CALL gsvolu('EX4C','CONE',nmed,par,npar,ivolu)
       CALL gsatt('EX4C','SEEN',1)
 C
@@ -82,7 +82,7 @@ C
       par(1) = 0.
       par(2) = Rrms
       par(3) = len1
-C     Position new gas volumes to match new collimator 
+C     Position new gas volumes to match new collimator
       par(3) = 0.5*0.68
       CALL gsvolu('EN1G', 'TUBE', nmed, par, npar, ivolu)
       CALL gsatt('EN1G','SEEN',1)
@@ -187,7 +187,7 @@ C
       CALL gspos('EX3C',1,'EX5G',0.,0.,0.,0,'ONLY')
       z = 40.15
       CALL gspos('EX5G',1,'DETE',0.,0.,z,0,'ONLY')
-C     
+C
       par(1) = 0
       par(2) = Rrms
       par(3) = 5.24/2.
@@ -233,7 +233,7 @@ C.
       CALL gsvolu ('ATC1', 'BOX ', 5, shape, 3, ivolu)
       CALL gsatt('ATC1','SEEN',1)
       CALL gspos('ATC1',1,'EX9G',1.2885+0.7+2.5,0.0,8.93048077,
-     +   0,'MANY') 
+     +   0,'MANY')
 C.
 C. **** Do -x border
 C.
@@ -252,13 +252,13 @@ C.
 C.
 C. **** Do +y border
 C.
-C.      
+C.
       shape(1) = 2.5
       shape(2) = 2.5
       shape(3) = 0.025
       CALL gsvolu ('ATC3', 'BOX ', 5, shape, 3, ivolu)
       CALL gsatt('ATC3','SEEN',1)
-      CALL gspos('ATC3',1,'EX9G',0.0,.465+2.5,8.93048077,0,'MANY') 
+      CALL gspos('ATC3',1,'EX9G',0.0,.465+2.5,8.93048077,0,'MANY')
 C.
 C. **** Do -y border
 C.
@@ -286,12 +286,12 @@ C
       CALL gspos('EX10',1,'DETE',0.,0.,z,0,'ONLY')
 C
 C     Since the following collimator extends into Q1, it is placed
-C     in the WRLD coordinates with no gas 
+C     in the WRLD coordinates with no gas
       z = 106.05
       CALL gspos('EX6C',1,'WRLD',0.,0.,z,0,'ONLY')
 C     Need to define a TEND to change particle charge state
 c$$$      par(3)=5.
-c$$$      z = TLrms-par(3) 
+c$$$      z = TLrms-par(3)
 c$$$      CALL gsvolu( 'TEND', 'TUBE', nmed, par, npar, ivolu)
 c$$$      CALL gsatt('TEND','SEEN',1)
 c$$$      CALL gspos('TEND', 1, 'DETE', 0.0, 0.0, z, 0, 'ONLY')

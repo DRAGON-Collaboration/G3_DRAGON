@@ -1,4 +1,4 @@
-C. 
+C.
       SUBROUTINE uglast
 C.
 CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
@@ -47,12 +47,12 @@ C
 C MT adds counters for the number of recoils that make it
 C   to Q3 (Sext 1) and to Q8 (Quad 6).
 C
-     + 'Recoils reaching Q3 (Sext 1) ', Num_Recoils_Q3, 
+     + 'Recoils reaching Q3 (Sext 1) ', Num_Recoils_Q3,
      +    100.*Num_Recoils_Q3/nreact,'%  +- ',
      +    100.*sqrt(Num_Recoils_Q3*(1.-Num_Recoils_Q3/real(nreact)))/
      +    nreact,'%'
         write(lout,*)
-     + 'Recoils reaching Q8 (Quad 6) ', Num_Recoils_Q8, 
+     + 'Recoils reaching Q8 (Quad 6) ', Num_Recoils_Q8,
      +    100.*Num_Recoils_Q8/nreact,'%  +- ',
      +    100.*sqrt(Num_Recoils_Q8*(1.-Num_Recoils_Q8/real(nreact)))/
      +    nreact,'%'
@@ -61,7 +61,7 @@ C
      + 'Recoils reaching end detector ', nend, 100.*nend/nreact,
      + '%  +- ',100.*sqrt(nend*(1.-nend/real(nreact)))/nreact,'%'
         write(lout,*)
-     + 'Beam particles exiting target ', nbeamout,100.*nbeamout/nbeam, 
+     + 'Beam particles exiting target ', nbeamout,100.*nbeamout/nbeam,
      + '%  +- ',100.*sqrt(nbeamout*(1.-nbeamout/real(nbeam)))/nbeam,'%'
         write(lout,*)
      + 'Beam particles reaching FCM2 ',nfcm2,100.*nfcm2/nbeam,
@@ -71,7 +71,7 @@ C
 C MT adds counter for the number of beam particles that reach
 C   the end detector.
 C
-     + 'Beam particles reaching end detector ', Num_BeamPart_ENDV, 
+     + 'Beam particles reaching end detector ', Num_BeamPart_ENDV,
      +    100.*Num_BeamPart_ENDV/nbeam,'%  +- ',
      +    100.*sqrt(Num_BeamPart_ENDV*(1.-Num_BeamPart_ENDV/
      +    real(nbeam)))/nbeam,'%'
@@ -94,5 +94,5 @@ C.
       If(nhsta.gt.0)CALL histdo
 C.
       RETURN
-      END 
+      END
 C.

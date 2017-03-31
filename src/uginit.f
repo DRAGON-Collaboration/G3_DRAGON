@@ -87,7 +87,7 @@ C.
 C.
 C.-->   Define radioactive ion reactions
 C.
-        CALL ureact  
+        CALL ureact
 C.
 C.-->   Material table initialization
 C.
@@ -184,21 +184,3 @@ C.
       RETURN
       END
 C.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

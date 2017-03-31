@@ -1,5 +1,4 @@
-
-CDECK  ID>, GGCLO2. 
+CDECK  ID>, GGCLO2.
 *CMZ :  3.21/02 29/03/94  15.41.19  by  S.Giani
 *-- Author :
       SUBROUTINE GGCLOS

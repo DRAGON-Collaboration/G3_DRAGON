@@ -52,8 +52,8 @@ C.
       amugev = 0.93149432E+00
       kstop = 0
 C.
-C *** Because INWVOL = 1 can mean either that a new volume has been 
-C *** entered or that a new track has been started, define a new 
+C *** Because INWVOL = 1 can mean either that a new volume has been
+C *** entered or that a new track has been started, define a new
 C *** variable IN_NEW_VOL which specifically indicates a new volume.
 C.
       CALL uhtoc(natmed(1),4,chtmed,20)
@@ -62,26 +62,26 @@ C.
       If(inwvol.eq.1)then
          If(name_old  .ne.names(nlevel).or.
      &        number_old.ne.number(nlevel))then
-            If(ntmult.eq.ntmult_old)then 
+            If(ntmult.eq.ntmult_old)then
                in_new_vol = 1
 cc mt            If(ntmult.eq.ntmult_old)in_new_vol = 1
                if( chname_nlevel.eq.'ENDV' .and.ipart .eq. irecoil )
      &              nend =nend+1
-cc mt           If( chname_nlevel .eq. 'C7  '.and. ipart .eq.irecoil) 
-               If( chname_nlevel .eq. 'C7  '.and. ipart .eq. 80) 
+cc mt           If( chname_nlevel .eq. 'C7  '.and. ipart .eq.irecoil)
+               If( chname_nlevel .eq. 'C7  '.and. ipart .eq. 80)
      &              nfcm2 = nfcm2 + 1
 C  MT adds counters for the number of recoils that make it
 C     to Q3 (Sext 1) and to Q8 (Quad 6).
                if( chname_nlevel .eq. 'Q3' .and. ipart .eq. irecoil )
      &              Num_Recoils_Q3 = Num_Recoils_Q3 + 1
                if( chname_nlevel .eq. 'Q8' .and. ipart .eq. irecoil )
-     &              Num_Recoils_Q8 = Num_Recoils_Q8 + 1 
+     &              Num_Recoils_Q8 = Num_Recoils_Q8 + 1
 C  MT adds counter for the number of beam particles that reach
 C     the end detector.
                if( chname_nlevel .eq. 'ENDV' .and. ipart .eq. 80 )
      &              Num_BeamPart_ENDV = Num_BeamPart_ENDV + 1
 
-     &           
+     &
             Endif
          Endif
       Endif
@@ -96,7 +96,7 @@ C.
 C
 C *** Change beam particle charge state to the same as the recoil
 C
-      
+
 c      If(ipart.eq.80) then
 c       JPAA = LQ(JPART-IPART)  !! pointer to beam particle
 c       print*, Q(JPAA+10), FKINE(2)
@@ -121,10 +121,10 @@ C
 C *** MCP hit to determine start of TAC
 C     If the current volume is 'MCP0' and we are leaving
 C     that volume, then for the recoil and the beam both
-C     calculate the time of flight using the particle's 
+C     calculate the time of flight using the particle's
 C     mass and energy. Record the current coordinates.
-C     Note: trec [GeV], mass [GeV/c**2] -> units of 
-C     1/c for time of flight - so have to correct by 'clight'. 
+C     Note: trec [GeV], mass [GeV/c**2] -> units of
+C     1/c for time of flight - so have to correct by 'clight'.
       If(chname_nlevel.eq.'MCP0'.and.inwvol.eq.2)then
          If(ipart.eq.irecoil)then
             tof = sqrt( 0.5*prodm/(trec/1000.) )
@@ -138,10 +138,10 @@ C     1/c for time of flight - so have to correct by 'clight'.
          y_mcp = vect(2)
          z_mcp = vect(3)
       EndIf
-            
-         
+
+
 C *** If the current volume is 'MCP1' and MCP0 was hit, calculate distance travelled, time-of-flight
-C     between MCPs. 
+C     between MCPs.
       If(chname_nlevel.eq.'MCP1'.and.inwvol.eq.2)then
         If(McpHit)then
            disp = sqrt( (vect(1)-x_mcp)**2 + (vect(2)-y_mcp)**2 +
@@ -153,14 +153,14 @@ C              write (*,*) 'ToF ' , tflight
               CALL hfill(518,tflight,0.0,1.0)
            EndIf
         EndIf
-      EndIf   
+      EndIf
 
 
-C          
+C
 C
 C *** If particle is escaped beam from ED1
 C
-      If(ipart.eq.80 .and. chname_nlevel.eq.'D1  ' 
+      If(ipart.eq.80 .and. chname_nlevel.eq.'D1  '
      + .and. inwvol.eq.2 ) then
        CALL hfill(503,1.,0.0,1.0)
       Endif
@@ -176,7 +176,7 @@ C
        ystop = vect(2)
        zstop = vect(3)
 C       print*, 'recoil disappeared!', vect(1), vect(2), vect(3)
-        write(4,*) vect(1), vect(2), vect(3), tlast 
+        write(4,*) vect(1), vect(2), vect(3), tlast
 C       write(4,*) "recoil stopped mit",vect(1),vect(2),vect(3),tlast
 C       write(4,*) sleng, "  volume  ", chname_nlevel
       Endif
@@ -197,7 +197,7 @@ C     alpha acceptance tests - plot x-y coords at Q1 fringe field start
          xtest(dsssdpos) = (vect(1)+68.5685349)*cos(50.*3.1415926/180.)
      +        +            (vect(3)-359.253174)*sin(50.*3.1415926/180.)
          ytest(dsssdpos) = vect(2)
-         etest(dsssdpos) = trec 
+         etest(dsssdpos) = trec
          write(21,*) (vect(1)+68.5685349)*cos(50.*3.1415926/180.)
      +    +(vect(3)-359.253174)*sin(50.*3.1415926/180.), " " , vect(2),
      +    " " , trec
@@ -206,16 +206,16 @@ C     alpha acceptance tests - plot x-y coords at Q1 fringe field start
       If(alpha .and. ipart.eq.irecoil .and. chname_nlevel.eq.'TST2'.and.
      &     in_new_vol.eq.1)then
          dsssdpos = 3
-         xtest(dsssdpos) = (vect(1)-(-509.712341+8.1*cos(20*3.1415926/ 
-     +   180.)))*cos(70.*3.1415926/180.) + (vect(3)-(661.428772-8.1* 
+         xtest(dsssdpos) = (vect(1)-(-509.712341+8.1*cos(20*3.1415926/
+     +   180.)))*cos(70.*3.1415926/180.) + (vect(3)-(661.428772-8.1*
      +   sin(20.*3.145926/180.)))*sin(70.*3.1415926/180.)
 
          ytest(dsssdpos) = vect(2)
          etest(dsssdpos) = trec
-         
-         write(23,*) (vect(1)-(-509.712341+8.1*cos(20*3.1415926/ 
-     +   180.)))*cos(70.*3.1415926/180.) + (vect(3)-(661.428772-8.1* 
-     +   sin(20.*3.145926/180.)))*sin(70.*3.1415926/180.), " ", vect(2), 
+
+         write(23,*) (vect(1)-(-509.712341+8.1*cos(20*3.1415926/
+     +   180.)))*cos(70.*3.1415926/180.) + (vect(3)-(661.428772-8.1*
+     +   sin(20.*3.145926/180.)))*sin(70.*3.1415926/180.), " ", vect(2),
      +    " ", trec
 
       endif
@@ -237,10 +237,10 @@ C. JS adjusts flag recoil_hit_ENDV to 1 when recoil reaches end detector
          If(ipart.eq.irecoil) then
             recoil_hit_ENDV = 1
             recdet = 1
-         
+
             CALL hfill(510, 0.5, 0.0, 1.0)
          EndIf
-        
+
 C.
         CALL ucopy(vect(1),xm(1),3)
         CALL gmtod(xm,xd_endv,1)
@@ -264,12 +264,12 @@ C.
 
 C     Calculate polar angle of recoil in lab
 C     note: vect(6) is equal to px/P, i.e is the UNIT vector component
-C     of the momentum in the z-direction. In order to calculate the 
-C     polar angle of the recoil in the plave of the end detector, we 
-C     take into account the fact that the normal vector to the plane 
-C     of the detector, in the direction of ions travelling along the 
-C     optical axis, is exactly antiparallel to the z-axis (though 
-C     obviously not collinear). Therefore, the polar angle is given 
+C     of the momentum in the z-direction. In order to calculate the
+C     polar angle of the recoil in the plave of the end detector, we
+C     take into account the fact that the normal vector to the plane
+C     of the detector, in the direction of ions travelling along the
+C     optical axis, is exactly antiparallel to the z-axis (though
+C     obviously not collinear). Therefore, the polar angle is given
 C     by the inverse cosine of the negative unit z-momentum:
         theta = ACOS( -vect(6) )
 
@@ -279,7 +279,7 @@ C     in order to calculate the Pulse Height Defect
         Zrec = Q(JPAA+8)
 
 C     Calculate the Pulse Height Defect
-C     
+C
         a0 = 0.804
         a1 = 1.13E-04
         b0 = -0.462
@@ -289,7 +289,7 @@ C
         phd = 10.**bb*trec**aa
 
         tphd = trec - phd
-        
+
 C.        CALL gsahit(iset,idet,itra,numbv,hits,ihit)
 C.
         radius = sqrt(xd_endv(1)**2+xd_endv(2)**2)
@@ -302,7 +302,7 @@ C        Endif
 
 C
 C *** If MCP was hit, calculate distance travelled, time-of-flight
-C     between MCP and DSSSD. 
+C     between MCP and DSSSD.
         If(McpHit)then
            disp = sqrt( (vect(1)-x_mcp)**2 + (vect(2)-y_mcp)**2 +
      +          (vect(3)-z_mcp)**2 )
@@ -395,13 +395,13 @@ c
       if(ipart.eq.80)then
          CALL hfill(301,sleng,0.0,1.0)
       endif
-c 
+c
          kstop = 1
           istop = 5
           goto 999
         Endif
 C.
-      Endif 
+      Endif
 C.
       If(chname_nlevel.eq.'ENDV')goto 1111
       If(chname_nlevel.eq.'STRV')goto 1111
@@ -530,7 +530,7 @@ C.
 C.
         Enddo
 C.
-	CALL gsking(0)
+    CALL gsking(0)
 C.
       Endif
 C.
@@ -556,7 +556,7 @@ c
         write(6,*)' *** Problem!!! *** '
       Endif
 C      If(kstop.eq.0.and.istop.ne.0)then
-      if(alpha)then 
+      if(alpha)then
          continue
       elseIf(istop.ne.0 .and. iswit(1) .eq. 1)then
         write(6,*)' Whats stopping me??? (in mit)'
@@ -573,14 +573,3 @@ C.
 C.
       RETURN
       END
-
-
-
-
-
-
-
-
-
-
-

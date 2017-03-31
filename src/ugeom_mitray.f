@@ -30,7 +30,7 @@ C.
       include 'gconst.inc'          !geant
       include 'gcvolu.inc'          !geant
       include 'gcflag.inc'          !geant
-      include 'gcunit.inc'          !geant 
+      include 'gcunit.inc'          !geant
 C.
       include 'geom_dipole.inc'         !local
 C.
@@ -98,7 +98,7 @@ C.
 
 CC Vacuum Vessel Componants
 
-c     Rotation Matrices 
+c     Rotation Matrices
       CALL GSROTM (200,90.0,25.0,90.0,115.0,0.0,0.0)
       CALL GSROTM (201,90.0,-6.0,90.0,84.0,0.0,0.0)
       CALL GSROTM (202,90.0,-25.0,90.0,65.0,0.0,0.0)
@@ -117,7 +117,7 @@ c     MD2
          CALL gsvolu (vvname, 'TUBS', 20, shape,  5, ivol)
          CALL gsatt(vvname,'SEEN',1)
          CALL gspos(vvname, k, kname, dx, dy, dz, 0, 'MANY')
-         
+
          shape( 1) = r+6.0
          shape( 2) = r+9.0
          shape( 3) = 5.0
@@ -139,7 +139,7 @@ c     MD2
          CALL gsvolu (vvname, 'TUBS', 20, shape,  5, ivol)
          CALL gsatt(vvname,'SEEN',1)
          CALL gspos(vvname,k,kname,dx,dy,dz+5.0+0.375/2.0,0,'MANY')
-         
+
          shape( 1) = r-9.0
          shape( 2) = r+9.0
          shape( 3) = 0.375/2
@@ -150,7 +150,7 @@ c     MD2
          CALL gsvolu (vvname, 'TUBS', 20, shape,  5, ivol)
          CALL gsatt(vvname,'SEEN',1)
          CALL gspos(vvname,k,kname,dx,dy,dz-5.0-0.375/2.0,0,'MANY')
-         
+
       else if (k.eq.1) then
 c     MD1
 
@@ -160,11 +160,11 @@ c        Part 1
          dyp = dy + (100.0-6.3/2.0*2.54-0.375/2.0*2.54)*sin(65.*degrad)-
      +        1.75*2.54/2.0*sin(25.0*degrad)
          dzp = dz
-         
+
          shape( 1) = 1.75/2.0*2.54
          shape( 2) = 0.375/2.0*2.54
          shape( 3) = 4.0
-         
+
          vvname = 'VV5 '
          CALL gsvolu (vvname, 'BOX ', 20, shape, 3, ivol)
          CALL gsatt(vvname,'SEEN',1)
@@ -176,11 +176,11 @@ c        Part 2
          dyp = dy + (100.0+6.3/2.0*2.54+0.375/2.0*2.54)*sin(65.*degrad)+
      +        22.8460*sin(25.0*degrad)
          dzp = dz
-         
+
          shape( 1) = 27.291
          shape( 2) = 0.375/2.0*2.54
          shape( 3) = 4.0
-         
+
          vvname = 'VV6 '
          CALL gsvolu (vvname, 'BOX ', 20, shape, 3, ivol)
          CALL gsatt(vvname,'SEEN',1)
@@ -192,11 +192,11 @@ c        Part 3
          dyp = dy + (100.0+6.3/2.0*2.54+0.375/2.0*2.54)*sin(65.*degrad)+
      +        (22.8460+27.291)*sin(25.0*degrad) - 26.515*sin(6.0*degrad)
          dzp = dz
-         
+
          shape( 1) = 26.515
          shape( 2) = 0.375/2.0*2.54
          shape( 3) = 4.0
-         
+
          vvname = 'VV7 '
          CALL gsvolu (vvname, 'BOX ', 20, shape, 3, ivol)
          CALL gsatt(vvname,'SEEN',1)
@@ -210,11 +210,11 @@ c        Part 4
      +        (22.8460+27.291)*sin(25.0*degrad) - 53.03*sin(6.0*degrad)-
      +        6.836935*sin(25.0*degrad)
          dzp = dz
-         
+
          shape( 1) = 6.836935
          shape( 2) = 0.375/2.0*2.54
          shape( 3) = 4.0
-         
+
          vvname = 'VV8 '
          CALL gsvolu (vvname, 'BOX ', 20, shape, 3, ivol)
          CALL gsatt(vvname,'SEEN',1)
@@ -226,11 +226,11 @@ c        Part 5
          dyp = dy + (100.0-6.3/2.0*2.54-0.375/2.0*2.54)*sin(65.*degrad)+
      +        19.234*sin(12.0*degrad)
          dzp = dz
-         
+
          shape( 1) = 19.234
          shape( 2) = 0.375/2.0*2.54
          shape( 3) = 4.0
-         
+
          vvname = 'VV9 '
          CALL gsvolu (vvname, 'BOX ', 20, shape, 3, ivol)
          CALL gsatt(vvname,'SEEN',1)
@@ -242,11 +242,11 @@ c        Part 6
          dyp = dy + (100.0-6.3/2.0*2.54-0.375/2.0*2.54)*sin(65.*degrad)+
      +        2.0*19.234*sin(12.0*degrad) - 20.0495*sin(33.0*degrad)
          dzp = dz
-         
+
          shape( 1) = 20.0495
          shape( 2) = 0.375/2.0*2.54
          shape( 3) = 4.0
-         
+
          vvname = 'VV10'
          CALL gsvolu (vvname, 'BOX ', 20, shape, 3, ivol)
          CALL gsatt(vvname,'SEEN',1)
@@ -260,11 +260,11 @@ c        Part 7
      +        2.0*19.234*sin(12.0*degrad) - 40.099*sin(33.0*degrad) -
      +        6.836935*sin(25.0*degrad)
          dzp = dz
-         
+
          shape( 1) = 6.836935
          shape( 2) = 0.375/2.0*2.54
          shape( 3) = 4.0
-         
+
          vvname = 'VV11'
          CALL gsvolu (vvname, 'BOX ', 20, shape, 3, ivol)
          CALL gsatt(vvname,'SEEN',1)
@@ -274,11 +274,11 @@ c        Part 8
          dxp = dx - (100.0)*cos(65.*degrad)+20.0*cos(25.0*degrad)
          dyp = dy + (100.0)*sin(65.*degrad)+20.0*sin(25.0*degrad)
          dzp = dz + 4.0+0.375*2.54/2.0
-         
+
          shape( 1) = 20.0+1.75*2.54
          shape( 2) = (6.3+2.0*0.375)*2.54/2.0+10.0
          shape( 3) = 0.375/2.0*2.54
-         
+
          vvname = 'VV12'
          CALL gsvolu (vvname, 'BOX ', 20, shape, 3, ivol)
          CALL gsatt(vvname,'SEEN',1)
@@ -288,11 +288,11 @@ c        Part 9
          dxp = dx - (100.0)*cos(65.*degrad)+20.0*cos(25.0*degrad)+40.0
          dyp = dy + (100.0)*sin(65.*degrad)+20.0*sin(25.0*degrad)-10.0
          dzp = dz + 4.0+0.375*2.54/2.0
-         
+
          shape( 1) = 20.0+1.75*2.54+13.0
          shape( 2) = (6.3+2.0*0.375)*2.54/2.0+10.0+32.0
          shape( 3) = 0.375/2.0*2.54
-         
+
          vvname = 'VV13'
          CALL gsvolu (vvname, 'BOX ', 20, shape, 3, ivol)
          CALL gsatt(vvname,'SEEN',1)
@@ -302,11 +302,11 @@ c        Part 10
          dxp = dx - (100.0)*cos(65.*degrad)+20.0*cos(25.0*degrad)
          dyp = dy + (100.0)*sin(65.*degrad)+20.0*sin(25.0*degrad)
          dzp = dz - 4.0-0.375*2.54/2.0
-         
+
          shape( 1) = 20.0+1.75*2.54
          shape( 2) = (6.3+2.0*0.375)*2.54/2.0+10.0
          shape( 3) = 0.375/2.0*2.54
-         
+
          vvname = 'VV14'
          CALL gsvolu (vvname, 'BOX ', 20, shape, 3, ivol)
          CALL gsatt(vvname,'SEEN',1)
@@ -316,17 +316,17 @@ c        Part 11
          dxp = dx - (100.0)*cos(65.*degrad)+20.0*cos(25.0*degrad)+40.0
          dyp = dy + (100.0)*sin(65.*degrad)+20.0*sin(25.0*degrad)-10.0
          dzp = dz - 4.0-0.375*2.54/2.0
-         
+
          shape( 1) = 20.0+1.75*2.54+13.0
          shape( 2) = (6.3+2.0*0.375)*2.54/2.0+10.0+32.0
          shape( 3) = 0.375/2.0*2.54
-         
+
          vvname = 'VV15'
          CALL gsvolu (vvname, 'BOX ', 20, shape, 3, ivol)
          CALL gsatt(vvname,'SEEN',1)
          CALL gspos(vvname,k,kname,dxp,dyp,dzp,202,'MANY')
-         
-      else 
+
+      else
          write(*,*) "Wow, three MD's, add my vacuum vessel please."
          stop
       endif
@@ -427,7 +427,7 @@ C.
       include 'gconst.inc'          !geant
       include 'gcvolu.inc'          !geant
       include 'gcflag.inc'          !geant
-      include 'gcunit.inc'          !geant 
+      include 'gcunit.inc'          !geant
 C.
       include 'geom_edipol.inc'         !local
 C.
@@ -590,7 +590,7 @@ C.
       CHARACTER*5 pname
       CHARACTER*1 wvol
       CHARACTER*2 vvol
-C. 
+C.
       include 'geom_mpole.inc'          !local
 C.
       If(k.lt.10)then
@@ -668,7 +668,7 @@ C.
       CHARACTER*4 kname
       CHARACTER*1 wvol
       CHARACTER*2 vvol
-C. 
+C.
       include 'geom_sole.inc'           !local
 C.
       If(k.lt.10)then
@@ -765,10 +765,10 @@ C.
         else if (rname.eq.'FSLT') then
            shape(1) = 10.*data(4)
            shape(2) = 10.*data(5)
-        else 
+        else
            shape(1) = 1.*data(4)
            shape(2) = 1.*data(5)
-        end if        
+        end if
         shape(3) = data(6)
 
 C.
@@ -783,7 +783,7 @@ C.
 C.
         CALL gtrmul(pos,rmat,d,0,posn,rmatn)
 C.
-        CALL gspos(kname,1,'WRLD',posn(1),posn(2),posn(3),irot,'ONLY') 
+        CALL gspos(kname,1,'WRLD',posn(1),posn(2),posn(3),irot,'ONLY')
 C.
 C. **** Do -x border
 C.
@@ -811,7 +811,7 @@ C.
         else if (rname.eq.'FSLT') then
            shape(1) = 10.*data(4)
            shape(2) = 10.*data(5)
-        else 
+        else
            shape(1) = 1.*data(4)
            shape(2) = 1.*data(5)
         end if
@@ -828,7 +828,7 @@ C.
 C.
         CALL gtrmul(pos,rmat,d,0,posn,rmatn)
 C.
-        CALL gspos(kname,1,'WRLD',posn(1),posn(2),posn(3),irot,'ONLY') 
+        CALL gspos(kname,1,'WRLD',posn(1),posn(2),posn(3),irot,'ONLY')
 C.
 C. **** Do -y border
 C.
@@ -862,7 +862,7 @@ C.
 C.
         CALL gtrmul(pos,rmat,d,0,posn,rmatn)
 C.
-        CALL gspos(kname,1,'WRLD',posn(1),posn(2),posn(3),irot,'ONLY') 
+        CALL gspos(kname,1,'WRLD',posn(1),posn(2),posn(3),irot,'ONLY')
 C.
       Endif
 C.
@@ -883,8 +883,8 @@ C.
       INTEGER ivol, irot, MCP
 C.
       REAL shape(3), pos(3), dead, det
-      include 'gcvolu.inc'      !geant 
- 
+      include 'gcvolu.inc'      !geant
+
 C.
       shape( 1) = 2.4
       shape( 2) = 2.4
@@ -899,7 +899,7 @@ C.
 C     Position deadlayer at surface of volume.
 C     Note: since GEANT cannot track very accurately through
 C     thin layers, create a new medium which is modified silicon,
-C     make it 1000 x thicker but proportionately less dense so that the 
+C     make it 1000 x thicker but proportionately less dense so that the
 C     energy loss calculated is correct.
       dead = 3.5E-05*100. !! 0.35 micrometres * 100.
       shape(3) = dead/2.
@@ -908,7 +908,7 @@ C     energy loss calculated is correct.
       CALL gspos('DEAD',1,'WRLD',pos(1),pos(2),pos(3)+(det+shape(3)),
      +     irot,'ONLY')
 
-C     Add in MCP foil 20 microgram/cm**2, 25.4 cm diameter, 50 cm from 
+C     Add in MCP foil 20 microgram/cm**2, 25.4 cm diameter, 50 cm from
 C     DSSSD
       MCP = 0
       if(MCP.eq.1) then
@@ -953,7 +953,7 @@ C.
 C.
       INTEGER ivol, irot
 C.
-      REAL shape(3), pos(3) 
+      REAL shape(3), pos(3)
 C.
       shape( 1) = 100.
       shape( 2) = 100.
@@ -962,7 +962,7 @@ C.
       CALL gsvolu ('STRV', 'BOX ', 1, shape, 3, ivol)
       CALL gsatt('STRV','SEEN',1)
 C.
-      CALL gspos('STRV',1,'WRLD',pos(1),pos(2),pos(3),irot,'ONLY') 
+      CALL gspos('STRV',1,'WRLD',pos(1),pos(2),pos(3),irot,'ONLY')
 C.
   999 RETURN
       END
@@ -980,7 +980,7 @@ C.
 C.
       INTEGER ivol, irot
 C.
-      REAL shape(3), pos(3) 
+      REAL shape(3), pos(3)
 C.
       shape( 1) = 4.8
       shape( 2) = 4.8
@@ -989,7 +989,7 @@ C.
       CALL gsvolu ('DSSD', 'BOX ', 19, shape, 3, ivol)
       CALL gsatt('DSSD','SEEN',1)
 C.
-      CALL gspos('DSSD',1,'WRLD',pos(1),pos(2),pos(3),irot,'ONLY') 
+      CALL gspos('DSSD',1,'WRLD',pos(1),pos(2),pos(3),irot,'ONLY')
 C.
   999 RETURN
       END
@@ -1011,7 +1011,7 @@ C.
       CHARACTER*4 kname
       CHARACTER*1 wvol
       CHARACTER*2 vvol
-C. 
+C.
 C.
       If(k.lt.10)then
         write(wvol,10)k
@@ -1021,7 +1021,7 @@ C.
         write(vvol,20)k
    20   Format(I2)
         kname = 'TS'//vvol//' '
-      Endif 
+      Endif
 C.
       shape( 1) = 4.8
       shape( 2) = 4.8
@@ -1030,7 +1030,7 @@ C.
       CALL gsvolu (kname, 'BOX ', 1, shape, 3, ivol)
       CALL gsatt(kname,'SEEN',1)
 C.
-      CALL gspos(kname,1,'WRLD',pos(1),pos(2),pos(3),irot,'ONLY') 
+      CALL gspos(kname,1,'WRLD',pos(1),pos(2),pos(3),irot,'ONLY')
       print*, pos(1), pos(2), pos(3), 'TEST'
 C.
   999 RETURN
@@ -1055,7 +1055,7 @@ C.
       CHARACTER*4 kname, lname, rname
 C.
       CHARACTER*1 wvol
-C. 
+C.
 C.
         write(wvol,10)nmcp
    10   Format(I1)
@@ -1076,14 +1076,14 @@ C     First make foil holder (Aluminium) 10cm x 10 cm x 0.1 cm
          CALL gsatt(kname,'SEEN',1)
 C     Position a hole (vacuum) into the holder
          shape(1) = 0.
-         shape(2) = data(1)                !! radius in cm   
+         shape(2) = data(1)                !! radius in cm
          shape(3) = 0.05
          CALL gsvolu(lname,'TUBE',1,shape,3,ivol)
          CALL gsatt(lname,'SEEN',1)
          CALL gspos(lname,1,kname,0.0,0.0,0.0,irot,'ONLY')
 C     Position the MCP foil into the holder
          shape(1) = 0.
-         shape(2) = data(1)             !! radius in cm 
+         shape(2) = data(1)             !! radius in cm
          shape(3) = data(2)/(2250.)      !!  microgram/cm**2 / 2.25 g/cm**3 x 1000
          CALL gsvolu(rname,'TUBE',24,shape,3,ivol)
          CALL gsatt(rname,'SEEN',1)
@@ -1107,20 +1107,20 @@ C.
 C.
       INTEGER ivol, irot
 C.
-      REAL shape(3), pos(3), p1, p2, p3 
+      REAL shape(3), pos(3), p1, p2, p3
 C.
       shape( 1) = 0.
       shape( 2) = 2.5
       shape( 3) =   2.
-      p1 = pos(1) 
-      p2 = pos(2) 
-      p3 = pos(3) + shape(3)  
+      p1 = pos(1)
+      p2 = pos(2)
+      p3 = pos(3) + shape(3)
 C.      print*, 'posns ', pos(1), pos(2), pos(3), p1, p2, p3
 C.
       CALL gsvolu ('FCUP', 'TUBE', 19, shape, 3, ivol)
       CALL gsatt('FCUP','SEEN',1)
 C.
-      CALL gspos('FCUP',1,'WRLD',p1,p2,p3,irot,'ONLY') 
+      CALL gspos('FCUP',1,'WRLD',p1,p2,p3,irot,'ONLY')
 C.
   999 RETURN
       END
@@ -1169,7 +1169,7 @@ C.
 C.
 ************************************************************************
 *                                                                      *
-*                          Detector DSSD              		       *
+*                          Detector DSSD                           *
 *                                                                      *
 ************************************************************************
 C.
@@ -1207,10 +1207,3 @@ C.
 
       RETURN
       END
-
-
-
-
-
-
-

@@ -185,7 +185,7 @@ C.
         CALL vline(vertex,1.,plab,scale,vrtx,3)
       Else
         CALL ucopy(vertex(1),vrtx(1),3)
-      Endif      
+      Endif
 C.
       CALL hfill(1,vrtx(1),0.0,1.0)
       CALL hfill(2,vrtx(2),0.0,1.0)

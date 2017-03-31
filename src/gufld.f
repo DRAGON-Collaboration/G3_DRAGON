@@ -24,7 +24,7 @@ c
       REAL*8 xdd(3), bfdd(3), efdd(3)
 c
       CHARACTER*4 chname, new_chname
-      CHARACTER*1 kdname 
+      CHARACTER*1 kdname
 c
       CHARACTER*12 devname
 c

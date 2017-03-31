@@ -20,7 +20,7 @@ C     --------------------
 C     Mar 26, 1998   S. Yen
 C     Apr  5, 1999   S. Yen  Calculate overlapping entrance and exit fringe
 C                            fields for very short multipole.
-C 
+C
       IMPLICIT REAL*8(A-H,O-Z)
 C
       REAL*8  LF1, LF2, LU1, K, L
@@ -154,7 +154,7 @@ C     for a very short multipole), the B-field that we want is
 C     B(total) = B(entrance fringe) + B(exit fringe) - B(uniform region)
 C
       IF(IZONE.EQ.0)THEN
-C        
+C
 C        ***********************************
 C        * FAR ENTRANCE OR EXIT ZONES, B=0 *
 C        ***********************************
@@ -224,7 +224,7 @@ C
            BFLD(2)=BY
            BFLD(3)=BZ
            RETURN
-         ELSE 
+         ELSE
 c          IZONE=4  overlapping entrance & exit fringe fields
 c          We add the uniform field components BX,BY,BZ to the total
 c          field BFLD(i).
@@ -348,7 +348,7 @@ C
          ENDIF
 C
 C        THE B-FIELD COMPONENTS BX,BY,BZ ARE IN THE C-AXIS SYSTEM; CONVERT TO
-C        THE A-AXIS SYSTEM (which is the same).  
+C        THE A-AXIS SYSTEM (which is the same).
 C        STORE THEM IN OUTPUT ARRAY BFLD(i).
 C
          IF(IZONE.EQ.3)THEN

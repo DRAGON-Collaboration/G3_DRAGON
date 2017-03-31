@@ -1,9 +1,9 @@
 c----67---- gamma angular distribution
 
       REAL FUNCTION angdist(X)
- 
+
       REAL pi
-      parameter (pi = 3.1415926) 
+      parameter (pi = 3.1415926)
 
 
 C     A uniform angular distribution for gammas

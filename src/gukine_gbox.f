@@ -131,7 +131,7 @@ C.
       If(ngamma.le.10)then
         If(egamma(ngamma).gt.0.0)pbeam = egamma(ngamma)
       Endif
-      pbeam = pbeam / 1.E3              	! GEANT wants GeV/c
+      pbeam = pbeam / 1.E3                  ! GEANT wants GeV/c
 C.
       CALL vscale(plab,pbeam,plab,3)
 C.
@@ -142,12 +142,3 @@ C.
       RETURN
       END
 C.
-
-
-
-
-
-
-
-
-

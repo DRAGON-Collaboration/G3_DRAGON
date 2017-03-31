@@ -95,7 +95,7 @@ C.
       par(2) = Rrms
       par(3) = len1
 
-C.--> Position new gas volumes to match new collimator 
+C.--> Position new gas volumes to match new collimator
 
       par(3) = 0.5*0.68
       CALL gsvolu('EN1G', 'TUBE', nmed, par, npar, ivolu)
@@ -107,7 +107,7 @@ C.--> Position new gas volumes to match new collimator
       z = zent(1)
 
 C.    nmed = ment(2) ! Need vacuum for solid carbon target
-      nmed = mcent  
+      nmed = mcent
 C.
       par(3) = 0.5 * (zent(1) - zent(3) - len1-len2)
 C.
@@ -210,7 +210,7 @@ C.
       CALL gsatt('EX2G','SEEN',1)
 C     JS Change to z done for new pumping tube system
 C      z = (zex(1) + zex(3) + lex1 - lex2)/2.
-      z = (-zcol + zex(3) + lex1 - lex2)/2.      
+      z = (-zcol + zex(3) + lex1 - lex2)/2.
 C.
       CALL gspos('EX2G', 1, 'DETE', 0.0, 0.0, z, 0, 'ONLY')
 C.

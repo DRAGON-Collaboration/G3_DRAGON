@@ -1,4 +1,3 @@
-
       SUBROUTINE gukine_full_hole
 C.
 C======================================================================C
@@ -29,10 +28,10 @@ C.
       include 'gconst.inc'          !geant
       include 'gctrak.inc'          !geant  - trick! TOFG -> VERTX bank
 C.
-      include 'uggeom.inc'          
+      include 'uggeom.inc'
 
       include 'rescom.inc'
-          
+
       include 'beamcom.inc'
       include 'uevent.inc'
       include 'history.inc'
@@ -162,11 +161,11 @@ c      thet = 0.
          cosx = cosx/mag
          cosy = cosy/mag
          cosz = cosz/mag
-      
+
          plab(1) = beammom*cosx
          plab(2) = beammom*cosy
          plab(3) = beammom*cosz
-         CALL gskine(plab,ip,nvtx,0,0,nt) 
+         CALL gskine(plab,ip,nvtx,0,0,nt)
       else
 C.
 C.--> fill upright long. ellipse at the beam waist
@@ -189,7 +188,7 @@ C.
       eres = eres0*xx
       erescm = xx
       IF (eres.gt.beame*0.001) THEN
-       
+
        GOTO 888
       ENDIF
 *      print*, 'Erec (CM)', erescm
@@ -199,15 +198,15 @@ c      print*, eres, beame*0.001, xx, eres0
 c      CALL hfill(502,xx,0.,1.0)
 
 
-      
-      
+
+
       ENDIF
 C.
 !      beamv = clight*sqrt(2.*beame/abeam/amumev)
 !      betagamma = beamv/sqrt(clight**2+beamv*beamv)
-      beammom=sqrt(beame*(beame+2000.*beammass))  !in Mev/c        
+      beammom=sqrt(beame*(beame+2000.*beammass))  !in Mev/c
       beamv = clight*beammom*.001/beammass
-      betagamma = beamv/clight/sqrt(1.0 - (beamv/clight)**2)  
+      betagamma = beamv/clight/sqrt(1.0 - (beamv/clight)**2)
 C.
 C.--> fill upright trans. ellipses at the beam waist
 C.
@@ -229,10 +228,10 @@ C.
 C.
 C.--> add positional offset from mistuned beam
 C.
-      
+
       beamx = beamx + offset(1)
       beamy = beamy + offset(2)
-     
+
 C.
 C.--> distribute particles over a 2 sig range about beam waist at z=0.0
 C.
@@ -241,13 +240,13 @@ C.
       beamz = bunchl*rndm(1)
 C.
 C.--> add beam direction axis components
-C. 
-      
+C.
+
       beama = beama + offset(3)
       beamb = beamb + offset(4)
 c      beama = 0.
 c      beamb = 0.
-      
+
 C.
 C.--> calculate direction cosines
 C.
@@ -274,7 +273,7 @@ C.
       vertex(1) = beamx - beamv*cosx*tdrift
       vertex(2) = beamy - beamv*cosy*tdrift
       vertex(3) = beamz - beamv*cosz*tdrift
-      
+
 C.
       ip = 80
 C.
@@ -289,16 +288,9 @@ C.
           CALL hfill(3,cosx*1000.,0.0,1.0)
           CALL hfill(4,cosy*1000.,0.0,1.0)
           CALL hfill(9,plabu*1000.,0.0,1.0)
-          
+
 
        endif
       RETURN
       END
 C.
-
-
-
-
-
-
-

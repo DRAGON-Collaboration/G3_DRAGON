@@ -63,7 +63,7 @@ C.
            If(itrtyp.eq.8.and.gekin.le.cuthad)goto 1
            goto 2
          Endif
-      Enddo 
+      Enddo
       goto 2
     1 Continue
       tofout = tofout - tofd(ngkine+1)
@@ -76,7 +76,7 @@ C.
         hits(4) = (tofin + tofout)/2. * 1.E9
         hits(5) = 1000. * edep
 C.
-C.--> Note: Use the factor used in file ugeom.f; 
+C.--> Note: Use the factor used in file ugeom.f;
 C.-->       subroutine UDET; variable fact_dedx
 C.
         If(edep.gt.1.E-6)CALL gsahit(iset,idet,itra,numbv,hits,ihit)

@@ -56,7 +56,7 @@ C
       ZA=XPOS(3)
       REGION=' '
       IF(LDIAG)THEN
-	 WRITE(lout,900)XA,YA,ZA
+     WRITE(lout,900)XA,YA,ZA
 900      FORMAT(/1X,50('-')/' ENTER SUBROUTINE EDIPOLE'/
      1   ' XA,YA,ZA=',3F10.3/)
       ENDIF
@@ -86,7 +86,7 @@ C     SY Addition Sept 20/99
 C     We must define the bounds of the entrance fringe field
 C     in the XB axis system.  The entrance fringe field region is
 C     defined by ( XBMIN < XB < XBMAX )  &  ( Z12 < ZB < Z11 )
-C     If the field point is outside the gap width between the 
+C     If the field point is outside the gap width between the
 C     electrodes, then we assume that the field is zero.
 C
       XBMAX=(0.5*D)
@@ -103,7 +103,7 @@ C     SY Addition Sept 20/99
 C     First zero the E-field components in case we need to abort
 C
       DO I=1,3
-	EFLD(I)=0.
+    EFLD(I)=0.
       ENDDO
 C
       IF (WE .EQ. 0.) WE = 1000. * RB
@@ -138,19 +138,19 @@ C
       XC = - ZB  *SIPAB -  XB  *COPAB -2.*RB*SIP2*SINPB
       YC = YB
 C
-C     Print out coordinates if in diagostic mode      
+C     Print out coordinates if in diagostic mode
 C
       IF(LDIAG)THEN
-	  WRITE(lout,901)XB,YB,ZB
+      WRITE(lout,901)XB,YB,ZB
 901       FORMAT(' XB,YB,ZB=',3F10.3)
-	  WRITE(lout,902)XC,YC,ZC
+      WRITE(lout,902)XC,YC,ZC
 902       FORMAT(' XC,YC,ZC=',3F10.3)
-	  WRITE(lout,903)Z11,Z12,Z21,Z22,XBMIN,XBMAX,XCMIN,XCMAX
+      WRITE(lout,903)Z11,Z12,Z21,Z22,XBMIN,XBMAX,XCMIN,XCMAX
 903       FORMAT(' Z11=',F10.3,'  Z12=',F10.3,
      1    '  Z21=',F10.3,'  Z22=',F10.3/
      2    ' XBMIN=',F10.3,'  XBMAX=',F10.3,
      3    ' XCMIN=',F10.3,'  XCMAX=',F10.3)
-	  WRITE(lout,*)' '
+      WRITE(lout,*)' '
       ENDIF
 C
 C     Now determine which region we are in.  Choices are:
@@ -177,30 +177,30 @@ C        *************************
 C
 C        Entrance fringe field region, B-axis coordinates are used.
 C
-	IN = 1
-	XC_OFFSET = RB
-	ZC_OFFSET = 0.0
-	EF = EFF
+    IN = 1
+    XC_OFFSET = RB
+    ZC_OFFSET = 0.0
+    EF = EFF
 C
-C       Get Enge coefficients Cn for entrance fringe field.      
+C       Get Enge coefficients Cn for entrance fringe field.
 C
-	C0   = DATA(29)
-	C1   = DATA(30)
-	C2   = DATA(31)
-	C3   = DATA(32)
-	C4   = DATA(33)
-	C5   = DATA(34)
+    C0   = DATA(29)
+    C1   = DATA(30)
+    C2   = DATA(31)
+    C3   = DATA(32)
+    C4   = DATA(33)
+    C5   = DATA(34)
 C
-C       Load the B-axis coordinates into TC(1), TC(2), TC(3), because this 
+C       Load the B-axis coordinates into TC(1), TC(2), TC(3), because this
 C       is where the subroutine EDIP expects to find the coordinates
 C
-	TC(1)=XB
-	TC(2)=YB
-	TC(3)=ZB
+    TC(1)=XB
+    TC(2)=YB
+    TC(3)=ZB
 C
 C       Call subroutine EDIP to calculate the E-field components
 C
-	CALL MITRAY_EDIP
+    CALL MITRAY_EDIP
 C
 C       The E-field components EX, EY, EZ have been passed back
 C       via common block /MITRAY11/, and are in the B-axis system.
@@ -209,28 +209,28 @@ C       Actually there is no change, since the A-axis and B-axis systems
 C       are related by a simple translation for the electrostatic dipole,
 C       with no rotation.
 C
-	EXA=EX
-	EYA=EY
-	EZA=EZ
+    EXA=EX
+    EYA=EY
+    EZA=EZ
 C
 C       Print out diagnostics if required
 C
-	IF(LDIAG)THEN
-	   WRITE(lout,*)'ENTRANCE FRINGE FIELD REGION'
-	   WRITE(lout,*)'B SYSTEM',EX,EY,EZ
-	   WRITE(lout,904)'A SYSTEM',EXA,EYA,EZA
-	   WRITE(lout,*)'ENTRANCE FRINGE FIELD REGION'
-	   WRITE(lout,904)'B SYSTEM',EX,EY,EZ
-	   WRITE(lout,904)'A SYSTEM',EXA,EYA,EZA
+    IF(LDIAG)THEN
+       WRITE(lout,*)'ENTRANCE FRINGE FIELD REGION'
+       WRITE(lout,*)'B SYSTEM',EX,EY,EZ
+       WRITE(lout,904)'A SYSTEM',EXA,EYA,EZA
+       WRITE(lout,*)'ENTRANCE FRINGE FIELD REGION'
+       WRITE(lout,904)'B SYSTEM',EX,EY,EZ
+       WRITE(lout,904)'A SYSTEM',EXA,EYA,EZA
 904        FORMAT(1X,A,'  EX,EY,EZ=',3F10.3)
-	ENDIF
+    ENDIF
 C
 C       Load EXA, EYA, EZA into array EFLD and exit.
 C
-	EFLD(1)=EXA
-	EFLD(2)=EYA
-	EFLD(3)=EZA
-	RETURN
+    EFLD(1)=EXA
+    EFLD(2)=EYA
+    EFLD(3)=EZA
+    RETURN
 C
 C     -------------------------------------
 C
@@ -245,54 +245,54 @@ C        *********************
 C
 C        SET INDICATOR IN=3 for exit fringe field
 C
-	 IN=3
+     IN=3
          XC_OFFSET=-RB     ! ADDED NOV 23/99
          ZC_OFFSET=0.      ! ADDED NOV 23/99
          EF=-EFF           ! ADDED NOV 23/99
 C
-C        Get Enge coefficients Cn for the exit fringe field      
+C        Get Enge coefficients Cn for the exit fringe field
 C
-	 C0   = DATA(35)
-	 C1   = DATA(36)
-	 C2   = DATA(37)
-	 C3   = DATA(38)
-	 C4   = DATA(39)
-	 C5   = DATA(40)
-C     
+     C0   = DATA(35)
+     C1   = DATA(36)
+     C2   = DATA(37)
+     C3   = DATA(38)
+     C4   = DATA(39)
+     C5   = DATA(40)
+C
 C        LOAD THE C AXIS COORDINATES INTO ARRAY TC, BECAUSE THIS IS
 C        WHERE SUBROUTINE BDIP EXPECTS TO FIND THEM.
 C
-	 TC(1)=XC
-	 TC(2)=YC
-	 TC(3)=ZC
+     TC(1)=XC
+     TC(2)=YC
+     TC(3)=ZC
 C
 C        Call subroutine EDIP to calculate the E-field components
 C        in the C-axis system
 C
-	 CALL MITRAY_EDIP
+     CALL MITRAY_EDIP
 C
 C        The electric field components Ex, Ey, Ez are in the C-axis
 C        system.  Transform them to the A-axis system.
 C
-	 CALL MITRAY_EDIP_ECTOEA(EX,EY,EZ,EXA,EYA,EZA)
+     CALL MITRAY_EDIP_ECTOEA(EX,EY,EZ,EXA,EYA,EZA)
 C
 C        Print out diagnostics if required
 C
-	 IF(LDIAG)THEN
-	    WRITE(lout,*)'EXIT FRINGE FIELD REGION'
-	    WRITE(lout,904)'C SYSTEM',EX,EY,EZ
-	    WRITE(lout,904)'A SYSTEM',EXA,EYA,EZA
-	    WRITE(lout,*)'EXIT FRINGE FIELD REGION'
-	    WRITE(lout,904)'C SYSTEM',EX,EY,EZ
-	    WRITE(lout,904)'A SYSTEM',EXA,EYA,EZA
-	 ENDIF
+     IF(LDIAG)THEN
+        WRITE(lout,*)'EXIT FRINGE FIELD REGION'
+        WRITE(lout,904)'C SYSTEM',EX,EY,EZ
+        WRITE(lout,904)'A SYSTEM',EXA,EYA,EZA
+        WRITE(lout,*)'EXIT FRINGE FIELD REGION'
+        WRITE(lout,904)'C SYSTEM',EX,EY,EZ
+        WRITE(lout,904)'A SYSTEM',EXA,EYA,EZA
+     ENDIF
 C
 C       Load EXA, EYA, EZA into array EFLD and exit.
 C
-	EFLD(1)=EXA
-	EFLD(2)=EYA
-	EFLD(3)=EZA
-	RETURN
+    EFLD(1)=EXA
+    EFLD(2)=EYA
+    EFLD(3)=EZA
+    RETURN
 C
 C       --------------------------------------
 C
@@ -303,53 +303,53 @@ C        *                      *
 C        * UNIFORM FIELD REGION *
 C        *                      *
 C        ************************
-C      
+C
 C        Set indicator IN=2 for uniform field region
 C
-	 IN = 2
-	 XC_OFFSET = -RB
-	 ZC_OFFSET = 0.0
-	 EF = -EFF
-	 S  = 0.
-C      
+     IN = 2
+     XC_OFFSET = -RB
+     ZC_OFFSET = 0.0
+     EF = -EFF
+     S  = 0.
+C
 C        LOAD THE C-AXIS COORDINATES INTO ARRAY TC BECAUSE THIS
 C        IS WHERE SUBROUTINE EDIP EXPECTS TO FIND THEM
 C
-	 TC(1)=XC
-	 TC(2)=YC
-	 TC(3)=ZC
+     TC(1)=XC
+     TC(2)=YC
+     TC(3)=ZC
 C
 C        CALL SUBROUTINE EDIP TO CALCULATE THE E-FIELD COMPONENTS IN
 C        THE C-AXIS SYSTEM
 C
-	 CALL MITRAY_EDIP
+     CALL MITRAY_EDIP
 C
 C        EX, EY, EZ ARE THE E-FIELD COMPONENTS IN THE C-SYSTEM.
 C        TRANSFORM THEM TO THE A-SYSTEM
 C
-	 CALL MITRAY_EDIP_ECTOEA(EX,EY,EZ,EXA,EYA,EZA)
+     CALL MITRAY_EDIP_ECTOEA(EX,EY,EZ,EXA,EYA,EZA)
 C
 C        Print out diagnostics if required
 C
-	 IF(LDIAG)THEN
-	    WRITE(lout, *)'UNIFORM FIELD REGION'
-	    WRITE(lout,904)'C SYSTEM',EX,EY,EZ
-	    WRITE(lout,904)'A SYSTEM',EXA,EYA,EZA
-	    WRITE(lout,*)'UNIFORM FIELD REGION'
-	    WRITE(lout,904)'C SYSTEM',EX,EY,EZ
-	    WRITE(lout,904)'A SYSTEM',EXA,EYA,EZA
-	 ENDIF
+     IF(LDIAG)THEN
+        WRITE(lout, *)'UNIFORM FIELD REGION'
+        WRITE(lout,904)'C SYSTEM',EX,EY,EZ
+        WRITE(lout,904)'A SYSTEM',EXA,EYA,EZA
+        WRITE(lout,*)'UNIFORM FIELD REGION'
+        WRITE(lout,904)'C SYSTEM',EX,EY,EZ
+        WRITE(lout,904)'A SYSTEM',EXA,EYA,EZA
+     ENDIF
 C
 C        Load EXA, EYA, EZA into array EFLD and exit.
 C
-	 EFLD(1)=EXA
-	 EFLD(2)=EYA
-	 EFLD(3)=EZA
-	 RETURN
+     EFLD(1)=EXA
+     EFLD(2)=EYA
+     EFLD(3)=EZA
+     RETURN
 C
 C     -----------------------------------------
 C
-      ELSE IF(ZB.GT.Z11 .AND. XB.GE.XBMIN .AND. 
+      ELSE IF(ZB.GT.Z11 .AND. XB.GE.XBMIN .AND.
      1        XB.LE.XBMAX)THEN
 C
 C        **********************
@@ -357,33 +357,33 @@ C        *                    *
 C        * ENTRANCE FAR FIELD *
 C        *                    *
 C        **********************
-C        
+C
 C        SET INDICATOR IN=-99
 C
-	 IN=-99
-	 EXA=0.
-	 EYA=0.
-	 EZA=0.
+     IN=-99
+     EXA=0.
+     EYA=0.
+     EZA=0.
 C
 C        PRINT DIAGNOSTICS IF REQUIRED
 C
-	 IF(LDIAG)THEN
-	    WRITE(lout,*)'DIPOLE ENTRANCE FAR FIELD REGION'
-	    WRITE(lout,904)'A SYSTEM',EXA,EYA,EZA
-	    WRITE(lout,*)'DIPOLE ENTRANCE FAR FIELD REGION'
-	    WRITE(lout,904)'A SYSTEM',EXA,EYA,EZA
-	 ENDIF
+     IF(LDIAG)THEN
+        WRITE(lout,*)'DIPOLE ENTRANCE FAR FIELD REGION'
+        WRITE(lout,904)'A SYSTEM',EXA,EYA,EZA
+        WRITE(lout,*)'DIPOLE ENTRANCE FAR FIELD REGION'
+        WRITE(lout,904)'A SYSTEM',EXA,EYA,EZA
+     ENDIF
 C
 C        LOAD E-FIELD COMPONENTS INTO ARRAY EFLD AND EXIT
 C
-	 EFLD(1)=EXA
-	 EFLD(2)=EYA
-	 EFLD(3)=EZA
-	 RETURN
+     EFLD(1)=EXA
+     EFLD(2)=EYA
+     EFLD(3)=EZA
+     RETURN
 C
 C        -----------------------------------------
 C
-      ELSE IF(ZC.GT.Z22 .AND. XC.GT.XCMIN .AND. 
+      ELSE IF(ZC.GT.Z22 .AND. XC.GT.XCMIN .AND.
      1          XC.LE.XCMAX)THEN
 C
 C           ******************
@@ -394,55 +394,55 @@ C           ******************
 C
 C        SET INDICATOR IN=+99
 C
-	 IN=+99
-	 EXA=0.
-	 EYA=0.
-	 EZA=0.
+     IN=+99
+     EXA=0.
+     EYA=0.
+     EZA=0.
 C
 C        PRINT DIAGNOSTICS IF REQUIRED
 C
-	 IF(LDIAG)THEN
-	    WRITE(lout,*)'DIPOLE EXIT FAR FIELD REGION'
-	    WRITE(lout,904)'A SYSTEM',EXA,EYA,EZA
-	    WRITE(lout,*)'DIPOLE EXIT FAR FIELD REGION'
-	    WRITE(lout,904)'A SYSTEM',EXA,EYA,EZA
-	 ENDIF
+     IF(LDIAG)THEN
+        WRITE(lout,*)'DIPOLE EXIT FAR FIELD REGION'
+        WRITE(lout,904)'A SYSTEM',EXA,EYA,EZA
+        WRITE(lout,*)'DIPOLE EXIT FAR FIELD REGION'
+        WRITE(lout,904)'A SYSTEM',EXA,EYA,EZA
+     ENDIF
 C
 C        LOAD E-FIELD COMPONENTS INTO ARRAY EFLD AND EXIT
 C
-	 EFLD(1)=EXA
-	 EFLD(2)=EYA
-	 EFLD(3)=EZA
-	 RETURN
+     EFLD(1)=EXA
+     EFLD(2)=EYA
+     EFLD(3)=EZA
+     RETURN
 C
 C      ----------------------------------------------------
 C
       ELSE
 C        UNSPECIFIED FIELD REGION, RETURN WITH ZERO FIELD COMPONENTS
 C
-	 IF(LDIAG)THEN
-	    WRITE(lout,*)'UNKNOWN ELECTIC DIPOLE REGION'
-	    WRITE(lout,905)'A SYSTEM XA,YA,ZA=',XA,YA,ZA
-	    WRITE(lout,905)'B SYSTEM XB,YB,ZB=',XB,YB,ZB
-	    WRITE(lout,905)'C SYSTEM XC,YC,ZC=',XC,YC,ZC
-	    WRITE(lout,*)'RETURN E-FIELD EXA=0, EYA=0, EZA=0'
+     IF(LDIAG)THEN
+        WRITE(lout,*)'UNKNOWN ELECTIC DIPOLE REGION'
+        WRITE(lout,905)'A SYSTEM XA,YA,ZA=',XA,YA,ZA
+        WRITE(lout,905)'B SYSTEM XB,YB,ZB=',XB,YB,ZB
+        WRITE(lout,905)'C SYSTEM XC,YC,ZC=',XC,YC,ZC
+        WRITE(lout,*)'RETURN E-FIELD EXA=0, EYA=0, EZA=0'
 905         FORMAT(1X,A,3F12.4)
-	    WRITE(lout,*)'UNKNOWN ELECTIC DIPOLE REGION'
-	    WRITE(lout,905)'A SYSTEM XA,YA,ZA=',XA,YA,ZA
-	    WRITE(lout,905)'B SYSTEM XB,YB,ZB=',XB,YB,ZB
-	    WRITE(lout,905)'C SYSTEM XC,YC,ZC=',XC,YC,ZC
-	    WRITE(lout,*)'RETURN E-FIELD EXA=0, EYA=0, EZA=0'
+        WRITE(lout,*)'UNKNOWN ELECTIC DIPOLE REGION'
+        WRITE(lout,905)'A SYSTEM XA,YA,ZA=',XA,YA,ZA
+        WRITE(lout,905)'B SYSTEM XB,YB,ZB=',XB,YB,ZB
+        WRITE(lout,905)'C SYSTEM XC,YC,ZC=',XC,YC,ZC
+        WRITE(lout,*)'RETURN E-FIELD EXA=0, EYA=0, EZA=0'
 C
 C           SET ALL E-FIELD COMPONENTS TO ZERO
 C
-	    EFLD(1)=0
-	    EFLD(2)=0
-	    EFLD(3)=0
-	    RETURN
+        EFLD(1)=0
+        EFLD(2)=0
+        EFLD(3)=0
+        RETURN
          ENDIF
       ENDIF
       RETURN
-      END      
+      END
 C
 C=========================================================================
 C
@@ -467,36 +467,36 @@ C
       DIMENSION TC(6), DTC(6)
 C****
 C****
-100   FORMAT( ' ** ERROR ** -GO TO-  IN SUBROUTINE MITRAY_EDIP', 
+100   FORMAT( ' ** ERROR ** -GO TO-  IN SUBROUTINE MITRAY_EDIP',
      1  /'               INVALID VALUE  IN = ', I5 //)
-101   FORMAT( ' **ERROR ** IN SUBROUTINE MITRAY_EDIP'/   
+101   FORMAT( ' **ERROR ** IN SUBROUTINE MITRAY_EDIP'/
      1   '               X=', F12.3,  '  XC_OFFSET=', F12.3 //)
 C****
 C****
-C       ADDED BY SY OCT 30/99  INITIAL VALUES OF E-FIELD        
+C       ADDED BY SY OCT 30/99  INITIAL VALUES OF E-FIELD
 C
-	EX=0.
-	EY=0.
-	EZ=0.
+    EX=0.
+    EY=0.
+    EZ=0.
 C
-	X = TC(1)
-	Y = TC(2)
-	Z = TC(3)
-	DX = X - XC_OFFSET
-	RP2 = DX * DX + Z * Z
-	GO TO (1, 2, 1) , IN
-	PRINT 100, IN
+    X = TC(1)
+    Y = TC(2)
+    Z = TC(3)
+    DX = X - XC_OFFSET
+    RP2 = DX * DX + Z * Z
+    GO TO (1, 2, 1) , IN
+    PRINT 100, IN
 C       ADDED BY SY  OCT 30/99 RETURN WITH ZERO FIELD IN CASE OF ILLEGAL
 C       VALUE OF 'IN'
-	RETURN
+    RETURN
 C****
 C****   UNIFORM FIELD REGION   IN=2
 C****
 2       EX = EF * RB * DX / RP2
-	EY = 0.
-	EZ = EF * RB * Z / RP2
-	ET = DSQRT(EX * EX + EZ * EZ)
-	RETURN
+    EY = 0.
+    EZ = EF * RB * Z / RP2
+    ET = DSQRT(EX * EX + EZ * EZ)
+    RETURN
 C****
 C****   FRINGE FIELD REGION    IN=1 OR IN=3
 C****
@@ -522,7 +522,7 @@ C****
       ET = DSQRT( EX * EX + EY * EY + EZ * EZ)
       IF( IN .EQ. 1 ) EZ = -EZ
       RETURN
-      END      
+      END
 C
 C========================================================================
 C

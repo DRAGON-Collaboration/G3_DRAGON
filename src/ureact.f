@@ -36,7 +36,7 @@ C
       CHARACTER*5 INPUT
       CHARACTER*3 targtyp
       LOGICAL fexist
-      DATA num/ '1 ','2 ','3 ','4 ','5 ','6 ','7 ','8 ','9 ','10', 
+      DATA num/ '1 ','2 ','3 ','4 ','5 ','6 ','7 ','8 ','9 ','10',
      &          '11','12','13','14','15','16','17','18','19','20',
      &          '21','22','23','24','25','26','27','28','29','30','31'/
 C
@@ -64,12 +64,12 @@ C      (15) 20Ne(p,g)21Na nonres
 C      (16) 20Na(p,g)21Mg131                                           C
 C      (17) 22Ne(alpha,g)26Mg
 C      (18) 21Na(p,g)22Mg(825)
-C      (19) 12C(a,g)16O 
+C      (19) 12C(a,g)16O
 C======================================================================C
 C
 C-- MOD 10/06/03 C.Ruiz
 C-- Gamma cascades (isotropic emission) are included for
-C-- product nuclei through up to 32 states (including final 
+C-- product nuclei through up to 32 states (including final
 C-- ground state).
 C--
 C-- Each product energy level is defined as a GEANT particle.
@@ -413,7 +413,7 @@ C
 C--     Define states in Na20 gamma decays from resonance
 C
         elevel = 2.660
-	aamass = aamass - elevel/1000.
+    aamass = aamass - elevel/1000.
 C
 C--     ground state --> idpart = 82
 C
@@ -425,12 +425,12 @@ C
 C--     branch info -- resonance decays
 C
         brat(1) = 100.
-	mode(1) = 1 + 100*82
+    mode(1) = 1 + 100*82
 C
         CALL uzero(brat,2,6)
-	CALL uzero(mode,2,6)
+    CALL uzero(mode,2,6)
 C
-	CALL gsdk(81,brat,mode)
+    CALL gsdk(81,brat,mode)
 C
         write(6,*)'|**** 19Ne(p,gamma)20Na reaction ****|'
         write(6,*)'Resonance energy', resenerg, ' MeV ', ' width ',
@@ -448,8 +448,8 @@ C
 C
 C--     create beam particle --> idpart = 80
 C
-       	devmass = 6845E-6
-       	aamass  = abeam*amugev + devmass
+        devmass = 6845E-6
+        aamass  = abeam*amugev + devmass
         tlif    = 0.03
         ubuf(1) = fkine(1)
 C
@@ -491,7 +491,7 @@ C
         write(6,*)'Resonance energy', resenerg, ' MeV ', ' width ',
      &  reswidth,' MeV ', 'level ', elevel,' MeV'
 C
-        
+
 C
       case(8)
 C
@@ -505,8 +505,8 @@ C
 C
 C--     create beam particle --> idpart = 80
 C
-       	devmass = -2184.3E-6
-       	aamass  = abeam*amugev + devmass
+        devmass = -2184.3E-6
+        aamass  = abeam*amugev + devmass
         tlif    = 0.03
         ubuf(1) = fkine(1)
 C
@@ -633,8 +633,8 @@ C
 C
 C--     create beam particle --> idpart = 80
 C
-       	devmass = -2184.3E-6
-       	aamass  = abeam*amugev + devmass
+        devmass = -2184.3E-6
+        aamass  = abeam*amugev + devmass
         tlif    = 0.03
         ubuf(1) = fkine(1)
 C
@@ -718,8 +718,8 @@ C
 C
 C--     create beam particle --> idpart = 80
 C
-       	devmass = -9530.0E-6
-       	aamass  = abeam*amugev + devmass
+        devmass = -9530.0E-6
+        aamass  = abeam*amugev + devmass
         tlif    = 1000.
         ubuf(1) = fkine(1)
 C
@@ -744,7 +744,7 @@ C
         elevel  = 1.368
 
         aamass1  = prodm + elevel/1000.
-        if(aamass .lt. aamass1) 
+        if(aamass .lt. aamass1)
      &  write(6,*) "Beam energy below 2+ threshold"
         tlif    = 3.E-11
 C
@@ -790,8 +790,8 @@ C
 C
 C--     create beam particle --> idpart = 90
 C
-       	devmass = -9530.0E-6
-       	aamass  = abeam*amugev + devmass
+        devmass = -9530.0E-6
+        aamass  = abeam*amugev + devmass
         tlif    = 0.03
         ubuf(1) = fkine(1)
 C
@@ -852,8 +852,8 @@ C
 C
 C--     create beam particle --> idpart = 80
 C
-       	devmass = -2184.3E-6
-       	aamass  = abeam*amugev + devmass
+        devmass = -2184.3E-6
+        aamass  = abeam*amugev + devmass
         tlif    = 0.03
         ubuf(1) = fkine(1)
 C
@@ -1217,7 +1217,7 @@ C
         CALL gsdk(92,brat,mode)
 C
 C--     1st ex. state
-C  
+C
         brat(1) = 100.
         mode(1) = 1 + 100*94
 C
@@ -1277,7 +1277,7 @@ C
         Elseif(atarg.eq.12)then
         targtyp = '12C'
         targmass = c12mass
-        aamass   = aamass + resenerg/1000. + c12mass 
+        aamass   = aamass + resenerg/1000. + c12mass
         Endif
         tlif     = hbar/((part_width+gam_width)/1000.)
         ubuf(1)  = fkine(2)
@@ -1290,12 +1290,12 @@ C
 C        rmass = aamass
         resmass = aamass
 
-        
+
 
         write(6,*)'|**** '//beamtyp//'('//targtyp//',gamma)'//rectyp//
      &           ' reaction ****|'
         write(6,*)'Resonance energy', resenerg, ' MeV ',
-     &   'level ', elevel,' MeV'  
+     &   'level ', elevel,' MeV'
 
 C
 C    Setup excited states below resonance
@@ -1346,7 +1346,7 @@ C
         Endif
         z1 = zbeam
         z2 = ztarg
-        
+
 C     alpha source
         case(21)
         alpha = .true.
@@ -1366,13 +1366,3 @@ C
       RETURN
       END
 C
-
-
-
-
-
-
-
-
-
-

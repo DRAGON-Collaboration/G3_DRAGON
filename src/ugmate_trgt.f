@@ -69,7 +69,7 @@ C     Central vacuum material (1/500th of central pressure)
 C
 C     gas pressures for inside stepped collimator sections and eff.length
       ment(1) = 29
-      pdens = ptarg*0.05 !! ratio from Knudsen equation. 
+      pdens = ptarg*0.05 !! ratio from Knudsen equation.
       entdens = entdens + pdens*5.08/ptarg !! (5.08cm section length)
       CALL gsmate(ment(1),'ent1',a,z,pdens*dens,radl/pdens,0,0,0)
 C
@@ -84,7 +84,7 @@ C
       CALL gsmate(ment(3),'ent3',a,z,pdens*dens,radl/pdens,0,0,0)
 C
       mex(1) = 32
-      pdens = ptarg*0.05 !! ratio from Knudsen equation. 
+      pdens = ptarg*0.05 !! ratio from Knudsen equation.
       exitdens = exitdens + pdens*5.08/ptarg !! (5.08cm section length)
       CALL gsmate(mex(1),'ext1',a,z,pdens*dens,radl/pdens,0,0,0)
 C
@@ -107,4 +107,3 @@ C     Box gas baseline pressure
 C
       RETURN
       END
-      

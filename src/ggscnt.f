@@ -38,7 +38,7 @@ C.
 C.
       DATA init / 0 /, xlo / 375. /, xwi /  25. /, confac / 1243.125 /
 C.
-      DATA y /   0.0, 40.0, 85.0, 78.0, 48.0, 
+      DATA y /   0.0, 40.0, 85.0, 78.0, 48.0,
      &          36.0, 24.0, 18.0, 12.0,  8.0,  4.0 /
 C.
       include 'gcbank.inc'          !geant
@@ -174,7 +174,7 @@ C.
          If(charge.eq.0.0.or.istop.gt.0)then
            xphot(11,ngphot) = tofg + dt
          Else
-           xphot(11,ngphot) = tofg + (step-ds)*getot/(vect(7)*clight) 
+           xphot(11,ngphot) = tofg + (step-ds)*getot/(vect(7)*clight)
      &                             + dt
          Endif
 C.

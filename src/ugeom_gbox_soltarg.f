@@ -25,17 +25,17 @@ C.
       REAL bcr1_length, bcr2_length, bcr3_length, bcr4_length
 C      print*, 'ugeom_detector'
 
-     
+
 C.
       hexagon_small_width = s_finger + 2.*d_air(1) + 2.*d_mtl + air_gap
       hexagon_large_width = 2. * hexagon_small_width / sqrt(3.)
       depth = z_finger + d_air(2) + d_mtl
-      col_length = 15.24 
+      col_length = 15.24
 C.
 C.--->the x width has an offset of 3.35 to account for two detectors
 C.--->being pulled back by 6.7cm to make room for lead collimators
-      shape( 1) =          depth + 3.35     		 ! half x width
-      shape( 2) =  5  * hexagon_large_width 		 ! half y width
+      shape( 1) =          depth + 3.35              ! half x width
+      shape( 2) =  5  * hexagon_large_width          ! half y width
       shape( 3) =  3. * hexagon_small_width + col_length/2. ! half z width
       shape( 3) = TLrms
 C.
@@ -81,10 +81,10 @@ C.
       shape( 1) = 0.0
       shape( 2) = aprt + wall(3)
       shape( 3) = col_length/2.
-C.      
+C.
       CALL gsvolu('CTUB','TUBE', 6, shape, 3, ivol)
       CALL gsatt('CTUB','SEEN',1)
-      
+
 C.
       shape( 2) = shape( 2) - 0.357
       shape( 3) = shape( 3)/3.
@@ -116,14 +116,14 @@ C.
       CALL gsatt('COLR','SEEN',1)
       z = -col_length/2. + shape(3)
       CALL gspos('COLR',1,'CTUB',0.0,0.0,z,0,'ONLY')
-C.      
-      z = -col_length/2.+ col_collar_length + shape(3) 
+C.
+      z = -col_length/2.+ col_collar_length + shape(3)
      &    + wall(2)
       CALL gspos('COLR',2,'CTUB',0.0,0.0,z,0,'ONLY')
 C.
 C.
 C. ---> Position upstream collimator
-      z = box_length/2. + col_length/2.  - wall(2) 
+      z = box_length/2. + col_length/2.  - wall(2)
      &    - col_collar_length
 C.
       irot_side = nxtrotm()            ! opposite side rotating matrix
@@ -150,9 +150,9 @@ C.
       shape( 1) = 0.0
       shape( 2) = aprt + wall(3)
 c        write(6,*)'***LOOK*** aprt: ',aprt,' wall(3): ',wall(3)
-      shape( 3) = col_length/2.      
+      shape( 3) = col_length/2.
       CALL gsvolu('CTBD','TUBE', 6, shape, 3, ivol)
-      CALL gsatt('CTBD','SEEN',1)      
+      CALL gsatt('CTBD','SEEN',1)
 
 cc MT makes new 2" collimator that replaces 6" collimator
 
@@ -195,25 +195,25 @@ C. ---> collimator end collar detail inside and outside box
 
       col_collar_length = 0.945
 
-      shape(1) = col_collar_inner_radius      
+      shape(1) = col_collar_inner_radius
       shape(2) = 1.905
       shape(3) = col_collar_length/2.	!end collar detail half thickness
       CALL gsvolu('CLRD','TUBE', 7, shape, 3, ivol)
       CALL gsatt('CLRD','SEEN',1)
       z = -col_length/2. + shape(3)
-      CALL gspos('CLRD',1,'CTBD',0.0,0.0,z,0,'ONLY')      
-      z = -col_length/2.+ col_collar_length + shape(3) 
+      CALL gspos('CLRD',1,'CTBD',0.0,0.0,z,0,'ONLY')
+      z = -col_length/2.+ col_collar_length + shape(3)
      &    + wall(2)
       CALL gspos('CLRD',2,'CTBD',0.0,0.0,z,0,'ONLY')
 
 C. ---> Position downstream collimator
-      z = box_length/2. + col_length/2.  - wall(2) 
+      z = box_length/2. + col_length/2.  - wall(2)
      &    - col_collar_length
 c        write(6,*)'***LOOK*** position: ',z
 
       CALL gspos('CTBD', 1, 'DETE', 0.0, 0.0, z, 0, 'ONLY')
 
-C.      
+C.
 C.
 C.***************************************************************
 C.
@@ -222,47 +222,47 @@ C.
 C.***************************************************************
 C.
 C.
-      		
+
       bcr1_length = 1.96		! fifth Al section after box
       bcr2_length = 2.68		! fourth Al section after box
       bcr3_length = 3.55		! third Al section after box
       bcr4_length = 3.67		! second Al section after box
 C.
-      shape(1) = 2.53      
+      shape(1) = 2.53
       shape(2) = 5.71
-      shape(3) = bcr1_length/2.	
+      shape(3) = bcr1_length/2.
       CALL gsvolu('BCR1','TUBE', 6, shape, 3, ivol)
       CALL gsatt('BCR1','SEEN',1)
-      z = -col_length/2.+ col_collar_length + shape(3) 
-     &    + wall(1) + wall(2) + bcr4_length + bcr3_length 
+      z = -col_length/2.+ col_collar_length + shape(3)
+     &    + wall(1) + wall(2) + bcr4_length + bcr3_length
      &    + bcr2_length + bcr1_length/2.
       CALL gspos('BCR1',1,'CTUB',0.0,0.0,z,0,'ONLY')
 C. As collimators are not symmetric in new pumping tubes, need two BCR1s
       CALL gspos('BCR1',1,'CTBD',0.0,0.0,z,0,'ONLY')
 C.
-      shape(1) = 2.07      
+      shape(1) = 2.07
       shape(2) = 2.53
       shape(3) = bcr2_length/2.
       CALL gsvolu('BCR2','TUBE', 6, shape, 3, ivol)
       CALL gsatt('BCR2','SEEN',1)
-      z = -col_length/2.+ col_collar_length + shape(3) 
-     &    + wall(1) + wall(2) + bcr4_length + bcr3_length 
+      z = -col_length/2.+ col_collar_length + shape(3)
+     &    + wall(1) + wall(2) + bcr4_length + bcr3_length
      &    + bcr2_length/2.
       CALL gspos('BCR2',1,'CTUB',0.0,0.0,z,0,'ONLY')
 C. As collimators are not symmetric in new pumping tubes, need two BCR2s
       CALL gspos('BCR2',1,'CTBD',0.0,0.0,z,0,'ONLY')
 C.
-      shape(1) = 1.30      
+      shape(1) = 1.30
       shape(2) = 2.07
       shape(3) = bcr3_length/2.
       CALL gsvolu('BCR3','TUBE', 6, shape, 3, ivol)
       CALL gsatt('BCR3','SEEN',1)
-      z = -col_length/2.+ col_collar_length + shape(3) 
+      z = -col_length/2.+ col_collar_length + shape(3)
      &    + wall(1) + wall(2) + bcr4_length + bcr3_length/2.
       CALL gspos('BCR3',1,'CTUB',0.0,0.0,z,0,'ONLY')
 C. As collimators are not symmetric in new pumping tubes, need two BCR3s
       CALL gspos('BCR3',1,'CTBD',0.0,0.0,z,0,'ONLY')
-C.      
+C.
 C.
 C.***************************************************************
 C.
@@ -294,8 +294,8 @@ C.    CALL gsvolu('CELL','TRD1', 6, shape, 4, ivol)
 C.    CALL gsatt('CELL','SEEN',1)
 C.--->move inner cell so that apertures are centred on beam line
 C.--->0.976 offset is height from box top to inner cell top
-      y = .5 * box_height - shape(4) - 0.976   
-C.    CALL gspos('CELL',1,'CMBG',0.0, y ,0.0,irot_box,'ONLY')      
+      y = .5 * box_height - shape(4) - 0.976
+C.    CALL gspos('CELL',1,'CMBG',0.0, y ,0.0,irot_box,'ONLY')
 C.
 C.---> Vacuum inner shell of the cell
 C.
@@ -306,7 +306,7 @@ C.
 C.
 C.    CALL gsvolu('CELG','TRD1', mcent, shape, 4, ivol)
 C.    CALL gsatt('CELG','SEEN',1)
-C.    CALL gspos('CELG',1,'CELL',0.0,0.0,0.0,0,'ONLY')      
+C.    CALL gspos('CELG',1,'CELL',0.0,0.0,0.0,0,'ONLY')
 C.
 C.
 C.---> Entrance collimator to the trapezoid target
@@ -343,7 +343,7 @@ C.
 c old     shape(2) = 0.4
 cc MT updates gas target exit collimator 21 Oct 2003.
       shape(2) = 0.5
-      shape(3) = 0.5     
+      shape(3) = 0.5
 C.
 C. JS removes XAPG from solid target simmulation!
 C.
@@ -378,8 +378,8 @@ C.    CALL GSROTM(54, 180.0, 0.0, 90.0, 90.0, 90.0, 0.0)
 C.
       CALL gsvolu('CTAR', 'TUBE', 21, shape, 3, ivol)
 C     CALL gspos ('CTAR' 1, 'CELG' 0.0, 0.0, z, 54, 'ONLY')
-      CALL gspos('CTAR', 1, 'CMBG', 0.0, y, 0.0, 0, 'ONLY')  
-C.      
+      CALL gspos('CTAR', 1, 'CMBG', 0.0, y, 0.0, 0, 'ONLY')
+C.
 C.
 C.
 C.
@@ -401,10 +401,10 @@ C.
 C.
       shape(1) = 7.75			! lead plate half width
       shape(2) = 11.75			! lead plate half height
-      shape(3) = pbpl_length/2  	! lead plate half thickness
+      shape(3) = pbpl_length/2      ! lead plate half thickness
       CALL gsvolu('PBPL','BOX ', 7, shape, 3, ivol)
       CALL gsatt('PBPL','SEEN',1)
-      z = box_length/2. + pbsm_length + col_collar_length + pb_thin 
+      z = box_length/2. + pbsm_length + col_collar_length + pb_thin
      &    + pblg_length + pbpl_length/2.
       CALL gspos('PBPL',1,'DETE',0.0,0.0,-z,irot_side,'ONLY')
 C.
@@ -495,7 +495,7 @@ C.
 C.
       z = -pmt_length/2.
 C.
-      CALL gspos('FNGR', 1, 'HSNG', 0.0, 0.0, z, 0,'ONLY') 
+      CALL gspos('FNGR', 1, 'HSNG', 0.0, 0.0, z, 0,'ONLY')
 C.
       shape( 7) = shape( 7) - d_mtl
       shape(10) = shape(10) - d_mtl
@@ -561,7 +561,7 @@ C.
 C.
       x_fngr(icopy)  = 0.0
       y_fngr(icopy)  =  y
-      z_fngr(icopy)  =  z 
+      z_fngr(icopy)  =  z
 C.
       If(mask(icopy).eq.1)then
         CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_front,'ONLY')
@@ -569,7 +569,7 @@ C.
 C.
       k = 2
 C.
-      x = d_mtl/2. + d_air(2)/2. - pmt_length/2.      
+      x = d_mtl/2. + d_air(2)/2. - pmt_length/2.
       y = - aprt - wall(3) - (5./4.) * hexagon_large_width
       z =   2.*hexagon_small_width
 C.
@@ -577,7 +577,7 @@ C.
 C.
       x_fngr(icopy)  = 0.0
       y_fngr(icopy)  =  y
-      z_fngr(icopy)  =  z 
+      z_fngr(icopy)  =  z
 C.
       If(mask(icopy).eq.1)then
         CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_front,'ONLY')
@@ -591,7 +591,7 @@ C.
 C.
       x_fngr(icopy)  = 0.0
       y_fngr(icopy)  =  y
-      z_fngr(icopy)  =  z 
+      z_fngr(icopy)  =  z
 C.
       If(mask(icopy).eq.1)then
         CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_front,'ONLY')
@@ -607,7 +607,7 @@ C.
 C.
       x_fngr(icopy)  = 0.0
       y_fngr(icopy)  =  y
-      z_fngr(icopy)  =  z 
+      z_fngr(icopy)  =  z
 C.
       If(mask(icopy).eq.1)then
         CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_front,'ONLY')
@@ -622,7 +622,7 @@ C.
 C.
       x_fngr(icopy)  = 0.0
       y_fngr(icopy)  =  y
-      z_fngr(icopy)  =  z 
+      z_fngr(icopy)  =  z
 C.
       If(mask(icopy).eq.1)then
         CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_front,'ONLY')
@@ -637,7 +637,7 @@ C.
 C.
       x_fngr(icopy)  = 0.0
       y_fngr(icopy)  =  y
-      z_fngr(icopy)  =  z 
+      z_fngr(icopy)  =  z
 C.
       If(mask(icopy).eq.1)then
         CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_front,'ONLY')
@@ -652,7 +652,7 @@ C.
 C.
       x_fngr(icopy)  = 0.0
       y_fngr(icopy)  =  y
-      z_fngr(icopy)  =  z 
+      z_fngr(icopy)  =  z
 C.
       If(mask(icopy).eq.1)then
         CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_front,'ONLY')
@@ -667,7 +667,7 @@ C.
 C.
       x_fngr(icopy)  = 0.0
       y_fngr(icopy)  =  y
-      z_fngr(icopy)  =  z 
+      z_fngr(icopy)  =  z
 C.
       If(mask(icopy).eq.1)then
         CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_front,'ONLY')
@@ -681,7 +681,7 @@ C.
 C.
       x_fngr(icopy)  = 0.0
       y_fngr(icopy)  =  y
-      z_fngr(icopy)  =  z 
+      z_fngr(icopy)  =  z
 C.
       If(mask(icopy).eq.1)then
         CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_front,'ONLY')
@@ -697,7 +697,7 @@ C.
 C.
       x_fngr(icopy)  = 0.0
       y_fngr(icopy)  =  y
-      z_fngr(icopy)  =  z 
+      z_fngr(icopy)  =  z
 C.
       If(mask(icopy).eq.1)then
         CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_front,'ONLY')
@@ -726,7 +726,7 @@ C.
 C.
             x_fngr(icopy)  = x - pmt_length/2.
             y_fngr(icopy)  = y
-            z_fngr(icopy)  = z 
+            z_fngr(icopy)  = z
 C.
             If(mask(icopy).eq.1)then
               CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_back,'ONLY')
@@ -738,7 +738,7 @@ C.
 C.
             x_fngr(icopy)  = x + pmt_length/2.
             y_fngr(icopy)  = y
-            z_fngr(icopy)  = z 
+            z_fngr(icopy)  = z
 C.
             If(mask(icopy).eq.1)then
               CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_front,'ONLY')
@@ -803,7 +803,7 @@ C.
 C.
       z = depth/2.
 C.
-      CALL gspos('PMT ', 1, 'HSNG', 0.0, 0.0, z, 0, 'ONLY') 
+      CALL gspos('PMT ', 1, 'HSNG', 0.0, 0.0, z, 0, 'ONLY')
 C.
       RETURN
       END
@@ -849,7 +849,7 @@ C.
 C.
 ************************************************************************
 *                                                                      *
-*                          Detector Scintillator		       *
+*                          Detector Scintillator               *
 *                                                                      *
 ************************************************************************
 C.
@@ -896,52 +896,3 @@ C.
 
       RETURN
       END
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

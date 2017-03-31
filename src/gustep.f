@@ -38,6 +38,3 @@ CCC        istop = 1
 C.
       RETURN
       END
-
-
-

@@ -141,7 +141,7 @@ C.
            If(gkin(5,i).eq.4)iflgk(i) = -1
         Enddo
 C.
-	CALL gsking(0)
+    CALL gsking(0)
 C.
         If(iflag.gt.0)then
           iadr = 0

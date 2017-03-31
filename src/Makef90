@@ -1,5 +1,3 @@
-
-
 #------------------------------------------------------------------#
 #                                                                  #
 #                  Dragon Simulation executable Makefile           #
@@ -9,7 +7,7 @@
 #  usage examples:                                                 #
 #                                                                  #
 #  % make                                                          #
-#  % make dsbatch                                                    # 
+#  % make dsbatch                                                    #
 #------------------------------------------------------------------#
 # 09-feb-1998 Renee - Fix the make file : add IFLAGS, add rules    #
 # 10-feb-1998 Renee - adapt for Linux                              #
@@ -55,16 +53,16 @@ LIBDIRS= \
 # add your object files and personal libraries to the end of this list
 
 OBJS_BATCH = \
-     gumain.o 
+     gumain.o
 
 OBJS_INTER = \
     gxint321.o
 
 OBJS = \
-       	beaminit.o \
-	ghidet.o \
-	ghipmt.o \
-	ggscnt.o \
+        beaminit.o \
+    ghidet.o \
+    ghipmt.o \
+    ggscnt.o \
         gudigi.o \
         guhadr.o \
         gukine.o \
@@ -73,11 +71,11 @@ OBJS = \
         gukine_mitray.o \
         guout.o  \
         guphad.o \
-	gureact.o \
+    gureact.o \
         gustep.o \
-	gustep_trgt.o \
-	gustep_mitray.o \
-	gustep_gbox.o \
+    gustep_trgt.o \
+    gustep_mitray.o \
+    gustep_gbox.o \
         gutrak.o \
         gutrev.o \
         uginit.o \
@@ -94,7 +92,7 @@ OBJS = \
         ugeom_gbox.o \
         ugeom_trgt.o \
         ugeom_mitray.o \
-	ugeom_defin.o \
+    ugeom_defin.o \
         guswim.o \
         grkuta.o \
         guefld.o \
@@ -108,7 +106,7 @@ OBJS = \
         mitray_sasp.o \
         neighborhood.o \
         gthion.o \
-	geant_mod.o \
+    geant_mod.o \
         sig.o \
         chmass.o \
         gdeca2.o \
@@ -124,8 +122,8 @@ OBJS = \
 
 LIBS = -lgeant321 -lmathlib -lgrafX11 -lkernlib -lpacklib  -lgrafX11
 
-GLIBS = -lgeant321  -lpawlib -lgraflib -lgrafX11 -lpacklib -lmathlib -lkernlib    -llapack3   -lblas  
- 
+GLIBS = -lgeant321  -lpawlib -lgraflib -lgrafX11 -lpacklib -lmathlib -lkernlib    -llapack3   -lblas
+
 
 FLIBS = -lU77 -lf90math -lf77math -lfio -lnsl  -lreadline -lncurses
 #------------------------------------------------------------------#
@@ -134,14 +132,14 @@ FLIBS = -lU77 -lf90math -lf77math -lfio -lnsl  -lreadline -lncurses
 
 # for linux
 dsbatch : $(OBJS_BATCH) $(OBJS) $(OBJECTS)
-	$(F90)   -o $(OUTPUT) $(F90FLAGS) $(LIBDIRS) $(OBJS_BATCH) $(OBJS) $(LIB) $(LIBS)   -lXm  -lXp -lXext -lXt -lX11 $(FLIBS) -lstdc++  
+    $(F90)   -o $(OUTPUT) $(F90FLAGS) $(LIBDIRS) $(OBJS_BATCH) $(OBJS) $(LIB) $(LIBS)   -lXm  -lXp -lXext -lXt -lX11 $(FLIBS) -lstdc++
 
 #------------------------------------------------------------------#
 # interactive geant
 # Say "make dsinter"
 
 dsinter : $(OBJS_INTER) $(OBJS) $(OBJECTS)
-	$(F90)   -o $(DSBIN)/dsinter $(F90FLAGS)  $(LIBDIRS) $(OBJS_INTER) $(OBJS) $(LIB) $(GLIBS)  -lcrypt -ldl -lXm  -lXp -lXext -lXt -lX11 $(FLIBS)  -lstdc++
+    $(F90)   -o $(DSBIN)/dsinter $(F90FLAGS)  $(LIBDIRS) $(OBJS_INTER) $(OBJS) $(LIB) $(GLIBS)  -lcrypt -ldl -lXm  -lXp -lXext -lXt -lX11 $(FLIBS)  -lstdc++
 
 
 #------------------------------------------------------------------#
@@ -150,4 +148,3 @@ dsinter : $(OBJS_INTER) $(OBJS) $(OBJECTS)
 #------------------------------------------------------------------#
 
 include $(DSROOT)/makef90.std
-

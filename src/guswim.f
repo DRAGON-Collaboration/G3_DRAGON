@@ -1,4 +1,4 @@
-      SUBROUTINE GUSWIM(CHRG,STP,VCT,VT) 
+      SUBROUTINE GUSWIM(CHRG,STP,VCT,VT)
 C.
 C.    ******************************************************************
 C.    *                                                                *

@@ -13,7 +13,7 @@ C.
 C.
       include 'ukine.inc'           !local
 C.
-      include 'uevent.inc'          !local  lkine, fkine  
+      include 'uevent.inc'          !local  lkine, fkine
       include 'geometry.inc'        !local
       include 'uenergy.inc'         !local
       include 'beamcom.inc'          !local
@@ -47,7 +47,7 @@ C.
 c *** Define the reaction number(I), beam charge(real), recoil charge(real)
 C *** Using a negative value of the reaction number loads that reaction and
 C *** tune, but passes the beam rather than recoils.
- 
+
       CALL ffkey('FKIN',LKINE ,11,'MIXED')
 C.
 C*** Define the reference tune specifying reference energy(MeV), atomic#,charge
@@ -96,9 +96,9 @@ C.
 C.
       CALL ffkey('BLKA',bulk_absorption ,1,'REAL')
       CALL ffkey('REFL',paint_absorption,1,'REAL')
-C. 
+C.
       CALL ffkey('ANAL',E_threshold,1,'REAL')
-    
+
 C.
       RETURN
 C.
@@ -107,16 +107,3 @@ C.
 C.
       END
 C.
-
-
-
-
-
-
-
-
-
-
-
-
-

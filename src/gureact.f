@@ -11,7 +11,7 @@ C.
 C.
       include 'gcking.inc'          !geant
       include 'gctrak.inc'          !geant
-     
+
 C.
       INTEGER ipart, itrtyp, nwbuf
 C.
@@ -19,7 +19,7 @@ C.
 C.
       CHARACTER*20 napart
 C.
-      CHARACTER* 4 mec 
+      CHARACTER* 4 mec
       DATA mec / 'RESR' /
 C.
       CALL uctoh(mec,kcase,4,4)
@@ -49,17 +49,3 @@ C.
 C.
       RETURN
       END
-
-
-
-
-
-
-
-
-
-
-
-
-
-

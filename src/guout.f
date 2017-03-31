@@ -131,9 +131,9 @@ C.
       include 'gcnum.inc'           !geant
       include 'gconst.inc'          !geant
 C.
-      include 'geometry.inc'   	    !local
-      include 'uenergy.inc'	    !local
-      include 'ev_info.inc'	    !local
+      include 'geometry.inc'        !local
+      include 'uenergy.inc'     !local
+      include 'ev_info.inc'     !local
       include 'rescom.inc'      !local
 C.
       INTEGER i, ntbeam, nttarg, nubuf
@@ -146,7 +146,7 @@ C.
       REAL vmod, vdotn
 C.
       REAL dist, theta
-C.      
+C.
 C.                Information on the photons
 C.                --------------------------
 C.
@@ -169,7 +169,7 @@ C.
 C.
       CALL vzero(index_track_to_gamma,max_itra)
 C.
-C.    vname(i)   : The full name of the conversion volume 
+C.    vname(i)   : The full name of the conversion volume
 C.    ivcopy(2,i): The volume copy number of the conversion volume
 C.    true_conv(3,i): The coordinates of the conversion piont [cm]
 C.
@@ -210,7 +210,7 @@ C.
                   CALL hfill(21,true_e(n_gamma)  ,0.0,1.0)
                   CALL hfill(22,true_d(3,n_gamma),0.0,1.0)
                   CALL hfill(24,tofg*1.e9, z_react ,1.0)
-!                  write(6,*) tofg*1.e9, z_react   
+!                  write(6,*) tofg*1.e9, z_react
                   CALL ucopy(gamma(1),true_d(1,n_gamma),3)
                 Endif !n_gamma
               Endif  !ipart

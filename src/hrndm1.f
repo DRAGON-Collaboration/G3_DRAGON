@@ -16,7 +16,7 @@
 *.           FOLLOWING THE CONTENTS OF HISTOGRAM IDD.
 *.                  ( IDD CAN CONTAINS A FUNCTION  )
 *..=========> ( R.Brun )
-# 1 "/cern/pro/src/packlib/hbook//hbook/hcbook.inc" 1 
+# 1 "/cern/pro/src/packlib/hbook//hbook/hcbook.inc" 1
 *
 * $Id: hrndm1.f,v 1.1.1.1 2003-09-25 22:25:18 dragoncvs Exp $
 *
@@ -51,7 +51,7 @@
      *LREAL,LBLOK,LLBLK,LBUFM,LBUF,LTMPM,LTMP,LTMP1,LHPLIP,LHDUM(9),
      *LHFIT,LFUNC,LHFCO,LHFNA,LCIDN
 *
-# 1 "/cern/pro/src/packlib/hbook//hbook/hck.inc" 1 
+# 1 "/cern/pro/src/packlib/hbook//hbook/hck.inc" 1
 *
 * $Id: hrndm1.f,v 1.1.1.1 2003-09-25 22:25:18 dragoncvs Exp $
 *
@@ -79,11 +79,11 @@
 *
 
 
-# 36 "/cern/pro/src/packlib/hbook//hbook/hcbook.inc" 2 
+# 36 "/cern/pro/src/packlib/hbook//hbook/hcbook.inc" 2
 
 
-# 19 "hrndm1.F" 2 
-# 1 "/cern/pro/src/packlib/hbook//hbook/hcflag.inc" 1 
+# 19 "hrndm1.F" 2
+# 1 "/cern/pro/src/packlib/hbook//hbook/hcflag.inc" 1
 *
 * $Id: hrndm1.f,v 1.1.1.1 2003-09-25 22:25:18 dragoncvs Exp $
 *
@@ -107,7 +107,7 @@
 *
 
 
-# 20 "hrndm1.F" 2 
+# 20 "hrndm1.F" 2
       SAVE JDLAST,NER,NCHA,XMIN,XWID
       DATA JDLAST/0/
       DATA NER/0/

@@ -1,4 +1,4 @@
-CDECK  ID>, GTHION. 
+CDECK  ID>, GTHION.
 *CMZ :  3.21/02 03/07/94  17.58.49  by  S.Giani
 *-- Author :
       SUBROUTINE GTHION
@@ -235,7 +235,7 @@ C.    ------------------------------------------------------------------
 *
 * *** Retrieve the user effective charge
 *
-      CHARG1 = Q(LQ(JPART-IPART)+10) 
+      CHARG1 = Q(LQ(JPART-IPART)+10)
 *
 * *** Compute energy dependent parameters
 *
@@ -727,7 +727,7 @@ c**        GETOT = SQRT(VOUT(7)**2+AMASS*AMASS) !Wrong energy
 * ** ADD PROCESSING OF HI DECAYS  AO 22/8/97
 *
 *  **   Decay ?
-* 
+*
       ELSE IF (IPROC .EQ. 5) THEN
          ISTOP = 1
          CALL GDECAY

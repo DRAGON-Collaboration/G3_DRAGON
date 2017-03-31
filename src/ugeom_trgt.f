@@ -95,7 +95,7 @@ C.
       par(2) = Rrms
       par(3) = len1
 
-C.--> Position new gas volumes to match new collimator 
+C.--> Position new gas volumes to match new collimator
 
       par(3) = 0.5*0.68
       CALL gsvolu('EN1G', 'TUBE', nmed, par, npar, ivolu)
@@ -188,14 +188,14 @@ C.
       if (targtype.eq.1) nmed=mcent
 C.
       npar   = 3
-      
+
       if(tubetype.eq.1)then
          zcol = -(0.5*box_length + 0.945 + 1.026 + 2.54 + 0.624 +
      &        3.54 + 2.88 + 2.02 + 0.585*2.)
       else
          zcol = -22.5125
       endif
-     
+
 
 c      CALL gsvolu('EX1G', 'TUBE', nmed, par, npar, ivolu)
 c      CALL gsatt('EX1G','SEEN',1)
@@ -209,14 +209,14 @@ c      CALL gspos('EX1G', 1,'DETE',0.0,0.0,z,0,'ONLY')
          lex11 = (zex(3) - lex2 + zcol)/2.
          zex2 = -zcol + lex11
          par(3) = lex11
-   
+
 
 C.
       npar   = 3
       par(1) = 0.
       par(2) = Rrms
 
-     
+
 C.
       CALL gsvolu('EX2G', 'TUBE', nmed, par, npar, ivolu)
       CALL gsatt('EX2G','SEEN',1)
@@ -313,7 +313,7 @@ C.
 
       z = TLrms-par(3)
       if (tubetype.eq.1) z=0.
-C. 
+C.
       CALL gsvolu( 'TEND', 'TUBE', nmed, par, npar, ivolu)
       CALL gsatt('TEND','SEEN',1)
 C.

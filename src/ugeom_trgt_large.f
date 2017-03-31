@@ -32,7 +32,7 @@ C
 C
 CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
 C     Exit apertures (As Dave O's Feb 06 drawings)
-      
+
       npar = 5
       par(1) = 12.9/2.
       par(2) = 2.34/2.
@@ -73,7 +73,7 @@ C     Define entrance gas volumes and place the collimators inside
       par(1) = 0.
       par(2) = Rrms
       par(3) = len1
-C     Position new gas volumes to match new collimator 
+C     Position new gas volumes to match new collimator
       par(3) = 0.5*0.68
       CALL gsvolu('EN1G', 'TUBE', nmed, par, npar, ivolu)
       CALL gsatt('EN1G','SEEN',1)
@@ -153,7 +153,7 @@ c$$$     &        3.54 + 2.88 + 2.02 + 0.585*2.)
 c$$$      lex11 = (zex(3) - lex2 + zcol)/2.
 c$$$      zex2 = -zcol + lex11
 c$$$      par(3) = lex11
-c$$$   
+c$$$
 c$$$
 c$$$C.
 c$$$      npar   = 3
@@ -220,12 +220,12 @@ C
       CALL gspos('EX8G', 1, 'DETE', 0.0, 0.0, z, 0, 'ONLY')
 C
 C     Since the following collimator extends into Q1, it is placed
-C     in the WRLD coordinates with no gas 
+C     in the WRLD coordinates with no gas
       z = 106.05
       CALL gspos('EX6C',1,'WRLD',0.,0.,z,0,'ONLY')
 C     Need to define a TEND to change particle charge state
 c$$$      par(3)=5.
-c$$$      z = TLrms-par(3) 
+c$$$      z = TLrms-par(3)
 c$$$      CALL gsvolu( 'TEND', 'TUBE', nmed, par, npar, ivolu)
 c$$$      CALL gsatt('TEND','SEEN',1)
 c$$$      CALL gspos('TEND', 1, 'DETE', 0.0, 0.0, z, 0, 'ONLY')

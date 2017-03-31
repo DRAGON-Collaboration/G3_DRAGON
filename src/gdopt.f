@@ -1,4 +1,4 @@
-CDECK  ID>, GDOPT.  
+CDECK  ID>, GDOPT.
 *CMZ :  3.21/02 29/03/94  15.41.26  by  S.Giani
 *-- Author :
       SUBROUTINE GDOPT(IOPTC,IVALC)

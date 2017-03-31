@@ -9,7 +9,7 @@ c----67---- (p,g) cross-section
      &                  er, gp, gg, omg, ell
 
 
-      
+
 
       cv = 931.494
 
@@ -17,7 +17,7 @@ c----67---- (p,g) cross-section
 
       pi = 3.141592654
 
-      
+
 
       rm = (m1/cv)*(m2/cv)/((m1/cv)+(m2/cv))
 
@@ -36,7 +36,7 @@ c     BW cross-section (on resonance)
       sigr = sigr/100.d0 !! into barns
 
 c     S-Factor (on resonance)
-      srr = sigr*er*exp(2.d0*pi*etar) 
+      srr = sigr*er*exp(2.d0*pi*etar)
 
 c----67---- energy dependent part
 
@@ -47,7 +47,7 @@ c----67---- energy dependent part
        gge = gg*(q+e)**(2.d0*ell+1.d0)/((q+er)**(2.d0*ell+1.d0))
 c       gpe = gp*dexp(-dsqrt(eg/e))/(dexp(-dsqrt(eg/er)))
        gpe = gp*exp(-2.d0*pi*(eta-etar))
-       
+
        gte = gge+gpe
 
        d1 = exp(2.d0*pi*eta)*gpe*gge*(0.5d0*gt)**2
@@ -58,10 +58,10 @@ c       gpe = gp*dexp(-dsqrt(eg/e))/(dexp(-dsqrt(eg/er)))
        sig = (omg*pi/(wn**2))*gpe*gge/((e-er)**2+(0.5d0*gte)**2)
        sig=sig/100.
        sn2 = sig*e*exp(2.d0*pi*eta)
-       
+
 
 !      Equation 15 P. Decrock et al, Phys. Rev. C 48 (1993), 2057
-       
+
 c       snr = c**2 * s * 3.44d-04 * exp( -0.605d0 * e )
        snr = 0.
 

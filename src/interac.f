@@ -10,7 +10,7 @@ C.
       IMPLICIT NONE
       INCLUDE 'history.inc'
       INCLUDE 'gammahit.inc'
-      
+
       CALL hfnt(1000)
       CALL hfnt(1001)
 C.

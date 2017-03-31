@@ -35,7 +35,7 @@ C.
       If(itrtyp.ne.8)RETURN
 C.
       CALL uhtoc(names(nlevel),4,chname_nlevel,4)
-      
+
       in_new_vol = 0
       If(inwvol.eq.1)then
         If(name_old  .ne.names(nlevel).or.
@@ -43,8 +43,8 @@ C.
              If(ntmult.eq.ntmult_old)in_new_vol = 1
         Endif
 C Increment counters
-        If(chname_nlevel .eq.'EAPG' .and.ipart .eq. 80) 
-cc mt        If(chname_nlevel .eq.'EAPG' .and.ipart .eq. irecoil) 
+        If(chname_nlevel .eq.'EAPG' .and.ipart .eq. 80)
+cc mt        If(chname_nlevel .eq.'EAPG' .and.ipart .eq. irecoil)
      &  ngascell = ngascell +1
       Endif
 C.
@@ -56,18 +56,18 @@ C
 C     JS changed to EX6G from TEND, TEND does not function in new tubes.
       If(chname_nlevel.eq.'EX6G' .and. ipart.eq.80 )then
        Q(LQ(JPART-IPART)+10) = Q(LQ(JPART-IRECOIL)+10)
-      Endif 
+      Endif
 
 
 C.-------------------Check for resonance crossing-----------------------
 C.
-      If(lkine.gt.0 .and. ipart.eq.80 .and. 
+      If(lkine.gt.0 .and. ipart.eq.80 .and.
      +   chname_nlevel.ne.'CMBG')then!JS Changed CELL to CMBG, no CELL in
                                      !solid target config.
         If(gekin.gt.eres)then
           CALL ucopy(vect,vectl,7)
         Else
-          If(destep.gt. 0.0) then !Needed to avoid precision 
+          If(destep.gt. 0.0) then !Needed to avoid precision
 !                probs with small destep moving energy below resonance
             fstep = (eres-gekin)/destep
           Else
@@ -79,40 +79,40 @@ C.
 C.
 C.
 C.--> Set E_int ntuple
-  
+
           E_int = eres*1000.
-          
-         
+
+
 C.
 C. ***    change mass of resonating particle
 C.
           newm = resmass + (erescm-resenerg)/1000.
-C          print*,'<<<<', erescm, resenerg, resmass, 
+C          print*,'<<<<', erescm, resenerg, resmass,
 C     +         resmass+(erescm-resenerg)/1000.
           JPA = LQ(JPART-IRES)
           Q(JPA+7) = newm
 C          print*, 'Eres (CM) and newmass', erescm, newm
-         
-         
 
-      
+
+
+
 
           CALL gureact
           react = 1
           nreact = nreact +1
 
-C.          if (vect(3) .lt. -5 .or. vect(3) .gt. 5) 
+C.          if (vect(3) .lt. -5 .or. vect(3) .gt. 5)
 C.     +    write(6,*) 'Suspicious! ', vect, gekin,fstep,vectl
 C.
           CALL hfill(205,vect(3),0.0,1.0)
           CALL hfill(213,vect(3),sqrt(vect(1)**2+vect(2)**2),1.0)
-          
+
 C.
           istop = 1
 C.
           goto 999
 C.
-        Endif 
+        Endif
       Endif
 C.
 C.-------------------Fill collimator histograms-----------------------
@@ -124,7 +124,7 @@ C. Pumping tube volumes all end with C
       If(index(chname_nlevel,'C') .eq. 4 .and. ipart.eq.irecoil)then
        tlast=1000.*(sqrt(prodm**2+vect(7)**2)-prodm)
       Endif
-       
+
       If(istop.eq.2)then
 C.
 C.--> If its a recoil....
@@ -147,7 +147,7 @@ C        JS changed to CMBG from CELL.  No CELL in solid target config.
             CALL hfill(203,sqrt(vect(1)**2+vect(2)**2),0.0,1.0)
           Endif
          Endif
-C.        
+C.
         Endif
 C.
 C.
@@ -210,7 +210,7 @@ C.   Initial position and momentum of recoil part
       lpart = ipart
   999 Continue
 C.
-C.      
+C.
       If(ngkine.gt.0)then
 C.
         CALL uhtoc(kcase,4,chcase,4)

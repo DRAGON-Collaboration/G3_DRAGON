@@ -50,7 +50,7 @@ C.
 C.
 C.======================================================================
 C.
-C.    Space 
+C.    Space
 C.
 C.======================================================================
 C.
@@ -73,17 +73,17 @@ C.
       if(tubetype.eq.1)then
          CALL ugeo_trgt_large
       elseif(tubetype.eq.0)then
-         CALL ugeo_trgt_small         
+         CALL ugeo_trgt_small
       elseif(tubetype.eq.2)then
-         CALL ugeo_trgt_small_up 
+         CALL ugeo_trgt_small_up
       elseif(tubetype.eq.3)then
-         CALL ugeo_trgt_small_down 
+         CALL ugeo_trgt_small_down
       elseif(tubetype.eq.4)then
-         CALL ugeo_trgt_small_left 
+         CALL ugeo_trgt_small_left
       elseif(tubetype.eq.5)then
-         CALL ugeo_trgt_small_right 
+         CALL ugeo_trgt_small_right
       elseif(tubetype.eq.6)then
-         CALL ugeo_trgt_small_hole 
+         CALL ugeo_trgt_small_hole
       endif
 
 C.
@@ -122,10 +122,10 @@ C.
 C.
       REAL shape(3)
 C.
-C.                              VACUUM SPACE 
+C.                              VACUUM SPACE
 C.                            ****************
 C.
-      shape(1) =  1500.	   ! square box space
+      shape(1) =  1500.    ! square box space
       shape(2) = shape(1)
       shape(3) = shape(1)
 C.
@@ -195,22 +195,3 @@ C.
       RETURN
       END
 C.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -73,13 +73,13 @@ C
       TC(2) =  YA
       TC(3) =  ZA - A - AL
 C
-C     If outside the integration regions defined by Z11 before the 
-C     entrance edge of the solenoid, to Z22 beyond the exit edge of 
+C     If outside the integration regions defined by Z11 before the
+C     entrance edge of the solenoid, to Z22 beyond the exit edge of
 C     the solenoid, then return without calculating anything
 C
       IF(TC(3).LT.(-(AL+Z11)) .OR. TC(3).GT.(AL+Z22))RETURN
 C
-C     CALL BSOL TO CALCULATE B-FIELD COMPONENTS BX,BY,BZ, 
+C     CALL BSOL TO CALCULATE B-FIELD COMPONENTS BX,BY,BZ,
 C     RETURNED IN COMMON BLOCK
 C
       CALL mitray_bsol

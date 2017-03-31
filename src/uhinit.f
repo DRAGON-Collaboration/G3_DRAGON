@@ -83,16 +83,16 @@ C.
 C.
       CALL hbook1(n+16,' Stop Length (cm) ',2000,0.0,2000.0,0.0)
       CALL hbook2(n+17, ' X vs Stop Length (cm) ',50,-20.,20.,
-     &            200,0.,2000.,0.) 
+     &            200,0.,2000.,0.)
 C.
       n = 20
 C.
       CALL hbook1( n+1,' True photon energy     ', 200, 0.,  20., 0.)
       CALL hbook1( n+2,' True photon pol. angle ', 200, 0., 200., 0.)
       CALL hbook1( n+3,' Photon conv. module   ',   29, 1.,  30., 0.)
-      CALL hbook2( n+4,' Photon creation time vs z_react', 
+      CALL hbook2( n+4,' Photon creation time vs z_react',
      &    600,0.,300., 300,-15.,15.,0.)
-      CALL hbook2( n+5,' Photon detection time vs z_react', 
+      CALL hbook2( n+5,' Photon detection time vs z_react',
      &    600,0.,300., 300,-15.,15.,0.)
 C.
       CALL hbook1(n+11,' No. of Modules hit  ',  10,  0., 10., 0.)
@@ -220,15 +220,15 @@ C.
       CALL hbook2( n+6,' True conversion zy fngr-coordinates '
      &               , 60, -15., 15., 80, -20., 20., 0.)
 C.
-      CALL hbook2(n+11,' Max loop =  1 ',29, 1., 30., 100, 0., 10., 0.)  
-      CALL hbook2(n+12,' Max loop =  2 ',29, 1., 30., 100, 0., 10., 0.)  
-      CALL hbook2(n+13,' Max loop =  3 ',29, 1., 30., 100, 0., 10., 0.)  
-      CALL hbook2(n+14,' Max loop =  4 ',29, 1., 30., 100, 0., 10., 0.)  
-      CALL hbook2(n+15,' Max loop =  5 ',29, 1., 30., 100, 0., 10., 0.)  
-      CALL hbook2(n+16,' Max loop =  6 ',29, 1., 30., 100, 0., 10., 0.)  
-      CALL hbook2(n+17,' Max loop =  7 ',29, 1., 30., 100, 0., 10., 0.)  
-      CALL hbook2(n+18,' Max loop =  8 ',29, 1., 30., 100, 0., 10., 0.)  
-      CALL hbook2(n+19,' Max loop =  9 ',29, 1., 30., 100, 0., 10., 0.)  
+      CALL hbook2(n+11,' Max loop =  1 ',29, 1., 30., 100, 0., 10., 0.)
+      CALL hbook2(n+12,' Max loop =  2 ',29, 1., 30., 100, 0., 10., 0.)
+      CALL hbook2(n+13,' Max loop =  3 ',29, 1., 30., 100, 0., 10., 0.)
+      CALL hbook2(n+14,' Max loop =  4 ',29, 1., 30., 100, 0., 10., 0.)
+      CALL hbook2(n+15,' Max loop =  5 ',29, 1., 30., 100, 0., 10., 0.)
+      CALL hbook2(n+16,' Max loop =  6 ',29, 1., 30., 100, 0., 10., 0.)
+      CALL hbook2(n+17,' Max loop =  7 ',29, 1., 30., 100, 0., 10., 0.)
+      CALL hbook2(n+18,' Max loop =  8 ',29, 1., 30., 100, 0., 10., 0.)
+      CALL hbook2(n+19,' Max loop =  9 ',29, 1., 30., 100, 0., 10., 0.)
       CALL hbook2(n+20,' Max loop = 10 ',29, 1., 30., 100, 0., 10., 0.)
 C.
       n = 200
@@ -275,7 +275,7 @@ c  MT adds histograms
 C      CALL hbook2(n+10, ' DSSSD Energy (MeV) vs. x-strip position ',
 C     &     16, -2.4, 2.4, 4000, 0.0, 20.0, 0.0)
 C      CALL hbook2(n+11, ' DSSSD x-strip position vs. Energy (MeV) ',
-C     &     4000, 0.0, 20.0, 16, -2.4, 2.4, 0.0) 
+C     &     4000, 0.0, 20.0, 16, -2.4, 2.4, 0.0)
 
 C.
 C.    Strip detector separate spectra
@@ -340,7 +340,7 @@ C.    # of BGO with second greatest energy vrs # of BGO with greatest
 C.    energy, in coincedence with recoil detection
       CALL hbook2(515, '# 2nd Energetic BGO vrs # 1st Energetic BGO, in
      +            coin.', 30, 1.0, 30.0, 30, 1.0, 30.0, 0.0)
-C    
+C
       CALL hbook1(516, 'Detected Energy (with P.H.D included)',4000,
      +     0.0,20.0,0.0)
 C
@@ -372,7 +372,7 @@ c     print*, ener, weight
       enddo
  99   continue
       close(10)
-      
+
 
 C.
 C.--> New ntuples 07.07.03

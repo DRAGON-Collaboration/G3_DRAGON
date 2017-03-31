@@ -25,7 +25,7 @@ C.    *    ==>Called by : <USER>, GUSWIM                               *
 C.    *       Authors    R.Brun, M.Hansroul  *********                 *
 C.    *                  V.Perevoztchikov (CUT STEP implementation)    *
 C.    *                                                                *
-C.    *      Upgrade for electric field.  Paul LeBrun Dec 1997	       *
+C.    *      Upgrade for electric field.  Paul LeBrun Dec 1997         *
 C.    *                                                                *
 C.    *                                                                *
 C.    ******************************************************************
@@ -101,7 +101,7 @@ C.
       PH     = PINV * H
       PH2    = HALF * PH
 C.
-C.	       Compute the acceleration after step H2 stage. 
+C.         Compute the acceleration after step H2 stage.
 C.
       ENORM = SQRT(E(1)**2 + E(2)**2 + E(3)**2)
       E1 = DSQRT(AMASS2 + P1 * P1)
@@ -109,13 +109,13 @@ C.
       IF (ENORM .GT. 0.D0) THEN
 C.
 C.	Acceleration of step of H2 will be ..
-C.         
+C.
          DO K = 1,3
             DPC(K,1) = CHARGE*E(K)*H2*E1/P1
             PK(K,1) = VOUT(3+K)*P1 + DPC(K,1)
          ENDDO
          PNEW(1) = DSQRT(PK(1,1)**2 + PK(2,1)**2 + PK(3,1)**2)
-         DPCN(1) = DSQRT(DPC(1,1)**2 + DPC(2,1)**2 + DPC(3,1)**2) 
+         DPCN(1) = DSQRT(DPC(1,1)**2 + DPC(2,1)**2 + DPC(3,1)**2)
          E2 = DSQRT(AMASS2 + PNEW(1) * PNEW(1))
          BETA = PNEW(1)/E2
          SECXS(1) = DPC(1,1)/P1
@@ -128,7 +128,7 @@ C.
          SECYS(1) = 0.D0
          SECZS(1) = 0.D0
       END IF
-C.  
+C.
       SECXS(1) = SECXS(1) + (B * F(3) - C * F(2)) * PH2
       SECYS(1) = SECYS(1) + (C * F(1) - A * F(3)) * PH2
       SECZS(1) = SECZS(1) + (A * F(2) - B * F(1)) * PH2
@@ -145,7 +145,7 @@ C.             Second intermediate point
 C.
       EST = ABS(DXT)+ABS(DYT)+ABS(DZT)
       IF (EST.GT.H) GO TO 30
-C.      
+C.
       DIST = DSQRT(DXT*DXT + DYT*DYT + DZT*DZT)
       TH2 = TOFG + DIST/(BETA*CLIGHT)
 C.
@@ -155,7 +155,7 @@ C.
       CALL GUEFLD(XYZT, TH2, F, E)
       ENORM = SQRT(E(1)**2 + E(2)**2 + E(3)**2)
 C.
-      IF (ENORM .GT. 0.D0) THEN 
+      IF (ENORM .GT. 0.D0) THEN
          DO K = 1,3
             DPC(K,2) = CHARGE * E(K) * H2 * E2/P2
             PK(K,2) = PK(K,1) + DPC(K,2)
@@ -180,7 +180,7 @@ C.
          SECYS(3) = 0.D0
          SECZS(3) = 0.D0
       END IF
-C.  
+C.
       AT     = A + SECXS(1)
       BT     = B + SECYS(1)
       CT     = C + SECZS(1)
@@ -213,7 +213,7 @@ C.
       CALL GUEFLD(XYZT, TH4, F, E)
       ENORM = SQRT(E(1)**2 + E(2)**2 + E(3)**2)
 C.
-      IF (ENORM .GT. 0.D0) THEN 
+      IF (ENORM .GT. 0.D0) THEN
          DO K = 1,3
             DPC(K,3) = CHARGE * E(K) * H2 * E1/P1
             PK(K,3) = VOUT(3+K)*P1 + 2.d0 * DPC(K,3)
@@ -228,7 +228,7 @@ C.
          SECXS(4) = 0.D0
          SECYS(4) = 0.D0
          SECZS(4) = 0.D0
-      END IF  
+      END IF
 C.
       Z      = Z + (C + (SECZS(1) + SECZS(2) + SECZS(3)) * THIRD) * H
       Y      = Y + (B + (SECYS(1) + SECYS(2) + SECYS(3)) * THIRD) * H
@@ -245,17 +245,17 @@ C.
      &+        ABS(SECYS(1)+SECYS(4) - (SECYS(2)+SECYS(3)))
      &+        ABS(SECZS(1)+SECZS(4) - (SECZS(2)+SECZS(3)))
 C.
-C.      Check also if the momentum kick did not changed too much. 
+C.      Check also if the momentum kick did not changed too much.
 C.      This type of accuracy might need to be adjusted depending on the
 C.      problem. Choose much lower tolerance if electric field involved.
 C.
-      IF (ENORM .GT. 1.D-6) THEN 
-         IF (EST.GT. 1.D-3 .AND. ABS(H).GT.1.D-4) GO TO 30 
+      IF (ENORM .GT. 1.D-6) THEN
+         IF (EST.GT. 1.D-3 .AND. ABS(H).GT.1.D-4) GO TO 30
          IF ((DPCN(3) - (DPCN(1) + DPCN(2)))/DPCN(3) .GT. 1.D-4) GOTO 30
       ELSE
          IF (EST.GT. DLT   .AND. ABS(H).GT.1.D-4) GO TO 30
       ENDIF
-C.    
+C.
       ITER = ITER + 1
       NCUT = 0
 *               If too many iterations, go to HELIX
@@ -290,13 +290,13 @@ C.               If too many cuts , go to HELIX
 C.
 C.              ANGLE TOO BIG, USE HELIX
 C.
-C.	Not supported if there is an electric field, the algorithm 
-C.	will fail... 
+C.	Not supported if there is an electric field, the algorithm
+C.	will fail...
 C.
    40 CONTINUE
 C.
-      IF (ENORM .GT. 0.D0) then 
-	   print *, ' Acceleration failure in grkuta '
+      IF (ENORM .GT. 0.D0) then
+       print *, ' Acceleration failure in grkuta '
       ENDIF
 C.
       F1  = F(1)
@@ -329,7 +329,7 @@ C.
          G4 = -COST
          G5 = SINT
          G6 = COST * HP
- 
+
          VOUT(IX) = VECT(IX) + (G1*VECT(IPX) + G2*HXP(1) + G3*F1)
          VOUT(IY) = VECT(IY) + (G1*VECT(IPY) + G2*HXP(2) + G3*F2)
          VOUT(IZ) = VECT(IZ) + (G1*VECT(IPZ) + G2*HXP(3) + G3*F3)

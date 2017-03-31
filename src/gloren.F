@@ -43,4 +43,3 @@ C.
       PB(3) = PA(3) + BPGAM  * BETA(3)
       PB(4) =(PA(4) - BETPA) * BETA(4)
       END
- 

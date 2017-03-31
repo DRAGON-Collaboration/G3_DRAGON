@@ -8,7 +8,7 @@ C                                                                    C
 CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
 C.
       IMPLICIT none
-      
+
 C.
       include 'gccuts.inc'          !geant
       include 'gcphys.inc'          !geant
@@ -228,11 +228,3 @@ C recoil_hit_ENDV = 1 <=> recoil did reach end detector
       RETURN
       END
 C.
-
-
-
-
-
-
-
-

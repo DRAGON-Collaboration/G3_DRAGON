@@ -1,4 +1,4 @@
-CDECK  ID>, GDOPT.  
+CDECK  ID>, GDOPT.
 *CMZ :  3.21/02 29/03/94  15.41.26  by  S.Giani
 *-- Author :
       SUBROUTINE GDOPT(IOPTC,IVALC)
@@ -207,7 +207,7 @@ C
      +       ' OFF. If it is done, good luck !!!')
 *SG
       END
-CDECK  ID>, GMEDI2. 
+CDECK  ID>, GMEDI2.
 *CMZ :  3.21/02 29/03/94  15.41.31  by  S.Giani
 *-- Author :
       SUBROUTINE GMEDIA (X, NUMED)
@@ -541,7 +541,7 @@ C*****  End of Code Expanded From Routine:  GTRNSF
 *                                                             END GMEDIA
   999 IF(JGSTAT.NE.0) CALL GFSTAT(2)
       END
-CDECK  ID>, GNEX2.  
+CDECK  ID>, GNEX2.
 *CMZ :  3.21/02 29/03/94  15.41.31  by  S.Giani
 *-- Author :
       SUBROUTINE GNEXT (X, SNEXT, SAFETY)
@@ -1254,7 +1254,7 @@ C.    ------------------------------------------------------------------
 *                                                              END GNEXT
   999 END
 
-CDECK  ID>, GGCLO2. 
+CDECK  ID>, GGCLO2.
 *CMZ :  3.21/02 29/03/94  15.41.19  by  S.Giani
 *-- Author :
       SUBROUTINE GGCLOS
@@ -1490,7 +1490,7 @@ C.
 *                                                             END GGCLOS
   999 END
 
-CDECK  ID>, GTMED2. 
+CDECK  ID>, GTMED2.
 *CMZ :  3.21/02 29/03/94  15.41.24  by  S.Giani
 *-- Author :
       SUBROUTINE GTMEDI (X, NUMED)
@@ -1947,7 +1947,7 @@ C*****  End of Code Expanded From Routine:  GTRNSF
 *                                                             END GTMEDI
   999 IF(JGSTAT.NE.0) CALL GFSTAT(4)
       END
-CDECK  ID>, GINVO2. 
+CDECK  ID>, GINVO2.
 *CMZ :  3.21/02 29/03/94  15.41.24  by  S.Giani
 *-- Author :
       SUBROUTINE GINVOL (X, ISAME)
@@ -2370,7 +2370,7 @@ C*****  End of Code Expanded From Routine:  GTRNSF
 *                                                             END GINVOL
   999 IF(JGSTAT.NE.0) CALL GFSTAT(ISAME)
       END
-CDECK  ID>, GTNEX2. 
+CDECK  ID>, GTNEX2.
 *CMZ :  3.21/02 29/03/94  15.41.24  by  S.Giani
 *-- Author :
       SUBROUTINE GTNEXT
@@ -3203,7 +3203,7 @@ CCC
       IF(JGSTAT.NE.0) CALL GFSTAT(3)
 *                                                             END GTNEXT
       END
-CDECK  ID>, GGDSPE. 
+CDECK  ID>, GGDSPE.
 *CMZ :  3.21/02 29/03/94  15.41.28  by  S.Giani
 *-- Author :
       SUBROUTINE GGDSPE (JVO, NPAR, PAR, NL, NDIV, ORIG, STEP)
@@ -3467,7 +3467,7 @@ C.    ------------------------------------------------------------------
 *                                                             END GGDSPE
   999 END
 *
-CDECK  ID>, GSDVN.  
+CDECK  ID>, GSDVN.
 *CMZ :  3.21/02 29/03/94  15.41.30  by  S.Giani
 *-- Author :
       SUBROUTINE GSDVN(KNAME,MOTHER,NDIV,IAXIS)
@@ -3965,7 +3965,7 @@ C
  8101 FORMAT(' ISH =',I5,' IAXIS =',I5,' NZ (THE',I3,'TH PAR) IS',I5)
  8102 FORMAT(' DIVISION OF A SPHERE ALONG AXIS 2 NOT SUPPORTED')
       END
-CDECK  ID>, GPGHEI. 
+CDECK  ID>, GPGHEI.
 *CMZ :  3.21/02 29/03/94  15.41.37  by  S.Giani
 *-- Author :
       SUBROUTINE GPGHEI
@@ -4139,7 +4139,7 @@ C
 C
  9999 CONTINUE
       END
-CDECK  ID>, GHEISH. 
+CDECK  ID>, GHEISH.
 *CMZ :  3.21/02 29/03/94  15.41.38  by  S.Giani
 *-- Author :
       SUBROUTINE GHEISH
@@ -5159,9 +5159,9 @@ C
 C --- LIMIT THE VALUE OF NGKINE IN CASE OF OVERFLOW ---
       NGKINE=MIN(NGKINE,MXGKIN)
       END
-CDECK  ID>, FLUFIN. 
+CDECK  ID>, FLUFIN.
 
-CDECK  ID>, GSKING. 
+CDECK  ID>, GSKING.
 *CMZ :  3.21/02 29/03/94  15.41.23  by  S.Giani
 *-- Author :
       SUBROUTINE GSKING (IGK)
@@ -5322,7 +5322,7 @@ C+SELF.
    40 CONTINUE
 *                                                             END GSKING
   999 END
-CDECK  ID>, GSSTAK. 
+CDECK  ID>, GSSTAK.
 *CMZ :  3.21/02 29/03/94  15.41.23  by  S.Giani
 *-- Author :
       SUBROUTINE GSSTAK (IFLAG)
@@ -5483,7 +5483,7 @@ C.    ------------------------------------------------------------------
       NALIVE = NALIVE +1
 *                                                             END GSSTAK
   999 END
-CDECK  ID>, GTHADR. 
+CDECK  ID>, GTHADR.
 *CMZ :  3.21/02 03/07/94  17.57.24  by  S.Giani
 *-- Author :
       SUBROUTINE GTHADR
@@ -6072,7 +6072,7 @@ C      ENDIF
         GETOT = SQRT(VOUT(7)**2+AMASS*AMASS)
         GEKIN = GETOT - AMASS
         CALL GEKBIN
-      ENDIF 
+      ENDIF
 *
       GO TO 110
 *
@@ -6162,7 +6162,7 @@ c----put position as well
          ENDIF
       ENDIF
       END
-CDECK  ID>, GTMUON. 
+CDECK  ID>, GTMUON.
 *CMZ :  3.21/02 29/03/94  15.41.24  by  S.Giani
 *-- Author :
       SUBROUTINE GTMUON
@@ -6775,7 +6775,7 @@ c----put position as well
          ENDIF
       ENDIF
       END
-CDECK  ID>, GTNEUT. 
+CDECK  ID>, GTNEUT.
 *CMZ :  3.21/02 29/03/94  15.41.24  by  S.Giani
 *-- Author :
       SUBROUTINE GTNEUT
@@ -7071,7 +7071,7 @@ C.    ------------------------------------------------------------------
       ENDIF
 *                                                             END GTNEUT
   999 END
-CDECK  ID>, GTREVE. 
+CDECK  ID>, GTREVE.
 *CMZ :  3.21/03 07/10/94  18.07.13  by  S.Giani
 *-- Author :
       SUBROUTINE GTREVE
@@ -7265,7 +7265,7 @@ C+SELF.
 *                                                             END GTREVE
   999 END
 *
-CDECK  ID>, GFINDS. 
+CDECK  ID>, GFINDS.
 *CMZ :  3.21/02 06/07/94  18.26.03  by  S.Giani
 *-- Author :
       SUBROUTINE GFINDS
@@ -7387,7 +7387,7 @@ C.
 C
    99 END
 C
-CDECK  ID>, GTELEC. 
+CDECK  ID>, GTELEC.
 *CMZ :  3.21/04 22/02/95  16.08.31  by  S.Giani
 *-- Author :
       SUBROUTINE GTELEC
@@ -8120,7 +8120,7 @@ c----put position as well
          ENDIF
       ENDIF
       END
-CDECK  ID>, GTGAMA. 
+CDECK  ID>, GTGAMA.
 *CMZ :          06/03/96  10.38.21  by  L. Felawka
 *         Bug fix - return BIG instead of 1/BIG when cross section is zero
 *CMZ :  1.00/00 16/11/94  09.29.32  by  L. Felawka
@@ -8365,7 +8365,7 @@ C.    ------------------------------------------------------------------
          ELSE
             STEPPF = GEKRT1*Q(JPFIS+IEKBIN) +GEKRAT*Q(JPFIS+IEKBIN+1)
          ENDIF
-         SPFIS  = STEPPF*ZINTPF 
+         SPFIS  = STEPPF*ZINTPF
          IF (SPFIS.LT.STEP) THEN
             STEP  = SPFIS
             IPROC = 23
@@ -8481,7 +8481,7 @@ C.    ------------------------------------------------------------------
 *        IABAN > 0  can stop particles above the CUTE
 *
        IF(IABAN.GT.0) THEN
-* 
+*
 *        STOP gamma IF estimated_range(photoelectron) < safety
 *
 *
@@ -8974,22 +8974,22 @@ C
 *
 * *** Compute energy dependent effective charge for heavy ions
 *
-		 TETOT = TKIN(IKB) +AMASS
-	         TAMASS=TETOT+AMASS
-	         BET2=TKIN(IKB)*TAMASS/(TETOT*TETOT)
-	         BET=SQRT(BET2)
-	         W1=1.034-0.1777*EXP(-0.08114*CHARGE)
-	         W2=BET*CHAR23
-	         W3=121.4139*W2+0.0378*SIN(190.7165*W2)
-	         CHARG1=CHARGE*(1.-W1*EXP(-W3))
+         TETOT = TKIN(IKB) +AMASS
+             TAMASS=TETOT+AMASS
+             BET2=TKIN(IKB)*TAMASS/(TETOT*TETOT)
+             BET=SQRT(BET2)
+             W1=1.034-0.1777*EXP(-0.08114*CHARGE)
+             W2=BET*CHAR23
+             W3=121.4139*W2+0.0378*SIN(190.7165*W2)
+             CHARG1=CHARGE*(1.-W1*EXP(-W3))
 *
 *              the effective charge  CHARG1
 *            can be negative only for very low energy and
 *     for CHARGE > 20 ( very low energy : T/A < 20 keV/nucleon)
 *              in this case short circuit
 *
-	         IF(CHARG1.LT.0.) GOTO 999
-	         CHARG2=CHARG1**2
+             IF(CHARG1.LT.0.) GOTO 999
+             CHARG2=CHARG1**2
 *
               ENDIF ! HEAVY ION
               VALUE(IKB) = VALUE(IKB)*CHARG2*1.E+3
@@ -9156,7 +9156,7 @@ C
 10100 FORMAT(' ***** GFTMAT error : material',I4,
      +       '  or particle',I4,' not defined'   )
   999 END
-CDECK  ID>, GPHYSI. 
+CDECK  ID>, GPHYSI.
 *CMZ :  1.00/00 19/11/94  12.22.49  by  L. Felawka
 *CMZ :  3.21/03 06/10/94  16.31.40  by  S.Ravndal
 *-- Author :
@@ -9995,17 +9995,17 @@ C.
       REAL sign14r, tkin, a, dens
 C.
 C.    Cross sections in 1/cm, Energyis in GeV - Breit-Wigner shape assumed
-C. 
+C.
 C.      REAL        rxsn14
 C.      PARAMETER  (rxsn14 = 2582.0)	! N-14 res. abs. X-Sect in mb.
 C.
-      REAL 	  rxsn14
+      REAL    rxsn14
       PARAMETER  (rxsn14 = 0.11098)	! N-14 res. abs. X-Sect in cm**2/gm
 C.
-      REAL	  E0
+      REAL    E0
       PARAMETER  (E0 = 9.1760)		! Resonant energy [MeV]
 C.
-      REAL	  rabs_width
+      REAL    rabs_width
       PARAMETER  (rabs_width = 130)	! resonant absorption width [eV]
 C.
       sign14r = 1.0 / (1.0 + ((tkin-(0.001*E0))/(0.5E-9*rabs_width))**2)
@@ -10013,7 +10013,7 @@ C.
 C.
       RETURN
       END
-CDECK  ID>, GTRACK. 
+CDECK  ID>, GTRACK.
 *CMZ :  3.21/02 29/03/94  15.41.24  by  S.Giani
 *-- Author :
       SUBROUTINE GTRACK
@@ -10467,7 +10467,7 @@ C     +             I5,1X,5A4,1X,'Time of flight ',F10.3,' ns')
       NLEVEL = NLCUR
 *                                                             END GTRACK
   999 END
-CDECK  ID>, GTCKOV. 
+CDECK  ID>, GTCKOV.
 *CMZ :  3.21/04 13/12/94  15.17.13  by  S.Giani
 *-- Author :
       SUBROUTINE GTCKOV
@@ -11261,7 +11261,7 @@ C                     CALL GMAIL(0,0)
 10300  FORMAT(' **** GTCKOV: unable to reflect at NTMULT = ',
      +        I8,' step No. ',I8,' photon abandoned!')
       END
-CDECK  ID>, GMULOF. 
+CDECK  ID>, GMULOF.
 *CMZ :  3.21/02 29/03/94  15.41.22  by  S.Giani
 *-- Author :
       SUBROUTINE GMULOF
@@ -11606,7 +11606,7 @@ C
    40 CONTINUE
 *
       END
-CDECK  ID>, GSKPHO. 
+CDECK  ID>, GSKPHO.
 *CMZ :  3.21/02 03/07/94  19.07.28  by  S.Giani
 *-- Author :
       SUBROUTINE GSKPHO (IGK)
@@ -11790,7 +11790,7 @@ C.
    20 CONTINUE
 *                                                             END GSKPHO
   999 END
-CDECK  ID>, GLTRAC. 
+CDECK  ID>, GLTRAC.
 *CMZ :  3.21/04 13/12/94  15.36.22  by  S.Giani
 *-- Author :
       SUBROUTINE GLTRAC

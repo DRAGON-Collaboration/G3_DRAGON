@@ -82,7 +82,7 @@ C.
          len1 = 7.6
          riren1 = 0.4
          rilen1 = 0.5
-c     
+c
          len2 = 8.7
          riren2 = 0.495
          rilen2 = 0.59

@@ -8,7 +8,7 @@ C                                                                    C
 CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
 C.
       IMPLICIT none
-      
+
 C.
       include 'gccuts.inc'          !geant
       include 'gcphys.inc'          !geant
@@ -151,11 +151,3 @@ C   the end detector.
       RETURN
       END
 C.
-
-
-
-
-
-
-
-

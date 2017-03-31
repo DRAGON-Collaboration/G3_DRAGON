@@ -19,7 +19,7 @@
 
 # define E787 suffix list
 
-.SUFFIXES: .F .cdf .f .c .o 
+.SUFFIXES: .F .cdf .f .c .o
 
 # define targets
 

@@ -60,7 +60,7 @@ C.
       INTEGER i, j, k, n, itrig
       INTEGER nset, iset, js, ndet, idet, jd, nv, nh
 C.
-      INTEGER nvdim, nhdim, nhmax 
+      INTEGER nvdim, nhdim, nhmax
 C.
       PARAMETER (nvdim = 1)
 C.
@@ -80,7 +80,7 @@ C.
 
       REAL rndm(2)
 C.
-C *** nelem:    	Number of all 'struck' scintillators
+C *** nelem:        Number of all 'struck' scintillators
 C *** melem:            Number of 'struck' modules of detector
 C *** jelem:            Volume # of 'struck' modules
 C.
@@ -102,12 +102,12 @@ C.
 C JS adds e_bgos_deposit to record energy deposited in each BGO,
 C   one position in array per BGO
       REAL e_bgos_deposit(30,2)
-     
+
 C.
       If(jhits.le.0)RETURN                    !
 C.                                            !
       nset = iq(jset-1)                       ! This tests ZEBRA pointer
-      CALL glook('SCNT',iq(jset+1),nset,iset) ! that hits are initialized.  
+      CALL glook('SCNT',iq(jset+1),nset,iset) ! that hits are initialized.
       If(iset.le.0)goto 999                   !
 C.                                            ! iset is set no. of DIGI
       js = lq(jset-iset)                      !
@@ -125,11 +125,11 @@ C.
 C.
       E_energy = 0.0
 C.
-C     Threshold: testing of threshold effect (initialised in uvinit.f or 
+C     Threshold: testing of threshold effect (initialised in uvinit.f or
 C     dragon_2003.ffcards).
       CALL rnorml(rndvec,1)
       thresh = E_threshold*(1. + rndvec(1)*0.05)
-      
+
 C.
       Do 100 idet = 1, ndet
 C.
@@ -138,7 +138,7 @@ C.
 C.
          jd = lq(js-idet)            ! More Zerbra Integrity tests
 C.
-         nv = iq(jd+2)                   
+         nv = iq(jd+2)
          nh = iq(jd+4)
          If(nv.ne.nvdim)goto 999
          If(nh.ne.nhdim)goto 999     !
@@ -157,21 +157,21 @@ C.
 C.
          Do 10 j = 1, nhits
 C.
-            
+
             Do k = 1, melem
                If(numbv(1,j).eq.jelem(1,k))then
                     coord(1,k)=coord(1,k)+hits(5,j)*hits(1,j) !summing hits of
                     coord(2,k)=coord(2,k)+hits(5,j)*hits(2,j) !same module.
                     coord(3,k)=coord(3,k)+hits(5,j)*hits(3,j)
                     fcoord(1,k)=hits(1,j) !AO real finger coords
-                    fcoord(2,k)=hits(2,j) 
+                    fcoord(2,k)=hits(2,j)
                     fcoord(3,k)=hits(3,j)
-                    
+
                     time(k) = min(time(k),hits(4,j))
                     energy(k) = energy(k) + hits(5,j)
                     call rnorml(rndvec,1)
-C     gaussian distributed resolution dependent on energy: 
-C     Resolution based on linear fit to values of 14% for 661 keV and 
+C     gaussian distributed resolution dependent on energy:
+C     Resolution based on linear fit to values of 14% for 661 keV and
 C     4% for 10 MeV.(Temporary until I find the real resolution function).
                     resn = 0.14 - 0.001*energy(k)
                     energy(k) = energy(k)*(1.0 + rndvec(1)*resn)
@@ -190,7 +190,7 @@ C.
             coord(2,melem) = hits(5,j)*hits(2,j)
             coord(3,melem) = hits(5,j)*hits(3,j)
             fcoord(1,melem)=hits(1,j) !AO real finger coords
-            fcoord(2,melem)=hits(2,j) 
+            fcoord(2,melem)=hits(2,j)
             fcoord(3,melem)=hits(3,j)
             time(melem) = hits(4,j)
             energy(melem) = hits(5,j)
@@ -198,7 +198,7 @@ C.
    10    Continue
 C.
   100 Continue
-C.--> Sorts 'energy' vector in terms of decreasing energy (so that 
+C.--> Sorts 'energy' vector in terms of decreasing energy (so that
 C.--> 'energy(isort(1))' is highest E.
       If(melem.eq.0)RETURN
 C.
@@ -224,10 +224,10 @@ C.
 C.
       Enddo
 C.
-      x_max = coord(1,isort(1))    !energy weighted coords of the 
+      x_max = coord(1,isort(1))    !energy weighted coords of the
       y_max = coord(2,isort(1))    !highest energy module
       z_max = coord(3,isort(1))
-C. 
+C.
 C.--> Extract time variable of highest E gamma hit
       gammatof = time(isort(1))
 C.      print*, 'TOF Gamma = ', gammatof
@@ -248,7 +248,7 @@ C.
       If(iswit(4).eq.1)then
         write(lunits(3),*)melem_gbox
         Do k = 1, melem_gbox                                !store ordered by
-           write(lunits(3),*)jelem_gbox(1,k),energy_gbox(k) !energy  
+           write(lunits(3),*)jelem_gbox(1,k),energy_gbox(k) !energy
         Enddo
       Elseif(iswit(4).eq.2)then
         Call hfnt(999)
@@ -267,10 +267,10 @@ C.
 C.
       CALL hfill( 31,1.*melem+0.5,0.0,1.0)
       CALL rnorml(rndvec,1)
-      
+
 C     Total energy.
       CALL hfill( 32,e_detect,0.0,1.0)
-     
+
 C.
       Do i = 1, Nn
          E_energy = 0.0
@@ -305,16 +305,16 @@ C.
             Do k = 1, melem
                If(jelem(1,k) .eq. jhit(j,iclu))then
                  etmp(iclu) = etmp(iclu) + energy(k)
-                 xclu(iclu) = xclu(iclu) + 
+                 xclu(iclu) = xclu(iclu) +
      &                                  x_fngr(jhit(j,iclu)) * energy(k)
                  yclu(iclu) = yclu(iclu) +
      &                                  y_fngr(jhit(j,iclu)) * energy(k)
                  zclu(iclu) = zclu(iclu) +
      &                                  z_fngr(jhit(j,iclu)) * energy(k)
                 !x_fngr,etc, are positions of crystals in mother space
-       
+
                Endif
-            Enddo 
+            Enddo
          Enddo
       Enddo
       n = nclu
@@ -358,7 +358,7 @@ C     then store the energy from that hit, hits(5,i), in the array, at the
 C     index position of the hit BGO
       Do i = 1, nhits
          e_bgos_deposit(numbv(1,i),1) = numbv(1,i)
-         e_bgos_deposit(numbv(1,i),2) = e_bgos_deposit(numbv(1,i),2)+ 
+         e_bgos_deposit(numbv(1,i),2) = e_bgos_deposit(numbv(1,i),2)+
      &                                                         hits(5,i)
       Enddo
 C     Sort the array with insertion sort, bringing most energetic BGO to
@@ -510,7 +510,7 @@ C.
 C.
       INTEGER nset, iset, js, ndet, idet, jd, nv, nh
 C.
-      INTEGER nvdim, nhdim, nhmax 
+      INTEGER nvdim, nhdim, nhmax
 C.
       PARAMETER (nvdim = 1)
 C.
@@ -528,7 +528,7 @@ C.
       INTEGER mhit
       PARAMETER ( mhit = 20 )
 C.
-C *** nelem:    	Number of all 'struck' PMTs
+C *** nelem:        Number of all 'struck' PMTs
 C *** jelem:            Volume # of 'struck' PMT
 C.
       INTEGER nelem
@@ -620,7 +620,7 @@ C.
 C.
          edetect   = edetect + max((energy(k)-pmt_thrshld),0.)
 C.
-         x_mean = x_mean + 
+         x_mean = x_mean +
      &            (coord(1,k)/energy(k))*max((energy(k)-pmt_thrshld),0.)
          y_mean = y_mean +
      &            (coord(2,k)/energy(k))*max((energy(k)-pmt_thrshld),0.)
@@ -730,7 +730,7 @@ C.    indx_stack(istack): Index of stack member
 C.
 C.                        index = ilevel for stack member with 'hit'
 C.                        index = index(iseed) - 1 for member without 'hit'
-C. 
+C.
 C.    nhit(nclu):         Number of neighbours in cluster's hit list
 C.    jhit(ihit,nclu):    Volume # of entry on hit list
 C.
@@ -781,13 +781,13 @@ C.
 C.
          nstack = 0
          index  = ilevel
-C. 
+C.
          nhit(nclu) = 1
          jhit(nhit(nclu),nclu) = iseed
 C.
   100    Continue
 C.
-C. Loop over all nearest neighbours 
+C. Loop over all nearest neighbours
 C.                       (Note: n_fngr(1,iseed) is iseed module itself)
 C.
          Do 10 j = 1, nbr(iseed)
@@ -804,14 +804,14 @@ C. Loop over all members already on the stack
 C.
             Do l = 1, nstack
                If(jnbr.eq.jstack(l))goto 10
-            Enddo 
+            Enddo
 C.
 C.     If the neighour is not already on the hit list or on the stack:
 C.
 C.  ** Put it on the hit list AND on the stack      if it has a  'hit' **
 C.  ** Put it                     on the stack ONLY if it has no 'hit' **
 C.  ** Put it                     on the stack ONLY if seed-index > 0  **
-C. 
+C.
             Do ii = 1, nelem
 C.
               If(jnbr.eq.jelem(ii))then
@@ -849,7 +849,7 @@ C.
 C.
  1000 Continue
 C.
-      RETURN 
+      RETURN
 C.
   999 Continue
 C.
@@ -858,6 +858,6 @@ C.
       Write(lout,*)' Number of elements in cluster (<=10) ',nhit(nclu)
       Write(lout,*)' Size of search stack (<=30)          ',nstack
 C.
-      RETURN 
+      RETURN
       END
 C.

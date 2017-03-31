@@ -28,11 +28,11 @@ C.    ******************************************************************
 C.
       include 'gcbank.inc'
       include 'gctrak.inc'
-	include 'gconsp.inc'
+    include 'gconsp.inc'
       include 'gcking.inc'
-	include 'gckine.inc'
-	include 'gcunit.inc'
-	include 'gcphys.inc'
+    include 'gckine.inc'
+    include 'gcunit.inc'
+    include 'gcphys.inc'
       include 'history.inc'
       include 'rescom.inc'
       DIMENSION BAREA(7)
@@ -51,7 +51,7 @@ C.    ------------------------------------------------------------------
 C.
 C             Search for parent particle in decay list.
 C
-C      
+C
       KCASE   = NAMEC(5)
       NGKINE  = 0
       IF(IDCAY.EQ.2) THEN
@@ -153,7 +153,7 @@ C             LORENTZ boost into LAB system defined along parent vector
 C             followed by rotation back into GEANT system.
 C
       P0       = VECT(7)
-      E0       = SQRT(P0*P0+DMASS*DMASS) 
+      E0       = SQRT(P0*P0+DMASS*DMASS)
       BETA(1)  = 0.
       BETA(2)  = 0.
       BETA(3)  = -P0/E0
@@ -191,8 +191,8 @@ C
 C     GKIN(1,K),GKIN(2,K( and GKIN(3,K) are the lab momentum vector
 C     x,y and z components of the recoil when NTYPE(K)=IRECOIL.
 C     GKIN(3,K)/PTOT gives the unit vector of momentum in the lab
-C     (dimensionless) which is equivalent to the unit direction 
-C     z-vector in the lab. Thus ACOS(GKIN(3,K)/PTOT) is equal to 
+C     (dimensionless) which is equivalent to the unit direction
+C     z-vector in the lab. Thus ACOS(GKIN(3,K)/PTOT) is equal to
 C     the recoil lab angle in radians.
 
 
@@ -202,14 +202,10 @@ C
 C             No branching ratio defined. Call user routine
 C
 
-  90  CALL GUDCAY  
-      
+  90  CALL GUDCAY
+
 C
   99  RETURN
  1000 FORMAT(' ***** GDECAY ERROR : Not enough energy available for ',
      +       'decay of resonance',I3,' to',3I3,'; no decay.')
       END
-
-
-
-
