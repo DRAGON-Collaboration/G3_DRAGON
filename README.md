@@ -61,17 +61,17 @@ Submit the output root file to the DRAGON elog 'BGO Efficiency' in dragon@isdaq0
 The file containing the thresholds, 'thresholds.root', is already in that directory, all you have to do is run the efficiency.C macro by 
 typing:
 ```
-> root 26alpg_368keV.root
+root 26alpg_368keV.root
 ```
 
 to start a ROOT session, then:
 ```
-> root> .L efficiency.C
+root> .L efficiency.C
 ```
 
 to load the Macro, then:
 ```
-> root> efficiency("23napg_646keV.root")
+root> efficiency("23napg_646keV.root")
 ```
 
 You will be prompted to enter a number from 1 to 4 to choose which thresholds were used. Once this has been entered, the macro will spit 
