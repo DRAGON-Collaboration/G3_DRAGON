@@ -35,7 +35,7 @@ the levels that actually have cascades from the resonance of interest, to minimi
 the file geant/src/angdist to see that the angular distribution is set to either 1 (isotropic) or a function (like the quadrupole one 
 listed). Change to what you want and then (if necessary) recompile by typing
 ```
-> make
+> make dsbatch && dsinter
 ```
 
 Edit 'dsinit.sh' so that it lists the correct input file (i.e. - INPUT="$DSROOT/26alpg.dat"). Type 

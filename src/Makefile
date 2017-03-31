@@ -7,7 +7,7 @@
 #  usage examples:                                                 #
 #                                                                  #
 #  % make                                                          #
-#  % make dsbatch                                                    #
+#  % make dsbatch                                                   #
 #------------------------------------------------------------------#
 # 09-feb-1998 Renee - Fix the make file : add IFLAGS, add rules    #
 # 10-feb-1998 Renee - adapt for Linux                              #
@@ -16,7 +16,7 @@
 # (Say "make OUTPUT=progname", for example.)
 #
 DSROOT = .
-DSBIN  = ../bin
+BINDIR = ../bin
 DSSRC  = ./src
 #
 # KJR - comment out hard-coded paths
@@ -38,7 +38,8 @@ GINCLUDE = /usr/include/cernlib/2006
 #IFLAGS= -I../inc -I$(GINCLUDE) -I$(HINCLUDE)
 IFLAGS = -I../inc -I$(GINCLUDE)
 
-OUTPUT = $(DSBIN)/dsbatch
+BATCH = $(BINDIR)/dsbatch
+INTER = $(BINDIR)/dsinter
 #------------------------------linux needs ------------------------------#
 # KJR : Use cernlib to automatically generate cernlib switches
 
@@ -65,13 +66,13 @@ OBJECTS =
 
 #------------------------------------------------------------------#
 # add your object files and personal libraries to the end of this list
-
-OBJS_BATCH = \
-	gumain.o
-
-OBJS_INTER = \
-	gxint321.o
-
+# SRCEXT     := f
+# SRCS       := $(shell find $(DSROOT) -type f -name *.$(SRCEXT))
+# OBJS       := $(SRCS:.$(SRCEXT)=.o)
+# OBJS       := $(filter-out $(OBJS_BATCH),$(OBJS))
+# OBJS       := $(filter-out $(OBJS_INTER),$(OBJS))
+OBJS_BATCH := gumain.o
+OBJS_INTER := gxint321.o
 OBJS = \
 	beaminit.o \
 	ghidet.o \
@@ -140,6 +141,7 @@ OBJS = \
 	interac.o \
 	hack.o \
 	hrndm1.o
+
 #	alphapos.o
 #
 #------------------------------------------------------------------#
@@ -175,9 +177,9 @@ GLIBS = $(shell cernlib-g77 geant321 pawlib graflib grafX11 mathlib kernlib pack
 
 # for linux
 dsbatch : $(OBJS_BATCH) $(OBJS) $(OBJECTS)
-#	g77 -O2 -o $(OUTPUT) $(LIBDIRS) $(OBJS_BATCH) $(OBJS) $(LIBS) $(GLIBS) \
+#	g77 -O2 -o $(BATCH) $(LIBDIRS) $(OBJS_BATCH) $(OBJS) $(LIBS) $(GLIBS) \
 #		-lcrypt -ldl -lXp -lXext -lXt -lX11
-	g77 -m32 -O2 -o $(OUTPUT) $(OBJS_BATCH) $(OBJS) $(GLIBS) \
+	g77 -m32 -O2 -o $(BATCH) $(OBJS_BATCH) $(OBJS) $(GLIBS) \
 		-lXp -lXext
 
 #------------------------------------------------------------------#
@@ -187,18 +189,20 @@ dsbatch : $(OBJS_BATCH) $(OBJS) $(OBJECTS)
 # Nothing to do with Xsetlocale, which is unnecessary now, or library order.
 # Funny it works on twist which also uses openmotif but not ibm.make
 dsinter : $(OBJS_INTER) $(OBJS) $(OBJECTS)
-#	g77 -O2 -g -o $(DSBIN)/dsinter $(LIBDIRS) $(OBJS_INTER) $(OBJS) $(GLIBS) \
+#	g77 -O2 -g -o $(INTER) $(LIBDIRS) $(OBJS_INTER) $(OBJS) $(GLIBS) \
 #		-lcrypt -ldl -lXp -lXext -lXt -lX11
-	g77 -m32 -O2 -g -o $(DSBIN)/dsinter $(OBJS_INTER) $(OBJS) $(GLIBS) \
+	g77 -m32 -O2 -g -o $(INTER) $(OBJS_INTER) $(OBJS) $(GLIBS) \
 		-lXp -lXext -lXt -lX11
 
-#	g77  -o $(DSBIN)/dsinter $(LIBDIRS) $(OBJS_INTER) $(OBJS) $(GLIBS) -lcrypt -lXm -lXt -lX11
+#	g77  -o $(INTER) $(LIBDIRS) $(OBJS_INTER) $(OBJS) $(GLIBS) -lcrypt -lXm -lXt -lX11
 
 
 #------------------------------------------------------------------#
 # standard rules and definitions just as found in
 # include $(TRIUMF_ROOT)/make.std
 #------------------------------------------------------------------#
+# define rules
+include $(DSROOT)/make.std
 
 # clear default suffix list
 
@@ -206,11 +210,8 @@ dsinter : $(OBJS_INTER) $(OBJS) $(OBJECTS)
 
 # define targets
 
-library : $(OBJS)
+library: $(OBJS)
 	ar ts $(LIB)
 
-clean :
-	rm -f $(OUTPUT) $(LIB) *.o
-
-# define rules
-include $(DSROOT)/make.std
+clean:
+	rm -f $(OBJS) $(BATCH) $(INTER) $(LIB)
