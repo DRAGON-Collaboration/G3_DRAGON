@@ -15,9 +15,10 @@
 # this can be changed here, or defined on the command line.
 # (Say "make OUTPUT=progname", for example.)
 #
-DSROOT=.
-DSBIN=../bin
-
+DSROOT = .
+DSBIN  = ../bin
+DSSRC  = ./src
+#
 # KJR - comment out hard-coded paths
 #CERN_LIBRARY= /usr/lib64/cernlib/2006-g77/lib
 #X11= /usr/lib64
@@ -35,16 +36,15 @@ GINCLUDE = /usr/include/cernlib/2006
 
 # KJR - remove HINCLUDE
 #IFLAGS= -I../inc -I$(GINCLUDE) -I$(HINCLUDE)
-IFLAGS= -I../inc -I$(GINCLUDE)
+IFLAGS = -I../inc -I$(GINCLUDE)
 
-
-OUTPUT= $(DSBIN)/dsbatch $(DSBIN)/dsinter
+OUTPUT = $(DSBIN)/dsbatch
 #------------------------------linux needs ------------------------------#
 # KJR : Use cernlib to automatically generate cernlib switches
 
 #F77= g77 -m64 -g -Dg77 -Dunix -fno-second-underscore -fno-automatic -static -c -lcernlib -lpacklib
 
-F77 = g77
+F77    = g77
 FFLAGS = -m32 -g -Dg77 -Dunix -fno-second-underscore -fno-automatic -c
 CFLAGS = -m32
 
@@ -53,7 +53,7 @@ CFLAGS = -m32
 # this is defined so that you can specify extra object files
 # on the command line.  (Say "make OBJECTS=file.o", for example.)
 
-OBJECTS=
+OBJECTS =
 
 #------------------------------------------------------------------#
 # if you have your own version of a standard library, add its

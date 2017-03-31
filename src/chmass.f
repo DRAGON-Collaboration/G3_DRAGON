@@ -6,11 +6,11 @@ C----67----
       INTEGER JPA
       include 'gcbank.inc'     !geant
       include 'gckine.inc'     !geant
-  
+
 C
 C--   pointer to JPART bank, resonant particle (81)
 C
-      JPA = LQ(JPART-81)      
+      JPA = LQ(JPART-81)
 C
 C
 C--   corrupt ZEBRA bank

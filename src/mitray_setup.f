@@ -3,8 +3,8 @@ C
 C
 CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
 C                                                                      C
-C	This subroutine reads the input file for MIT-RAYTRACE          C
-C	and sets up the array of parameters specifying the beam        C
+C	This subroutine reads the input file for MIT-RAYTRACE              C
+C	and sets up the array of parameters specifying the beam            C
 C       transport system.                                              C
 C                                                                      C
 C       It was adapted from the Aug 1989 version of MIT-RAYTRACE by    C
@@ -24,7 +24,7 @@ C
 
 C
       LOGICAL fexist
-    
+
 C
       include 'gcunit.inc'              !geant
 C
@@ -36,7 +36,7 @@ C
          Do j = 1, nmax
             data(i,j) = 0.D0
          Enddo
-      Enddo 
+      Enddo
 C
 C *** Now open the file containing the specification
 C *** of all the beam transport elements
@@ -51,7 +51,7 @@ C Output data file for ascii data, EOC
       open(21,status='unknown',file='chargeslit.dat')
       open(23,status='unknown',file='massslit.dat')
       open(24,status='unknown',file='finalslit.dat')
-      
+
 C
       INQUIRE (file=INFILE,exist=fexist)
 C
@@ -309,7 +309,7 @@ C
         Elseif(nwd.eq.'TUBS') then
 
 c          ANGLED TUBE            TYPE = 23
-           
+
 
            no = no + 1
            ititle(no) = jtitle
@@ -334,7 +334,7 @@ C
            ititle(no) = jtitle
            idata(no) = 1
 C
-C	   Close the input file that has been opened
+C      Close the input file that has been opened
 C
            CLOSE(unit = lunits(3))
 C
@@ -350,7 +350,7 @@ C
 C
         Else
 C
-C	   UNKNOWN ELEMENT NAME
+C      UNKNOWN ELEMENT NAME
 C
            WRITE(lout,100) nwd
 100        FORMAT(' UNKNOWN ELEMENT TYPE ',A4,' IGNORED')
@@ -458,14 +458,14 @@ C
            CALL ucopy(pn,p,3)
            Endif
          If(idata(ielement).eq.23) then
-            
+
 C          TUBS                  TYPE = 23
             par(1) = DATA(1,23)
             par(2) = DATA(2,23)
             par(3) = DATA(3,23)
             par(4) = DATA(4,23)
             par(5) = DATA(5,23)
-            
+
          Endif
          If(idata(ielement).eq.18)then
 C
@@ -477,7 +477,7 @@ C
              d(3) =     0.05 !!1.0
            Else
              d(3) =    -0.05 !!-1.0
-           Endif  
+           Endif
 C
            CALL gtrmul(p,rmat,d,0,pn,rmatn)
            CALL ucopy(pn,p,3)
@@ -514,7 +514,7 @@ C          MCP                   TYPE =  24
 C
            d(1) =       0.0
            d(2) =       0.0
-           d(3) =       0.0 
+           d(3) =       0.0
 C
            CALL gtrmul(p,rmat,d,0,pn,rmatn)
            CALL ucopy(pn,p,3)
@@ -553,7 +553,7 @@ C
              d(3) =     0.00 !!1.0
            Else
              d(3) =    -0.00 !!-1.0
-           Endif  
+           Endif
 C
            CALL gtrmul(p,rmat,d,0,pn,rmatn)
            CALL ucopy(pn,p,3)
