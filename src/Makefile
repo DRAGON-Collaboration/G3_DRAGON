@@ -45,8 +45,9 @@ INTER = $(BINDIR)/dsinter
 
 #F77= g77 -m64 -g -Dg77 -Dunix -fno-second-underscore -fno-automatic -static -c -lcernlib -lpacklib
 
-F77    = g77
-FFLAGS = -m32 -g -Dg77 -Dunix -fno-second-underscore -fno-automatic -c
+F77    = gfortran #g77
+#FFLAGS = -m32 -g -Dg77 -Dunix -fno-second-underscore -fno-automatic -c
+FFLAGS = -m32 -g -fno-automatic -ff2c -fno-second-underscore -c
 CFLAGS = -m32
 
 #------------------------------------------------------------------------#
@@ -177,9 +178,9 @@ GLIBS = $(shell cernlib-g77 geant321 pawlib graflib grafX11 mathlib kernlib pack
 
 # for linux
 dsbatch : $(OBJS_BATCH) $(OBJS) $(OBJECTS)
-#	g77 -O2 -o $(BATCH) $(LIBDIRS) $(OBJS_BATCH) $(OBJS) $(LIBS) $(GLIBS) \
+#	$(F77) -O2 -o $(BATCH) $(LIBDIRS) $(OBJS_BATCH) $(OBJS) $(LIBS) $(GLIBS) \
 #		-lcrypt -ldl -lXp -lXext -lXt -lX11
-	g77 -m32 -O2 -o $(BATCH) $(OBJS_BATCH) $(OBJS) $(GLIBS) \
+	$(F77) -m32 -O2 -o $(BATCH) $(OBJS_BATCH) $(OBJS) $(GLIBS) \
 		-lXp -lXext
 
 #------------------------------------------------------------------#
@@ -189,12 +190,12 @@ dsbatch : $(OBJS_BATCH) $(OBJS) $(OBJECTS)
 # Nothing to do with Xsetlocale, which is unnecessary now, or library order.
 # Funny it works on twist which also uses openmotif but not ibm.make
 dsinter : $(OBJS_INTER) $(OBJS) $(OBJECTS)
-#	g77 -O2 -g -o $(INTER) $(LIBDIRS) $(OBJS_INTER) $(OBJS) $(GLIBS) \
+#	$(F77) -O2 -g -o $(INTER) $(LIBDIRS) $(OBJS_INTER) $(OBJS) $(GLIBS) \
 #		-lcrypt -ldl -lXp -lXext -lXt -lX11
-	g77 -m32 -O2 -g -o $(INTER) $(OBJS_INTER) $(OBJS) $(GLIBS) \
+	$(F77) -m32 -O2 -g -o $(INTER) $(OBJS_INTER) $(OBJS) $(GLIBS) \
 		-lXp -lXext -lXt -lX11
 
-#	g77  -o $(INTER) $(LIBDIRS) $(OBJS_INTER) $(OBJS) $(GLIBS) -lcrypt -lXm -lXt -lX11
+#	$(F77)  -o $(INTER) $(LIBDIRS) $(OBJS_INTER) $(OBJS) $(GLIBS) -lcrypt -lXm -lXt -lX11
 
 
 #------------------------------------------------------------------#

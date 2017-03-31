@@ -19,7 +19,7 @@ C.
       CHARACTER*20 name_med(n_med)
 C.
       INTEGER nmed_mat(n_med), isvol_med(n_med), ifield(n_med)
-      REAL fieldm(n_med), tmaxfd_med(n_med), dmaxms_med(n_med), 
+      REAL fieldm(n_med), tmaxfd_med(n_med), dmaxms_med(n_med),
      *     deemax_med(n_med), epsil_med(n_med), stmin_med(n_med)
 C.
       REAL ubuf_med(n_med)
@@ -42,7 +42,7 @@ C.
      *            'LSO   LU2(SI04)O:CE ', ! 15 !sensitive
      *            'MGO (POWDER)        ', ! 16
      *            'GLASS               ', ! 17 !sensitive
-     *            'TUNGSTEN            ', ! 18 
+     *            'TUNGSTEN            ', ! 18
      *            'SILICON             ', ! 19 !sensitive
      *            'STAINLESS STEEL     ', ! 20
      *            'TARGET CARBON       ', ! 21
@@ -62,7 +62,7 @@ C.
       DATA tmaxfd_med/ n_med*10.0  / ! max. angle due to field in one step
 C.
 C.    DATA dmaxms_med/ n_med*-1.0 / ! max displace for mult scat. in one step
-      DATA dmaxms_med/ (n_med-4)*-1.0,4.0e-5,-1.0,4.0e-5,4.0e-5 / ! max displacement 
+      DATA dmaxms_med/ (n_med-4)*-1.0,4.0e-5,-1.0,4.0e-5,4.0e-5 / ! max displacement
 C     for mult scat. in one step
 C.
       DATA deemax_med/ n_med*-1.0 / ! max. fractional energy loss in one step
@@ -73,7 +73,7 @@ C.
 C.
       DATA stmin_med/ n_med*-1.0  / ! min. step due to energy loss or m. s.
 C.
-      DATA  ifield   / 0, 1, 2, 3, 0, 
+      DATA  ifield   / 0, 1, 2, 3, 0,
      *                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,
      *     0,0/
 C.                                  ! magnetic field flag =1 GRKUTA
@@ -81,7 +81,7 @@ C.                                                        =2 GHELIX
 C.                                                        =3 GHELX3
 C.
       DATA  fieldm   / 0., 100., 100., 100., 0.,
-     *               0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 
+     *               0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
      *               0., 0., 0., 0., 0., 0., 0./
 C.                                  ! max. field value [kGauss]
 C.                                    or magn. field for GHELX3
@@ -138,8 +138,8 @@ C.
 
       Do i = 1, n_med
 C.
-         CALL gstmed(i, name_med(i), nmed_mat(i), isvol_med(i), 
-     *                  ifield(i), fieldm(i), tmaxfd_med(i), 
+         CALL gstmed(i, name_med(i), nmed_mat(i), isvol_med(i),
+     *                  ifield(i), fieldm(i), tmaxfd_med(i),
      *                  dmaxms_med(i), deemax_med(i),
      *                  epsil_med(i), stmin_med(i), ubuf_med(i), 1)
 C.
@@ -172,16 +172,3 @@ C.
       RETURN
       END
 C.
-
-
-
-
-
-
-
-
-
-
-
-
-
