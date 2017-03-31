@@ -34,7 +34,7 @@ listed). Change to what you want and then (if necessary) recompile by typing
 > make dsbatch && dsinter
 ```
 
-Edit 'dsinit.sh' so that it lists the correct input file (i.e. - `INPUT="$DSROOT/26alpg.dat"`). Type 
+Edit 'dsinit.sh' so that it lists the correct input file (e.g. - `INPUT="$DSDAT/26alpg.dat"`). Type 
 ```
 > source dsinit.sh
 ```
