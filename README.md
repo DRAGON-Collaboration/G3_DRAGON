@@ -8,22 +8,21 @@ run
 ## Quick Start:
 
 To compile the batch and interactive versions of the simulation, cd to src and type
-'''
-make dsbatch && make dsinter
-'''
-This will create the binary executables in the bin directory.
+```
+> make dsbatch && make dsinter
+```
 
-To run an example simulation with 100 events using the 26Al(p,γ)27Si reaction (i.e. - using the included 26alpg.dat file in the reaction
-definition card) type
-'''
-source dsinit.sh
-./bin/dsbatch
-'''
+This will create the binary executables in the bin directory. To run an example simulation with 100 events using the 26Al(p,γ)27Si reaction
+(i.e. - using the included 26alpg.dat file in the reaction definition card) type
+```
+> source dsinit.sh
+> ./bin/dsbatch
+```
 
 This will produce the file dragon1.hbook. Convert it to a rootfile by typing
-'''
-h2root dragon1.hbook
-'''
+```
+> h2root dragon1.hbook
+```
 
 ## Detailed Instructions:
 
@@ -36,45 +35,44 @@ the levels that actually have cascades from the resonance of interest, to minimi
 'rstate' to the index of the energy level via which the resonance proceeds. Also be sure to set the C.M. resonance energy as Ex - Q. Check 
 the file geant/src/angdist to see that the angular distribution is set to either 1 (isotropic) or a function (like the quadrupole one 
 listed). Change to what you want and then (if necessary) recompile by typing
-'''
-make
-'''
+```
+> make
+```
 
 Edit 'dsinit.sh' so that it lists the correct input file (i.e. - INPUT="$DSROOT/26alpg.dat"). Type 
-'''
-source dsinit.sh
-'''
+```
+> source dsinit.sh
+```
 
 Run about 5,000 events in GEANT (edit the 'TRIG" variable in 'dragon_2003.ffcards' to suit). One can run the simulation in the background 
 using the command:
-'''
-nohup ./dsbatch &
-'''
+```
+> nohup ./dsbatch &
+```
 
 When the run is finished, the output file will be called 'dragonXX.hbook', where XX is the number following RUNG defined in the
 'dragon_2003.ffcards' file.  Convert this file to a root file of your choice by typing, for example:
-'''
-h2root dragon01.hbook 26alpg_368keV.root
-'''
+```
+> h2root dragon01.hbook 26alpg_368keV.root
+```
 
 Copy the output root file to the directory 'BGO Efficiency' in dragon@isdaq04:/home/dragon/
 Submit the output root file to the DRAGON elog 'BGO Efficiency' in dragon@isdaq04:/home/dragon/
 The file containing the thresholds, 'thresholds.root', is already in that directory, all you have to do is run the efficiency.C macro by 
 typing:
+```
+> root 26alpg_368keV.root
+```
 
-'''
-root 26alpg_368keV.root
-'''
 to start a ROOT session, then:
-
-'''
-root> .L efficiency.C
-'''
+```
+> root> .L efficiency.C
+```
 
 to load the Macro, then:
-'''
-root> efficiency("23napg_646keV.root")
-'''
+```
+> root> efficiency("23napg_646keV.root")
+```
 
 You will be prompted to enter a number from 1 to 4 to choose which thresholds were used. Once this has been entered, the macro will spit 
 out a number for the efficiency based on the total number of counts above threshold in all BGOs, plus a statistical error based on the 
