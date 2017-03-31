@@ -1,4 +1,4 @@
-# Geant3
+# Geant3 DRAGON
 
 ## Prerequisites:
 
@@ -6,13 +6,9 @@ The GEANT3 simulation of DRAGON requires [cernlib2006](http://cernlib.web.cern.c
 
 ## Quick Start:
 
-To compile the batch and interactive versions of the simulation, cd to src and type
-```
-> make dsbatch && make dsinter
-```
-
-This will create the binary executables in the bin directory. To run an example simulation with 100 events using the 26Al(p,γ)27Si reaction
-(i.e. - using the included 26alpg.dat file in the reaction definition card) type
+To compile the batch and interactive versions of the simulation, cd to src and type `make`. This will create the binary executables in the
+bin directory. To run an example simulation with 100 events using the 26Al(p,γ)27Si reaction (i.e. - using the included 26alpg.dat file in
+the reaction definition card) type
 ```
 > source dsinit.sh
 > ./bin/dsbatch
@@ -38,15 +34,15 @@ listed). Change to what you want and then (if necessary) recompile by typing
 > make
 ```
 
-Edit 'dsinit.sh' so that it lists the correct input file (i.e. - INPUT="$DSROOT/26alpg.dat"). Type 
+Edit 'dsinit.sh' so that it lists the correct input file (i.e. - `INPUT="$DSROOT/26alpg.dat"`). Type 
 ```
 > source dsinit.sh
 ```
 
-Run about 5,000 events in GEANT (edit the 'TRIG" variable in 'dragon_2003.ffcards' to suit). One can run the simulation in the background 
+Run about 5000 events in GEANT (edit the 'TRIG" variable in 'dragon_2003.ffcards' to suit). One can run the simulation in the background 
 using the command:
 ```
-> nohup ./dsbatch &
+> nohup ./bin/dsbatch &
 ```
 
 When the run is finished, the output file will be called 'dragonXX.hbook', where XX is the number following RUNG defined in the
