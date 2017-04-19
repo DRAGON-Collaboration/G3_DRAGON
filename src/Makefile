@@ -197,13 +197,6 @@ dsinter : $(OBJS_INTER) $(OBJS) $(OBJECTS)
 #	g77  -o $(INTER) $(LIBDIRS) $(OBJS_INTER) $(OBJS) $(GLIBS) -lcrypt -lXm -lXt -lX11
 
 
-#------------------------------------------------------------------#
-# standard rules and definitions just as found in
-# include $(TRIUMF_ROOT)/make.std
-#------------------------------------------------------------------#
-# define rules
-include $(DSROOT)/make.std
-
 # clear default suffix list
 
 .SUFFIXES: .f .c .o
@@ -212,6 +205,13 @@ include $(DSROOT)/make.std
 
 library: $(OBJS)
 	ar ts $(LIB)
+
+#------------------------------------------------------------------#
+# standard rules and definitions just as found in
+# include $(TRIUMF_ROOT)/make.std
+#------------------------------------------------------------------#
+# define rules
+include $(DSROOT)/make.std
 
 clean:
 	rm -f $(OBJS) $(BATCH) $(INTER) $(LIB)
