@@ -61,7 +61,7 @@ OBJECTS =
 # directory to the top of this list
 
 # KJR: Not needed , using cernlib util
-#LIBDIRS= \
+LIBDIRS= -L/home/dragon/usr/lib
 #   -L$(CERN_LIBRARY) -L$(X11)
 
 #------------------------------------------------------------------#
@@ -179,8 +179,8 @@ GLIBS = $(shell cernlib-g77 geant321 pawlib graflib grafX11 mathlib kernlib pack
 dsbatch : $(OBJS_BATCH) $(OBJS) $(OBJECTS)
 #	g77 -O2 -o $(BATCH) $(LIBDIRS) $(OBJS_BATCH) $(OBJS) $(LIBS) $(GLIBS) \
 #		-lcrypt -ldl -lXp -lXext -lXt -lX11
-	g77 -m32 -O2 -o $(BATCH) $(OBJS_BATCH) $(OBJS) $(GLIBS) \
-		-lXp -lXext
+	g77 -m32 -O2 -o $(BATCH) $(LIBDIRS) $(OBJS_BATCH) $(OBJS) $(GLIBS) \
+		-lXp -lXext -lX11
 
 #------------------------------------------------------------------#
 # interactive geant
@@ -191,7 +191,7 @@ dsbatch : $(OBJS_BATCH) $(OBJS) $(OBJECTS)
 dsinter : $(OBJS_INTER) $(OBJS) $(OBJECTS)
 #	g77 -O2 -g -o $(INTER) $(LIBDIRS) $(OBJS_INTER) $(OBJS) $(GLIBS) \
 #		-lcrypt -ldl -lXp -lXext -lXt -lX11
-	g77 -m32 -O2 -g -o $(INTER) $(OBJS_INTER) $(OBJS) $(GLIBS) \
+	g77 -m32 -O2 -g -o $(INTER) $(LIBDIRS) $(OBJS_INTER) $(OBJS) $(GLIBS) \
 		-lXp -lXext -lXt -lX11
 
 #	g77  -o $(INTER) $(LIBDIRS) $(OBJS_INTER) $(OBJS) $(GLIBS) -lcrypt -lXm -lXt -lX11
