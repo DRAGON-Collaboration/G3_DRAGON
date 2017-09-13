@@ -8,7 +8,7 @@ C.
 ************************************************************************
 C.
       IMPLICIT none
-C.  
+C.
       include 'geometry.inc'            !local
       include 'uggeom.inc'
       include 'rescom.inc'
@@ -50,12 +50,12 @@ C.
       hexagon_small_width = s_finger + 2.*d_air(1) + 2.*d_mtl + air_gap
       hexagon_large_width = 2. * hexagon_small_width / sqrt(3.)
       depth = z_finger + d_air(2) + d_mtl
-      col_length = 15.24 
+      col_length = 15.24
 C.
 C.--->the x width has an offset of 3.35 to account for two detectors
 C.--->being pulled back by 6.7cm to make room for lead collimators
-      shape( 1) =          depth + 3.35     		 ! half x width
-      shape( 2) =  5  * hexagon_large_width 		 ! half y width
+      shape( 1) =          depth + 3.35              ! half x width
+      shape( 2) =  5  * hexagon_large_width          ! half y width
       shape( 3) =  3. * hexagon_small_width + col_length/2. ! half z width
       shape( 3) = TLrms
 
@@ -66,7 +66,7 @@ C.
       CALL gsatt('DETE','SEEN',0)
 C.
       CALL gspos('DETE', 1, 'WRLD', 0.0, 0.0, 0.0, 0, 'ONLY')
-      
+
 C.
       box_length = 17.069
       box_height = 20.0
@@ -83,9 +83,9 @@ C.
       shape( 2) = shape( 2) - wall(2)/2.
       shape( 3) = shape( 3) - wall(2)
 C.
-      
+
       CALL gsvolu('CMBG','BOX ', mbox, shape, 3, ivol)
-      
+
       CALL gsatt('CMBG','SEEN',1)
 C.    CMBG needs to be ONLY for solid target sims
       if (targtype.eq.0)then
@@ -105,9 +105,9 @@ C. changed material & z -> -z from DG's sim - CR. Need irot?
       shape( 1) = 0.0
       shape( 2) = 0.4
       shape( 3) = wall(2)/2.
-     
+
       CALL gsvolu('UHOL','TUBE', ment(1), shape, 3, ivol)
-       
+
       CALL gsatt('UHOL','SEEN',1)
       y = -beam_height
       z = box_length/2. - wall(2)/2.
@@ -116,9 +116,9 @@ C.
 C.---> Aluminum Collimator on the inside of the gas cell box
 C.
       bpa_in_len = 0.472
-      shape( 1) = 0.0                   
-      shape( 2) = 1.905                   
-      shape( 3) = bpa_in_len         
+      shape( 1) = 0.0
+      shape( 2) = 1.905
+      shape( 3) = bpa_in_len
       CALL gsvolu('PUAI','TUBE', 6, shape, 3, ivol)
 c changed to Aluminium
       CALL gsatt('PUAI','SEEN',1)
@@ -145,10 +145,10 @@ C.
       bpg_len = 0.476
       bph_len = 0.980
       bpi_len = 0.585
-      bpj_len = 0.350 
+      bpj_len = 0.350
 c     bpj_len2 = 0.467
 C.
-      shape(1) = 0.0     
+      shape(1) = 0.0
       shape(2) = 1.905
       shape(3) = bpa_len  !end collar detail half thickness
       CALL gsvolu('PUA1','TUBE', 6, shape, 3, ivol)
@@ -157,15 +157,15 @@ c changed to Alum.
       z =  box_length/2 + bpa_len
       CALL gspos('PUA1',1,'DETE',0.0,0.0,-z,0,'ONLY')
 
-      shape(1) = 0.0      
+      shape(1) = 0.0
       shape(2) = 0.4
       shape(3) = bpa_len	!end collar detail half thickness
       CALL gsvolu('PUA2','TUBE', ment(1), shape, 3, ivol)
 c changed to vac.
       CALL gsatt('PUA2','SEEN',1)
       CALL gspos('PUA2',1,'PUA1',0.0,0.0,0.0,0,'ONLY')
-C.  
-C.----> section BPB next to the left of collimator detail outside box    
+C.
+C.----> section BPB next to the left of collimator detail outside box
 C.
       shape(1) = 0.0
       shape(2) = 1.353
@@ -211,8 +211,8 @@ c changed to Alum.
       CALL gsatt('PUC2','SEEN',1)
       CALL gspos('PUC2',1,'PUC1',0.0,0.0,0.0,0,'ONLY')
 C.
-      shape(1) = 0.0  
-      shape(2) = 0.45  
+      shape(1) = 0.0
+      shape(2) = 0.45
       shape(3) = bpc_len  !end collar detail half thickness
       CALL gsvolu('PUC3','TUBE', ment(2), shape, 3, ivol)
 c changed to Vac.
@@ -239,8 +239,8 @@ c changed to Alum.
       CALL gsatt('PUD2','SEEN',1)
       CALL gspos('PUD2',1,'PUD1',0.0,0.0,0.0,0,'ONLY')
 C.
-      shape(1) = 0.0 
-      shape(2) = 0.45 
+      shape(1) = 0.0
+      shape(2) = 0.45
       shape(3) = bpd_len  !end collar detail half thickness
       CALL gsvolu('PUD3','TUBE', ment(2), shape, 3, ivol)
 c changed to Vac.
@@ -250,7 +250,7 @@ C.
 C.----> section BPE next in line to left of box
 C.
       shape(1) = 0.0
-      shape(2) = 3.20 
+      shape(2) = 3.20
       shape(3) = bpe_len  !end collar detail half thickness
       CALL gsvolu('PUE1','TUBE', 7, shape, 3, ivol)
 c changed to Lead.
@@ -259,7 +259,7 @@ c changed to Lead.
      &     + 2.*bpd_len + bpe_len
       CALL gspos('PUE1',1,'DETE',0.0,0.0,-z,0,'ONLY')
 C.
-      shape(1) = 0.0 
+      shape(1) = 0.0
       shape(2) = 2.53
       shape(3) = bpe_len  !end collar detail half thickness
       CALL gsvolu('PUE2','TUBE', 8, shape, 3, ivol)
@@ -267,7 +267,7 @@ c changed to Atmosphere.
       CALL gsatt('PUE2','SEEN',1)
       CALL gspos('PUE2',1,'PUE1',0.0,0.0,0.0,0,'ONLY')
 C.
-      shape(1) = 0.0  
+      shape(1) = 0.0
       shape(2) = 2.09
       shape(3) = bpe_len  !end collar detail half thickness
       CALL gsvolu('PUE3','TUBE', 6, shape, 3, ivol)
@@ -275,7 +275,7 @@ c changed to Alum.
       CALL gsatt('PUE3','SEEN',1)
       CALL gspos('PUE3',1,'PUE2',0.0,0.0,0.0,0,'ONLY')
 C.
-      shape(1) = 0.0  
+      shape(1) = 0.0
       shape(2) = 0.45
       shape(3) = bpe_len  !end collar detail half thickness
       CALL gsvolu('PUE4','TUBE', ment(2), shape, 3, ivol)
@@ -286,25 +286,25 @@ C.
 C.----> section BPF next in line to left of box
 C.
       shape(1) = 0.0
-      shape(2) = 3.2 
+      shape(2) = 3.2
       shape(3) = bpf_len
       CALL gsvolu('PUF1','TUBE', 7, shape, 3, ivol)
 c changed to Lead.
       CALL gsatt('PUF1','SEEN',1)
       z =  box_length/2. + 2.*bpa_len + 2.*bpb_len + 2.*bpc_len
-     &     + 2.*bpd_len + 2.*bpe_len + bpf_len   
+     &     + 2.*bpd_len + 2.*bpe_len + bpf_len
       CALL gspos('PUF1',1,'DETE',0.0,0.0,-z,0,'ONLY')
 C.
-      shape(1) = 0.0  
+      shape(1) = 0.0
       shape(2) = 2.53
-      shape(3) = bpf_len  
+      shape(3) = bpf_len
       CALL gsvolu('PUF2','TUBE', 6, shape, 3, ivol)
 c changed to Alum.
       CALL gsatt('PUF2','SEEN',1)
       CALL gspos('PUF2',1,'PUF1',0.0,0.0,0.0,0,'ONLY')
 C.
       shape(1) = 0.0
-      shape(2) = 2.09   
+      shape(2) = 2.09
       shape(3) = bpf_len  !end collar detail half thickness
       CALL gsvolu('PUF3','TUBE', 6, shape, 3, ivol)
 c changed to Alum.
@@ -313,20 +313,20 @@ c changed to Alum.
 C.
       shape(1) = 0.0
       shape(2) = 1.25
-      shape(3) = bpf_len 
+      shape(3) = bpf_len
       CALL gsvolu('PUF4','TUBE', ment(3), shape, 3, ivol)
 c changed to Vac.
       CALL gsatt('PUF4','SEEN',1)
       CALL gspos('PUF4',1,'PUF3',0.0,0.0,0.0,0,'ONLY')
 C.
-      shape(1) = 0.0  
+      shape(1) = 0.0
       shape(2) = 1.04
       shape(3) = bpf_len
       CALL gsvolu('PUF5','TUBE', 6, shape, 3, ivol)
       CALL gsatt('PUF5','SEEN',1)
       CALL gspos('PUF5',1,'PUF4',0.0,0.0,0.0,0,'ONLY')
 C.
-      shape(1) = 0.0  
+      shape(1) = 0.0
       shape(2) = 0.5
       shape(3) = bpf_len
       CALL gsvolu('PUF6','TUBE', ment(3), shape, 3, ivol)
@@ -335,19 +335,19 @@ C.
 C.
 C.----> section BPG next in line to left of box
 C.
-      shape(1) = 7.75 
-      shape(2) = 11.75 
-      shape(3) = bpg_len                                   
+      shape(1) = 7.75
+      shape(2) = 11.75
+      shape(3) = bpg_len
       CALL gsvolu('PUG1','BOX ', 7, shape, 3, ivol)
 c changed to Lead.
       CALL gsatt('PUG1','SEEN',1)
-      z =  box_length/2. + 2.*bpa_len + 2.*bpb_len + 2.*bpc_len      
+      z =  box_length/2. + 2.*bpa_len + 2.*bpb_len + 2.*bpc_len
      &     + 2.*bpd_len + 2.*bpe_len + 2.*bpf_len + bpg_len
       CALL gspos('PUG1',1,'DETE',0.0,0.0,-z,0,'ONLY')
 C.
       shape(1) = 0.0
-      shape(2) = 2.53  
-      shape(3) = bpg_len                                   
+      shape(2) = 2.53
+      shape(3) = bpg_len
       CALL gsvolu('PUG2','TUBE', 6, shape, 3, ivol)
 c changed to Alum.
       CALL gsatt('PUG2','SEEN',1)
@@ -355,13 +355,13 @@ c changed to Alum.
 C.
       shape(1) = 0.0
       shape(2) = 1.25
-      shape(3) = bpg_len 
+      shape(3) = bpg_len
       CALL gsvolu('PUG3','TUBE', ment(1), shape, 3, ivol)
 c changed to Vac.
       CALL gsatt('PUG3','SEEN',1)
       CALL gspos('PUG3',1,'PUG2',0.0,0.0,0.0,0,'ONLY')
 C.
-      shape(1) = 0.0  
+      shape(1) = 0.0
       shape(2) = 1.04
       shape(3) = bpg_len
       CALL gsvolu('PUG4','TUBE', 6, shape, 3, ivol)
@@ -371,7 +371,7 @@ c changed to Alum.
 C.
       shape(1) = 0.0
       shape(2) = 0.5
-      shape(3) = bpg_len                                    
+      shape(3) = bpg_len
       CALL gsvolu('PUG5','TUBE', ment(3), shape, 3, ivol)
 c changed to Vac.
       CALL gsatt('PUG5','SEEN',1)
@@ -381,7 +381,7 @@ C.----> section BPH next in line to left of box
 C.
       shape(1) = 0.0
       shape(2) = 5.71
-      shape(3) = bph_len 
+      shape(3) = bph_len
       CALL gsvolu('PUH1','TUBE', 6, shape, 3, ivol)
 c changed to Alum.
       CALL gsatt('PUH1','SEEN',1)
@@ -392,13 +392,13 @@ c changed to Alum.
 C.
       shape(1) = 0.0
       shape(2) = 1.25
-      shape(3) = bph_len 
+      shape(3) = bph_len
       CALL gsvolu('PUH2','TUBE', ment(1), shape, 3, ivol)
 c changed to Vac.
       CALL gsatt('PUH2','SEEN',1)
       CALL gspos('PUH2',1,'PUH1',0.0,0.0,0.0,0,'ONLY')
 C.
-      shape(1) = 0.0  
+      shape(1) = 0.0
       shape(2) = 1.04
       shape(3) = bph_len
       CALL gsvolu('PUH3','TUBE', 6, shape, 3, ivol)
@@ -416,8 +416,8 @@ c changed to Vac.
 C.
 C.----> section BPI next in line to left of box
 C.
-      shape(1) = 0.0  
-      shape(2) = 2.53   
+      shape(1) = 0.0
+      shape(2) = 2.53
       shape(3) = bpi_len
       CALL gsvolu('PUI1','TUBE', 6, shape, 3, ivol)
 c changed to Alum.
@@ -429,13 +429,13 @@ c changed to Alum.
 C.
       shape(1) = 0.0
       shape(2) = 1.25
-      shape(3) = bpi_len 
+      shape(3) = bpi_len
       CALL gsvolu('PUI2','TUBE', ment(1), shape, 3, ivol)
 c changed to Vac.
       CALL gsatt('PUI2','SEEN',1)
       CALL gspos('PUI2',1,'PUI1',0.0,0.0,0.0,0,'ONLY')
 C.
-      shape(1) = 0.0  
+      shape(1) = 0.0
       shape(2) = 1.04
       shape(3) = bpi_len
       CALL gsvolu('PUI3','TUBE', 6, shape, 3, ivol)
@@ -459,7 +459,7 @@ C. to fill the gap between the end of the pumping tubes and the
       shape(3) = bpj_len
       z =  box_length/2. + 2.*bpa_len + 2.*bpb_len + 2.*bpc_len
      &     + 2.*bpd_len + 2.*bpe_len + 2.*bpf_len + 2.*bpg_len
-     &     + 2.*bph_len + 2.*bpi_len + bpj_len 
+     &     + 2.*bph_len + 2.*bpi_len + bpj_len
       CALL gsvolu('PUJ1','TUBE',6,shape,3,ivol)
       CALL gsatt('PUJ1','SEEN',1)
       CALL gspos('PUJ1',1,'DETE',0.0,0.0,-z,0,'ONLY')
@@ -503,12 +503,12 @@ c changed to Vac.
 C.
 C.---> Aluminum Collimator on the inside of the gas cell box
 C.
-      shape( 1) = 0.0                   
-      shape( 2) = 1.905                   
-      shape( 3) = bpa_in_len         
+      shape( 1) = 0.0
+      shape( 2) = 1.905
+      shape( 3) = bpa_in_len
       CALL gsvolu('PDAI','TUBE', 6, shape, 3, ivol)
 c changed to Alum.
-      CALL gsatt('PDAI','SEEN',1) 
+      CALL gsatt('PDAI','SEEN',1)
       y = -beam_height
       z = -(box_length/2. - wall(2) - bpa_in_len)
       CALL gspos('PDAI', 1, 'CMBG', 0.0, y, -z, 0, 'ONLY')
@@ -523,7 +523,7 @@ c changed to Vac.
 C.
 C. ---> collimator end collar detail outside box
 C.
-      shape(1) = 0.0     
+      shape(1) = 0.0
       shape(2) = 1.905
       shape(3) = bpa_len  !end collar detail half thickness
       CALL gsvolu('PDA1','TUBE', 6, shape, 3, ivol)
@@ -532,15 +532,15 @@ c changed to Alum.
       z = -(box_length/2 + bpa_len)
       CALL gspos('PDA1',1,'DETE',0.0,0.0,-z,0,'ONLY')
 C.
-      shape(1) = 0.0      
+      shape(1) = 0.0
       shape(2) = 0.450
       shape(3) = bpa_len	!end collar detail half thickness
       CALL gsvolu('PDA2','TUBE', mex(1), shape, 3, ivol)
 c changed to Vac.
       CALL gsatt('PDA2','SEEN',1)
       CALL gspos('PDA2',1,'PDA1',0.0,0.0,0.0,0,'ONLY')
-C.  
-C.----> section PDB next to the RIGHT of collimator detail outside box    
+C.
+C.----> section PDB next to the RIGHT of collimator detail outside box
 C.
 C.
       shape(1) = 0.0
@@ -573,7 +573,7 @@ c changed to Alum.
      &     + bpd_len)
       CALL gspos('PDD1',1,'DETE',0.0,0.0,-z,0,'ONLY')
 C.
-      shape(1) = 0.0 
+      shape(1) = 0.0
       shape(2) = 0.520
       shape(3) = bpc_len + bpd_len  !end collar detail half thickness
       CALL gsvolu('PDD2','TUBE', mex(2), shape, 3, ivol)
@@ -584,7 +584,7 @@ C.
 C.----> section PDE next in line to RIGHT of box
 C.
 C.
-      shape(1) = 0.0  
+      shape(1) = 0.0
       shape(2) = 2.09
       shape(3) = bpe_len  !end collar detail half thickness
       CALL gsvolu('PDE1','TUBE', 6, shape, 3, ivol)
@@ -594,7 +594,7 @@ c changed to Alum.
      &     + 2.*bpd_len + bpe_len)
       CALL gspos('PDE1',1,'DETE',0.0,0.0,-z,0,'ONLY')
 C.
-      shape(1) = 0.0  
+      shape(1) = 0.0
       shape(2) = 0.520
       shape(3) = bpe_len  !end collar detail half thickness
       CALL gsvolu('PDE2','TUBE', mex(2), shape, 3, ivol)
@@ -605,17 +605,17 @@ C.
 C.----> section PDF next in line to RIGHT of box
 C.
 C.
-      shape(1) = 0.0  
+      shape(1) = 0.0
       shape(2) = 2.53
-      shape(3) = bpf_len+bpg_len  
+      shape(3) = bpf_len+bpg_len
       CALL gsvolu('PDF1','TUBE', 6, shape, 3, ivol)
 c changed to Alum.
       CALL gsatt('PDF1','SEEN',1)
       z =  -(box_length/2. + 2.*bpa_len + 2.*bpb_len + 2.*bpc_len
-     &     + 2.*bpd_len + 2.*bpe_len + bpf_len + bpg_len)   
+     &     + 2.*bpd_len + 2.*bpe_len + bpf_len + bpg_len)
       CALL gspos('PDF1',1,'DETE',0.0,0.0,-z,0,'ONLY')
 C.
-      shape(1) = 0.0  
+      shape(1) = 0.0
       shape(2) = 1.25
       shape(3) = bpf_len+bpg_len
       CALL gsvolu('PDF2','TUBE', mex(3), shape, 3, ivol)
@@ -631,7 +631,7 @@ c changed to Alum.
       CALL gsatt('PDF3','SEEN',1)
       CALL gspos('PDF3',1,'PDF2',0.0,0.0,0.0,0,'ONLY')
 C.
-      shape(1) = 0.0  
+      shape(1) = 0.0
       shape(2) = 0.591
       shape(3) = bpf_len+bpg_len
       CALL gsvolu('PDF4','TUBE', mex(3), shape, 3, ivol)
@@ -643,7 +643,7 @@ C.----> section BPH next in line to left of box
 C.
       shape(1) = 0.0
       shape(2) = 5.71
-      shape(3) = bph_len 
+      shape(3) = bph_len
       CALL gsvolu('PDH1','TUBE', 6, shape, 3, ivol)
 c changed to Alum.
       CALL gsatt('PDH1','SEEN',1)
@@ -665,7 +665,7 @@ C.
       shape(3) = bph_len
       CALL gsvolu('PDH3','TUBE', 6, shape, 3, ivol)
 c changed to Vac.
-      CALL gsatt('PDH3','SEEN',1) 
+      CALL gsatt('PDH3','SEEN',1)
       CALL gspos('PDH3',1,'PDH2',0.0,0.0,0.0,0,'ONLY')
 C.
       shape(1) = 0.0
@@ -678,8 +678,8 @@ c changed to Vac.
 C.
 C.----> section BPI next in line to left of box
 C.
-      shape(1) = 0.0  
-      shape(2) = 2.53   
+      shape(1) = 0.0
+      shape(2) = 2.53
       shape(3) = bpi_len
       CALL gsvolu('PDI1','TUBE', 6, shape, 3, ivol)
 c changed to Alum.
@@ -699,10 +699,10 @@ c changed to Vac.
 C.
       shape(1) = 0.0
       shape(2) = 1.04
-      shape(3) = bpi_len 
+      shape(3) = bpi_len
       CALL gsvolu('PDI3','TUBE', 6, shape, 3, ivol)
 c changed to Alum.
-      CALL gsatt('PDI3','SEEN',1) 
+      CALL gsatt('PDI3','SEEN',1)
       CALL gspos('PDI3',1,'PDI2',0.0,0.0,0.0,0,'ONLY')
 C.
       shape(1) = 0.0
@@ -720,7 +720,7 @@ c      shape(2) = 1.04
 c      shape(3) = bpj_len2
 c      z =  box_length/2. + 2.*bpa_len + 2.*bpb_len + 2.*bpc_len
 c     &     + 2.*bpd_len + 2.*bpe_len + 2.*bpf_len + 2.*bpg_len
-c     &     + 2.*bph_len + 2.*bpi_len + bpj_len2 
+c     &     + 2.*bph_len + 2.*bpi_len + bpj_len2
 c      CALL gsvolu('PDJ1','TUBE',6,shape,3,ivol)
 c      CALL gsatt('PDJ1','SEEN',1)
 c      CALL gspos('PDJ1',1,'DETE',0.0,0.0,z,0,'ONLY')
@@ -756,7 +756,7 @@ c         CALL gsatt('CLRB','SEEN',1)
 c         y = -beam_height
 c         z = box_length/2. - wall(2) - 0.517/2.
 c     +       - 0.517/2. - 0.214
-         
+
 c         shape(2) = 0.8474
 c         CALL gsvolu('CT1G','TUBE',ment(1),shape,3,ivol)
 c         CALL gsatt('CT1G','SEEN',1)
@@ -778,7 +778,7 @@ C. Collar on right side of box
          CALL gsvolu('CLLD','TUBE',6,shape,3,ivol)
          CALL gsatt('CLLD','SEEN',1)
          z = box_length/2. + 0.945/2.
-         
+
          shape(2) = 0.642
          CALL gsvolu('CL2G','TUBE',mex(1),shape,3,ivol)
          CALL gsatt('CL2G','SEEN',1)
@@ -791,7 +791,7 @@ C. First part of collimator tube
          CALL gsvolu('CM1T','TUBE',6,shape,3,ivol)
          CALL gsatt('CM1T','SEEN',1)
          z = box_length/2. + 0.945 + 1.026/2.
-         
+
          shape(2) = 0.642
          CALL gsvolu('CM1G','TUBE',mex(1),shape,3,ivol)
          CALL gsatt('CM1G','SEEN',1)
@@ -824,9 +824,9 @@ C. Tube up to first part of sheilding assembly
          CALL gsvolu('CM3G','TUBE',mex(2),shape,3,ivol)
          CALL gsatt('CM3G','SEEN',1)
          CALL gspos('CM3G',1,'CM3T',0.0,0.0,0.0,0,'ONLY')
-         CALL gspos('CM3T',1,'DETE',0.0,0.0,z,0,'ONLY')  
+         CALL gspos('CM3T',1,'DETE',0.0,0.0,z,0,'ONLY')
 
-      shape(1) = 0.0  
+      shape(1) = 0.0
       shape(2) = 2.09
       shape(3) = 3.54/2.  !end collar detail half thickness
       CALL gsvolu('PDE1','TUBE', 6, shape, 3, ivol)
@@ -837,7 +837,7 @@ c     &     + 2.*bpd_len + bpe_len)
       z = -(box_length/2. + 0.945 + 1.026 + 2.54 + 0.624 + 3.54/2.)
       CALL gspos('PDE1',1,'DETE',0.0,0.0,-z,0,'ONLY')
 C.
-      shape(1) = 0.0  
+      shape(1) = 0.0
       shape(2) = 0.95
       shape(3) = 3.54/2.  !end collar detail half thickness
       CALL gsvolu('PDE2','TUBE', mex(2), shape, 3, ivol)
@@ -848,17 +848,17 @@ C.
 C.----> section PDF next in line to RIGHT of box
 C.
 C.
-      shape(1) = 0.0  
+      shape(1) = 0.0
       shape(2) = 2.53
-      shape(3) = 2.88/2.  
+      shape(3) = 2.88/2.
       CALL gsvolu('PDF1','TUBE', 6, shape, 3, ivol)
 c changed to Alum.
       CALL gsatt('PDF1','SEEN',1)
-      z = -(box_length/2. + 0.945 + 1.026 + 2.54 + 0.624 
+      z = -(box_length/2. + 0.945 + 1.026 + 2.54 + 0.624
      &     + 3.54 + 2.88/2.)
       CALL gspos('PDF1',1,'DETE',0.0,0.0,-z,0,'ONLY')
 C.
-      shape(1) = 0.0  
+      shape(1) = 0.0
       shape(2) = 1.48
       shape(3) = 2.88/2.
       CALL gsvolu('PDF2','TUBE', mex(3), shape, 3, ivol)
@@ -874,7 +874,7 @@ c changed to Alum.
       CALL gsatt('PDF3','SEEN',1)
       CALL gspos('PDF3',1,'PDF2',0.0,0.0,0.0,0,'ONLY')
 C.
-      shape(1) = 0.0  
+      shape(1) = 0.0
       shape(2) = 0.95
       shape(3) = 2.88/2.
       CALL gsvolu('PDF4','TUBE', mex(3), shape, 3, ivol)
@@ -886,11 +886,11 @@ C.----> section BPH next in line to left of box
 C.
       shape(1) = 0.0
       shape(2) = 5.71
-      shape(3) = 2.02/2. 
+      shape(3) = 2.02/2.
       CALL gsvolu('PDH1','TUBE', 6, shape, 3, ivol)
 c changed to Alum.
       CALL gsatt('PDH1','SEEN',1)
-      z = -(box_length/2. + 0.945 + 1.026 + 2.54 + 0.624 
+      z = -(box_length/2. + 0.945 + 1.026 + 2.54 + 0.624
      &     + 3.54 + 2.88 + 2.02/2.)
       CALL gspos('PDH1',1,'DETE',0.0,0.0,-z,0,'ONLY')
 C.
@@ -907,7 +907,7 @@ C.
       shape(3) = 2.02/2.
       CALL gsvolu('PDH3','TUBE', 6, shape, 3, ivol)
 c changed to Vac.
-      CALL gsatt('PDH3','SEEN',1) 
+      CALL gsatt('PDH3','SEEN',1)
       CALL gspos('PDH3',1,'PDH2',0.0,0.0,0.0,0,'ONLY')
 C.
       shape(1) = 0.0
@@ -920,13 +920,13 @@ c changed to Vac.
 C.
 C.----> section BPI next in line to left of box
 C.
-      shape(1) = 0.0  
-      shape(2) = 2.53   
+      shape(1) = 0.0
+      shape(2) = 2.53
       shape(3) = bpi_len
       CALL gsvolu('PDI1','TUBE', 6, shape, 3, ivol)
 c changed to Alum.
       CALL gsatt('PDI1','SEEN',1)
-      z = -(box_length/2. + 0.945 + 1.026 + 2.54 + 0.624 
+      z = -(box_length/2. + 0.945 + 1.026 + 2.54 + 0.624
      &     + 3.54 + 2.88 +
      &     2.02 + bpi_len)
       CALL gspos('PDI1',1,'DETE',0.0,0.0,-z,0,'ONLY')
@@ -941,10 +941,10 @@ c changed to Vac.
 C.
       shape(1) = 0.0
       shape(2) = 1.27
-      shape(3) = bpi_len 
+      shape(3) = bpi_len
       CALL gsvolu('PDI3','TUBE', 6, shape, 3, ivol)
 c changed to Alum.
-      CALL gsatt('PDI3','SEEN',1) 
+      CALL gsatt('PDI3','SEEN',1)
       CALL gspos('PDI3',1,'PDI2',0.0,0.0,0.0,0,'ONLY')
 C.
       shape(1) = 0.0
@@ -962,7 +962,7 @@ c      shape(2) = 1.04
 c      shape(3) = bpj_len2
 c      z =  box_length/2. + 2.*bpa_len + 2.*bpb_len + 2.*bpc_len
 c     &     + 2.*bpd_len + 2.*bpe_len + 2.*bpf_len + 2.*bpg_len
-c     &     + 2.*bph_len + 2.*bpi_len + bpj_len2 
+c     &     + 2.*bph_len + 2.*bpi_len + bpj_len2
 c      CALL gsvolu('PDJ1','TUBE',6,shape,3,ivol)
 c      CALL gsatt('PDJ1','SEEN',1)
 c      CALL gspos('PDJ1',1,'DETE',0.0,0.0,z,0,'ONLY')
@@ -1010,8 +1010,8 @@ C.
       CALL gsatt('CELL','SEEN',1)
 C.--->move inner cell so that apertures are centred on beam line
 C.--->0.976 offset is height from box top to inner cell top
-      y = .5 * box_height - shape(4) - 0.976   
-      CALL gspos('CELL',1,'CMBG',0.0, y ,0.0,irot_box,'ONLY')      
+      y = .5 * box_height - shape(4) - 0.976
+      CALL gspos('CELL',1,'CMBG',0.0, y ,0.0,irot_box,'ONLY')
 C.
 C.---> Vacuum inner shell of the cell
 C.
@@ -1022,7 +1022,7 @@ C.
 C.
       CALL gsvolu('CELG','TRD1', mtarg, shape, 4, ivol)
       CALL gsatt('CELG','SEEN',1)
-      CALL gspos('CELG',1,'CELL',0.0,0.0,0.0,0,'ONLY')      
+      CALL gspos('CELG',1,'CELL',0.0,0.0,0.0,0,'ONLY')
 C.
 C.
 C.---> Entrance collimator to the trapezoid target
@@ -1063,7 +1063,7 @@ C.
 cc       MT updates gas target exit collimator 21 Oct 2003.
          shape(2) = 0.5
       endif
-      shape(3) = 0.5     
+      shape(3) = 0.5
 
 C.
       CALL gsvolu('XAPG','TUBE', mtarg, shape, 3, ivol)
@@ -1168,7 +1168,7 @@ C.
 C.
       z = -pmt_length/2.
 C.
-      CALL gspos('FNGR', 1, 'HSNG', 0.0, 0.0, z, 0,'ONLY') 
+      CALL gspos('FNGR', 1, 'HSNG', 0.0, 0.0, z, 0,'ONLY')
 C.
       shape( 7) = shape( 7) - d_mtl
       shape(10) = shape(10) - d_mtl
@@ -1223,6 +1223,7 @@ C.
 C.--> Fill square DETE with hexagonal housings HSNG
 C.
       icopy = 0
+      write(*,*) '--------- BGO No, X, Y, Z: ---------'
 C.
       k = 1
 C. Detector 1.
@@ -1234,15 +1235,16 @@ C.
 C.
       x_fngr(icopy)  = 0.0
       y_fngr(icopy)  =  y
-      z_fngr(icopy)  =  z 
+      z_fngr(icopy)  =  z
 C.
       If(mask(icopy).eq.1)then
         CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_front,'ONLY')
       Endif
+      write(*,*) icopy, -x, y, -z
 C.
       k = 2
 C. Detector 2.
-      x = d_mtl/2. + d_air(2)/2. - pmt_length/2.      
+      x = d_mtl/2. + d_air(2)/2. - pmt_length/2.
       y = - aprt - wall(3) - (5./4.) * hexagon_large_width-0.6
       z =   2.*hexagon_small_width
 C.
@@ -1250,11 +1252,12 @@ C.
 C.
       x_fngr(icopy)  = 0.0
       y_fngr(icopy)  =  y
-      z_fngr(icopy)  =  z 
+      z_fngr(icopy)  =  z
 C.
       If(mask(icopy).eq.1)then
         CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_front,'ONLY')
       Endif
+      write(*,*) icopy, -x, y, -z
 C. Detector 3.
       x =   d_mtl/2. + d_air(2)/2. - pmt_length/2. - 6.7
       y =   aprt + wall(3) + (1./2.)* hexagon_large_width+0.6
@@ -1264,11 +1267,12 @@ C.
 C.
       x_fngr(icopy)  = 0.0
       y_fngr(icopy)  =  y
-      z_fngr(icopy)  =  z 
+      z_fngr(icopy)  =  z
 C.
       If(mask(icopy).eq.1)then
         CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_front,'ONLY')
       Endif
+       write(*,*) icopy, -x, y, -z
 C.
       k = 3
 C. Detector 4.
@@ -1280,11 +1284,12 @@ C.
 C.
       x_fngr(icopy)  = 0.0
       y_fngr(icopy)  =  y
-      z_fngr(icopy)  =  z 
+      z_fngr(icopy)  =  z
 C.
       If(mask(icopy).eq.1)then
         CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_front,'ONLY')
       Endif
+       write(*,*) icopy, -x, y, -z
 C.
       k = 5
 C. Detector 5.
@@ -1295,26 +1300,28 @@ C.
 C.
       x_fngr(icopy)  = 0.0
       y_fngr(icopy)  =  y
-      z_fngr(icopy)  =  z 
+      z_fngr(icopy)  =  z
 C.
       If(mask(icopy).eq.1)then
         CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_front,'ONLY')
       Endif
+       write(*,*) icopy, -x, y, -z
 C.
       k = 7
 C. Detector 6.
-      y =  (9./8.) * hexagon_large_width      
+      y =  (9./8.) * hexagon_large_width
       z = -hexagon_small_width/2.
 C.
       icopy = icopy + 1
 C.
       x_fngr(icopy)  = 0.0
       y_fngr(icopy)  =  y
-      z_fngr(icopy)  =  z 
+      z_fngr(icopy)  =  z
 C.
       If(mask(icopy).eq.1)then
         CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_front,'ONLY')
       Endif
+       write(*,*) icopy, -x, y, -z
 C.
       k = 9
 C. Detector 7.
@@ -1325,11 +1332,12 @@ C.
 C.
       x_fngr(icopy)  = 0.0
       y_fngr(icopy)  =  y
-      z_fngr(icopy)  =  z 
+      z_fngr(icopy)  =  z
 C.
       If(mask(icopy).eq.1)then
         CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_front,'ONLY')
       Endif
+       write(*,*) icopy, -x, y, -z
 C.
       k = 10
 C. Detector 8.
@@ -1340,11 +1348,12 @@ C.
 C.
       x_fngr(icopy)  = 0.0
       y_fngr(icopy)  =  y
-      z_fngr(icopy)  =  z 
+      z_fngr(icopy)  =  z
 C.
       If(mask(icopy).eq.1)then
         CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_front,'ONLY')
       Endif
+       write(*,*) icopy, -x, y, -z
 C. Detector 9.
       x =   d_mtl/2. + d_air(2)/2. - pmt_length/2.
       y =   aprt + wall(3) + (1./2.)* hexagon_large_width+0.6
@@ -1354,11 +1363,12 @@ C.
 C.
       x_fngr(icopy)  = 0.0
       y_fngr(icopy)  =  y
-      z_fngr(icopy)  =  z 
+      z_fngr(icopy)  =  z
 C.
       If(mask(icopy).eq.1)then
         CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_front,'ONLY')
       Endif
+       write(*,*) icopy, -x, y, -z
 C.
       k = 11
 C. Detector 10.
@@ -1370,11 +1380,12 @@ C.
 C.
       x_fngr(icopy)  = 0.0
       y_fngr(icopy)  =  y
-      z_fngr(icopy)  =  z 
+      z_fngr(icopy)  =  z
 C.
       If(mask(icopy).eq.1)then
         CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_front,'ONLY')
       Endif
+       write(*,*) icopy, -x, y, -z
 C. Detectors 11 through 30.
       Do k = 9, 3, -1
 C.
@@ -1399,11 +1410,12 @@ C.
 C.
             x_fngr(icopy)  = x - pmt_length/2.
             y_fngr(icopy)  = y
-            z_fngr(icopy)  = z 
+            z_fngr(icopy)  = z
 C.
             If(mask(icopy).eq.1)then
               CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_back,'ONLY')
             Endif
+             write(*,*) icopy, -x, y, -z
 C.
             x = -x
 C.
@@ -1411,11 +1423,12 @@ C.
 C.
             x_fngr(icopy)  = x + pmt_length/2.
             y_fngr(icopy)  = y
-            z_fngr(icopy)  = z 
+            z_fngr(icopy)  = z
 C.
             If(mask(icopy).eq.1)then
               CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_front,'ONLY')
             Endif
+             write(*,*) icopy, -x, y, -z
 C.
          Enddo
 C.
@@ -1503,7 +1516,7 @@ C.
 C.
       z = depth/2.
 C.
-      CALL gspos('PMT ', 1, 'HSNG', 0.0, 0.0, z, 0, 'ONLY') 
+      CALL gspos('PMT ', 1, 'HSNG', 0.0, 0.0, z, 0, 'ONLY')
 C.
       RETURN
       END
@@ -1549,7 +1562,7 @@ C.
 C.
 ************************************************************************
 *                                                                      *
-*                          Detector Scintillator		       *
+*                          Detector Scintillator               *
 *                                                                      *
 ************************************************************************
 C.
@@ -1596,52 +1609,3 @@ C.
 
       RETURN
       END
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
