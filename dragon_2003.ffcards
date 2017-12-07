@@ -33,8 +33,8 @@ C == NRNDM ==   Initial value of random number seeds NRNDM(1), NRNDM(2).
 C          If NRNDM(2) is 0, the independent sequence NRNDM(1) is used.
 C          If NRNDM(1) is 0, the default sequence is used. (9876, 54321)
 C
-CRNDM 3414567 18346136
-RNDM 0 0 
+RNDM 3589793238 314159265
+C RNDM 0 0 
 C
 C ========= AUTO: IGAUTO =========
 C
@@ -452,55 +452,5 @@ C			gas cell in dimension z. Looking at cell negative
 C			numbers move blocks right, positive numbers left
 C PBPS 0.0
 STOP
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

@@ -41,16 +41,16 @@ void efficiency(char * pfilename){
 	target = TFile::Open(pfilename);
 	result = TFile::Open("results.root","RECREATE");
 	target->cd();
-	
-	
-	
+
+
+
 
 	// Create BGO Histograms //
 	TH1F *h[32];
 	TH1F *hnew[32];
-	
-	
-	
+
+
+
 	stringstream ss[32];
 	stringstream ss2[32];
 	stringstream titl[32];
@@ -68,9 +68,9 @@ void efficiency(char * pfilename){
 
 	// Plot Individual BGO Spectra into Histograms
 	stringstream temp1[32];
-	stringstream temp2[32]; 
+	stringstream temp2[32];
 	for (Int_t i=1; i<32; i++){
-		temp1[i] << "e_bgo_first >> h" << i;	
+		temp1[i] << "e_bgo_first >> h" << i;
 		temp2[i] << "e_bgo_first !=0 & num_bgo_first ==" << i;
 		h1001->Draw(temp1[i].str().data(),temp2[i].str().data());
 	}
@@ -104,7 +104,7 @@ void efficiency(char * pfilename){
 		}
 	}
 
-	// Find out Number of Reactions, and Raw Efficiency 
+	// Find out Number of Reactions, and Raw Efficiency
 	// (# gammas that actually generate a non-zero signal)
 	Float_t Reactions = h1000->Draw("react","react !=0");
 	cout << "Reactions = " << Reactions << endl;
@@ -140,7 +140,7 @@ void efficiency(char * pfilename){
 	// Read in Thresholds
 	source = TFile::Open("thresholds.root");
 	source->ReadAll();
-	
+
 	if (odbFile == 0) {cout << "No ODB File Specified, run again." << endl;}
 	else if (odbFile > 4) {cout << "Error, number must be 1-4." << endl;}
 	else if (odbFile == 1){
@@ -166,7 +166,7 @@ void efficiency(char * pfilename){
 		func100_17->Draw();
 		func100_18->Draw();
 		func100_19->Draw();
-		func100_20->Draw();	
+		func100_20->Draw();
 		func100_21->Draw();
 		func100_22->Draw();
 		func100_23->Draw();
@@ -178,11 +178,11 @@ void efficiency(char * pfilename){
 		func100_29->Draw();
 
 		//result->cd();
-	
+
 		hnew[6]->Draw();
 		hnew[1]->Multiply(func100_0);
 		hnew[2]->Multiply(func100_1);
-		hnew[3]->Multiply(func100_2);	
+		hnew[3]->Multiply(func100_2);
 		hnew[4]->Multiply(func100_3);
 		hnew[5]->Multiply(func100_4);
 		hnew[6]->Multiply(func100_5);
@@ -210,7 +210,7 @@ void efficiency(char * pfilename){
 		hnew[28]->Multiply(func100_27);
 		hnew[29]->Multiply(func100_28);
 		hnew[30]->Multiply(func100_29);
-	
+
 		Float_t sumnew = 0;
 		for (Int_t i=1; i<31; i++){
 			sumnew = sumnew + hnew[i]->Integral();
@@ -241,7 +241,7 @@ void efficiency(char * pfilename){
 		func150_17->Draw();
 		func150_18->Draw();
 		func150_19->Draw();
-		func150_20->Draw();	
+		func150_20->Draw();
 		func150_21->Draw();
 		func150_22->Draw();
 		func150_23->Draw();
@@ -253,11 +253,11 @@ void efficiency(char * pfilename){
 		func150_29->Draw();
 
 		//result->cd();
-	
+
 		hnew[6]->Draw();
 		hnew[1]->Multiply(func150_0);
 		hnew[2]->Multiply(func150_1);
-		hnew[3]->Multiply(func150_2);	
+		hnew[3]->Multiply(func150_2);
 		hnew[4]->Multiply(func150_3);
 		hnew[5]->Multiply(func150_4);
 		hnew[6]->Multiply(func150_5);
@@ -285,18 +285,18 @@ void efficiency(char * pfilename){
 		hnew[28]->Multiply(func150_27);
 		hnew[29]->Multiply(func150_28);
 		hnew[30]->Multiply(func150_29);
-	
+
 		Float_t sumnew = 0;
 		for (Int_t i=1; i<31; i++){
 			sumnew = sumnew + hnew[i]->Integral();
 		}
 		Float_t dSum = TMath::Sqrt(sumnew)/sumnew;
-                cout << "Efficiency = " << sumnew/Reactions << " +/- " << TMath::Sqrt(TMath::Power(dSum,2)+TMath::Power(dReactions/Reactions,2))*sumnew/Reactions << endl;
+				cout << "Efficiency = " << sumnew/Reactions << " +/- " << TMath::Sqrt(TMath::Power(dSum,2)+TMath::Power(dReactions/Reactions,2))*sumnew/Reactions << endl;
 	}
 	else if (odbFile == 3){
 /////////////////////////////////////////////////////////////////////////////////////////////
 ////// 175 thresh
-	
+
 		func175_0->Draw();
 		func175_1->Draw();
 		func175_2->Draw();
@@ -317,7 +317,7 @@ void efficiency(char * pfilename){
 		func175_17->Draw();
 		func175_18->Draw();
 		func175_19->Draw();
-		func175_20->Draw();	
+		func175_20->Draw();
 		func175_21->Draw();
 		func175_22->Draw();
 		func175_23->Draw();
@@ -329,11 +329,11 @@ void efficiency(char * pfilename){
 		func175_29->Draw();
 
 		//result->cd();
-	
+
 		hnew[6]->Draw();
 		hnew[1]->Multiply(func175_0);
 		hnew[2]->Multiply(func175_1);
-		hnew[3]->Multiply(func175_2);	
+		hnew[3]->Multiply(func175_2);
 		hnew[4]->Multiply(func175_3);
 		hnew[5]->Multiply(func175_4);
 		hnew[6]->Multiply(func175_5);
@@ -361,12 +361,12 @@ void efficiency(char * pfilename){
 		hnew[28]->Multiply(func175_27);
 		hnew[29]->Multiply(func175_28);
 		hnew[30]->Multiply(func175_29);
-	
+
 		Float_t sumnew = 0;
 		for (Int_t i=1; i<31; i++){
 			sumnew = sumnew + hnew[i]->Integral();
 		}
-                Float_t dSum = TMath::Sqrt(sumnew)/sumnew;
+				Float_t dSum = TMath::Sqrt(sumnew)/sumnew;
 		cout << "Efficiency = " << sumnew/Reactions << " +/- " << TMath::Sqrt(TMath::Power(dSum,2)+TMath::Power(dReactions/Reactions,2))*sumnew/Reactions << endl;
 	}
 	else if (odbFile == 4){
@@ -392,7 +392,7 @@ void efficiency(char * pfilename){
 		func200_17->Draw();
 		func200_18->Draw();
 		func200_19->Draw();
-		func200_20->Draw();	
+		func200_20->Draw();
 		func200_21->Draw();
 		func200_22->Draw();
 		func200_23->Draw();
@@ -404,11 +404,11 @@ void efficiency(char * pfilename){
 		func200_29->Draw();
 
 		//result->cd();
-	
+
 		hnew[6]->Draw();
 		hnew[1]->Multiply(func200_0);
 		hnew[2]->Multiply(func200_1);
-		hnew[3]->Multiply(func200_2);	
+		hnew[3]->Multiply(func200_2);
 		hnew[4]->Multiply(func200_3);
 		hnew[5]->Multiply(func200_4);
 		hnew[6]->Multiply(func200_5);
@@ -436,13 +436,13 @@ void efficiency(char * pfilename){
 		hnew[28]->Multiply(func200_27);
 		hnew[29]->Multiply(func200_28);
 		hnew[30]->Multiply(func200_29);
-	
+
 		Float_t sumnew = 0;
 		for (Int_t i=1; i<31; i++){
 			sumnew = sumnew + hnew[i]->Integral();
 		}
-                Float_t dSum = TMath::Sqrt(sumnew)/sumnew;
+				Float_t dSum = TMath::Sqrt(sumnew)/sumnew;
 		cout << "Efficiency = " << sumnew/Reactions << " +/- " << TMath::Sqrt(TMath::Power(dSum,2)+TMath::Power(dReactions/Reactions,2))*sumnew/Reactions << endl;
 	}
-	
+
 }
