@@ -1223,6 +1223,7 @@ C.
 C.--> Fill square DETE with hexagonal housings HSNG
 C.
       icopy = 0
+      write(*,*) '--------- BGO No, X, Y, Z: ---------'
 C.
       k = 1
 C. Detector 1.
@@ -1239,6 +1240,7 @@ C.
       If(mask(icopy).eq.1)then
         CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_front,'ONLY')
       Endif
+      write(*,*) icopy, -x, y, -z 
 C.
       k = 2
 C. Detector 2.
@@ -1255,6 +1257,7 @@ C.
       If(mask(icopy).eq.1)then
         CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_front,'ONLY')
       Endif
+      write(*,*) icopy, -x, y, -z 
 C. Detector 3.
       x =   d_mtl/2. + d_air(2)/2. - pmt_length/2. - 6.7
       y =   aprt + wall(3) + (1./2.)* hexagon_large_width+0.6
@@ -1269,6 +1272,7 @@ C.
       If(mask(icopy).eq.1)then
         CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_front,'ONLY')
       Endif
+       write(*,*) icopy, -x, y, -z 
 C.
       k = 3
 C. Detector 4.
@@ -1285,6 +1289,7 @@ C.
       If(mask(icopy).eq.1)then
         CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_front,'ONLY')
       Endif
+       write(*,*) icopy, -x, y, -z 
 C.
       k = 5
 C. Detector 5.
@@ -1300,6 +1305,7 @@ C.
       If(mask(icopy).eq.1)then
         CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_front,'ONLY')
       Endif
+       write(*,*) icopy, -x, y, -z 
 C.
       k = 7
 C. Detector 6.
@@ -1315,6 +1321,7 @@ C.
       If(mask(icopy).eq.1)then
         CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_front,'ONLY')
       Endif
+       write(*,*) icopy, -x, y, -z 
 C.
       k = 9
 C. Detector 7.
@@ -1330,6 +1337,7 @@ C.
       If(mask(icopy).eq.1)then
         CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_front,'ONLY')
       Endif
+       write(*,*) icopy, -x, y, -z 
 C.
       k = 10
 C. Detector 8.
@@ -1345,6 +1353,7 @@ C.
       If(mask(icopy).eq.1)then
         CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_front,'ONLY')
       Endif
+       write(*,*) icopy, -x, y, -z 
 C. Detector 9.
       x =   d_mtl/2. + d_air(2)/2. - pmt_length/2.
       y =   aprt + wall(3) + (1./2.)* hexagon_large_width+0.6
@@ -1359,6 +1368,7 @@ C.
       If(mask(icopy).eq.1)then
         CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_front,'ONLY')
       Endif
+       write(*,*) icopy, -x, y, -z 
 C.
       k = 11
 C. Detector 10.
@@ -1375,6 +1385,7 @@ C.
       If(mask(icopy).eq.1)then
         CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_front,'ONLY')
       Endif
+       write(*,*) icopy, -x, y, -z 
 C. Detectors 11 through 30.
       Do k = 9, 3, -1
 C.
@@ -1404,6 +1415,7 @@ C.
             If(mask(icopy).eq.1)then
               CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_back,'ONLY')
             Endif
+             write(*,*) icopy, -x, y, -z 
 C.
             x = -x
 C.
@@ -1416,6 +1428,7 @@ C.
             If(mask(icopy).eq.1)then
               CALL gspos('HSNG',icopy,'DETE',-x,y,-z,irot_front,'ONLY')
             Endif
+             write(*,*) icopy, -x, y, -z 
 C.
          Enddo
 C.

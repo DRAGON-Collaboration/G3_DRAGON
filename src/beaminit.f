@@ -149,6 +149,10 @@ C.
         bscale = recoilmom/fkine(2)/ (refmom/refq)
         escale = recoilenerg*refq/(refenerg*fkine(2))*
      +     (1+etatune)/(1+2*etatune)*(1+2*etaref)/(1+etaref)
+C. ----- Trick to make beam particles get through if needed 
+C. ----- (rescale Electric Dipoles)
+C.       escale = escale*prodm/beammass
+C. ----- 
         write(6,*)'++++++++++++++++++++++++++++++++++++++++++++++++'
         write(6,*) 'Magnetic element scale factor ',bscale
         write(6,*) 'Electric element scale factor ',escale
@@ -263,6 +267,10 @@ c        print*, momm, betacm, gamcm, erec, trec
         bscale = recoilmom/fkine(2)/ (refmom/refq)
         escale = recoilenerg*refq/(refenerg*fkine(2))*
      +     (1+etatune)/(1+2*etatune)*(1+2*etaref)/(1+etaref)
+C.----- Trick to make beam particles get through if needed 
+C.  ----- (rescale Electric Dipoles)
+C.        escale = escale*prodm/beammass
+C. ----- 
         write(6,*)'++++++++++++++++++++++++++++++++++++++++++++++++'
         write(6,*) 'Magnetic element scale factor ',bscale
         write(6,*) 'Electric element scale factor ',escale

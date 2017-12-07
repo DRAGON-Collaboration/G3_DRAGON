@@ -233,7 +233,7 @@ C.--> Extract time variable of highest E gamma hit
 C.      print*, 'TOF Gamma = ', gammatof
 C.---> Add some timing 'resolution' (say sigma=200ps)[time in ns]
       CALL granor(rndm(1),rndm(2))
-      gammatof = gammatof + rndm(1)*0.2
+      gammatof = gammatof + rndm(1)*0.3
 C.
       ifngr_max = jelem(1,isort(1))
       neff(11,ifngr_max) = neff(11,ifngr_max) + 1
