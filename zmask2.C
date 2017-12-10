@@ -1,0 +1,117 @@
+// Convert the BGO Hit pattern into a z-coordinate from GEANT
+
+void zmask2(){
+
+Float_t coords[30][3] = {{   0, -4.8,-15.3},
+                                 {   0,-10.1,-12.2},	//1
+								 {   0,  5.0,-12.2},
+                                 {   0,  9.9, -9.2}, 	//3
+								 {   0,  8.0, -3.1},
+                                 {   0,  8.0,  3.1}, 	//5
+								 {   0,  9.9,  9.2},
+                                 {   0,-10.1, 12.2},	//7
+								 {   0,  5.0, 12.2},
+                                 {   0, -4.8, 15.3}, 	//9
+								 {  -4, -2.6, -9.2},
+                                 {   4, -2.6, -9.2}, 	//11
+								 {  -4, -7.9, -6.1},
+                                 {   4, -7.9, -6.1},	//13
+								 {  -4,  2.7, -6.1},
+                                 {   4,  2.7, -6.1},	//15
+								 {  -4, -2.6, -3.1},
+                                 {   4, -2.6, -3.1}, 	//17
+								 {  -4, -7.9,    0},
+                                 {   4, -7.9,    0}, 	//19
+								 {  -4,  2.7,    0},
+                                 {   4,  2.7,    0}, 	//21
+								 {  -4, -2.6,  3.1},
+                                 {   4, -2.6,  3.1}, 	//23
+								 {  -4, -7.9,  6.1},
+                                 {   4, -7.9,  6.1}, 	//25
+								 {  -4,  2.7,  6.1},
+                                 {   4,  2.7,  6.1},	//27
+								 {  -4, -2.6,  9.2},
+								 {   4, -2.6,  9.2}};	//29
+				
+TH1F *zcoord = new TH1F("zcoord","z-coordinate of BGO g0 hit",30,-15,15);
+TH1F *zcoord2 = new TH1F("zcoord2","z-coordinate of BGO g0 hit",30,-15,15);
+TH1F *num_bgo = new TH1F("num_bgo","",30,1,30);
+TH1F *means = new TH1F("means","",100,-15,15);
+    TH1F *recon = new TH1F("recon","",100,-15,15);
+
+
+h1001->Draw("num_bgo_first>>num_bgo","num_bgo_first !=0");
+
+Float_t totalcounts = num_bgo->Integral();
+cout << "Integral = " << totalcounts << endl;
+//Float_t loops = totalcounts/5;
+Int_t group =10;
+Float_t loops = totalcounts/group;
+//Float_t evt[int(loops)];
+//Float_t zmean[int(loops)];
+//Float_t errevt[int(loops)];
+ Float_t evt[6];
+ Float_t zmean[6];
+ Float_t errevt[6];
+ //TH2F *means2d = new TH2F("means2d","",int(loops),0,200,500,-5,5);
+ // for (Int_t j=0; j<int(loops); j++){
+ TH2F *means2d = new TH2F("means2d","",6,0,200,500,-5,5);
+ zcoord2->Reset();
+ h1001->Draw("num_bgo_first>>num_bgo","","",10,0);
+            for (Int_t i=0; i<30; i++){
+                Float_t y = num_bgo->GetBinContent(i+1);
+		
+                zcoord2->Fill(coords[i][2],y);
+            }
+
+
+ for (Int_t j=0; j<6; j++){
+        h1001->Draw("num_bgo_first>>num_bgo","","",group,j*group);
+            for (Int_t i=0; i<30; i++){
+                Float_t y = num_bgo->GetBinContent(i+1);
+                zcoord->Fill(coords[i][2],y);
+            }
+        Float_t mean = zcoord->GetMean();
+        evt[j]=zcoord->Integral();
+        Float_t stdev = zcoord->GetRMS();
+        //errevt[j]=TMath::Sqrt(stdev/evt[j]);
+        errevt[j]=6.0/TMath::Sqrt(evt[j]);
+        // From Hutcheon NIMA 689 (2012)
+        // Z_BGO = 0.79*Z_true + 0.57cm
+        mean = ( mean - 0.57 )/0.79;
+        zmean[j]=mean;
+        means->Fill(mean);
+        means2d->Fill(j,mean);
+        zcoord->Reset();
+    }
+    
+    // Find true mean
+    TH1F *h_true = new TH1F("h_true","",100,-25,25);
+    h1000->Draw("zint>>h_true","react==1");
+    Float_t z_true = h_true->GetMean();
+    TF1 *f_true = new TF1("f_true","[0]*x + [1]",0,5000);
+    f_true->SetParameter(0,0);
+    f_true->SetParameter(1,z_true);
+    f_true->SetLineColor(2);
+    f_true->SetLineStyle(2);
+    f_true->SetLineWidth(2);
+    
+    
+  /*  TCanvas *canv = new TCanvas("canv","canv",200,10,700,500);
+    canv->SetLogx(1);
+    TGraphErrors *g1 = new TGraphErrors(int(loops),evt,zmean,0,errevt);
+    g1->GetXaxis()->SetTitle("Number of Events in #gamma_{0} Spectrum");
+    g1->GetXaxis()->CenterTitle();
+    g1->GetYaxis()->SetTitle("Reconstructed z_{0} position (cm)");
+    g1->GetYaxis()->CenterTitle();
+    g1->GetXaxis()->SetRangeUser(5,1000.);
+    g1->SetTitle("Reconstructed z_{0} position from BGO hit-pattern");
+    */
+    means->Draw();
+    //means2d->Draw();
+    //g1->Draw("ALP");
+   // f_true->Draw("Same");
+    h_true->Draw();
+    
+    
+}

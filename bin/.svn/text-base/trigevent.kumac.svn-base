@@ -1,0 +1,9 @@
+next
+debug on
+kine 60 200. 90 0 -12. 0. 0.
+trig 1
+debug off
+dhead 110110 'Process' 
+dshow 1
+dxyz
+dpart 0 10 .35

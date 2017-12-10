@@ -1,3 +1,17 @@
-*** Begin of history file: Thu Jul 14 13:39:45 2016
+*** Begin of history file: Wed Nov 29 11:29:23 2017
+exec bin/plan
+swit 2 3
+trig 1
+trig 1
+trig 1
+trig 1
+exec bin/targ_nogam
+trig 1
+trig 1
+trig 1
+trig 1
+trig 1
+trig 1
+trig 1
 quit
-*** End   of history file: Thu Jul 14 14:29:24 2016
+*** End   of history file: Wed Nov 29 11:31:07 2017

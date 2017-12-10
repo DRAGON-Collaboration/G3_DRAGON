@@ -1,0 +1,153 @@
+
+
+#------------------------------------------------------------------#
+#                                                                  #
+#                  Dragon Simulation executable Makefile           #
+#                     Renee Poutissou (TRIUMF)                     #
+#                          1-may-1998                              #
+#                AO user version Feb00                             #
+#  usage examples:                                                 #
+#                                                                  #
+#  % make                                                          #
+#  % make dsbatch                                                    # 
+#------------------------------------------------------------------#
+# 09-feb-1998 Renee - Fix the make file : add IFLAGS, add rules    #
+# 10-feb-1998 Renee - adapt for Linux                              #
+#------------------------------------------------------------------#
+# this can be changed here, or defined on the command line.
+# (Say "make OUTPUT=progname", for example.)
+#
+# library now w/o optimization for zebra
+DSROOT=.
+DSBIN=.
+CERN_LIBRARY= /home6/cern/share/2002/lib
+X11= /usr/X11R6/lib
+F771= /usr/local/lib
+GINCLUDE = /cern/new/src/
+HINCLUDE = /cern/new/src/packlib/hbook/
+
+IFLAGS= -I../inc  -I$(DSINCLUDE) -I$(GINCLUDE)
+
+
+
+
+OUTPUT= dsbatch
+OUTPUT_INTER = dsinter
+#------------------------------linux needs ------------------------------#
+#F77= g77 -g -Dg77 -Dunix -fno-second-underscore -fno-automatic -static -c
+F90FLAGS=-O2 -cpu:p6 -g -s -en -M124 -M771 -M37 -M899 -M90 -M1566 -YEXT_SFX=_ -YEXT_NAMES=LCS -YCOM_NAMES=LCS -YCFRL=1
+F90=f95
+#------------------------------------------------------------------------#
+
+# this is defined so that you can specify extra object files
+# on the command line.  (Say "make OBJECTS=file.o", for example.)
+
+OBJECTS=
+
+#------------------------------------------------------------------#
+# if you have your own version of a standard library, add its
+# directory to the top of this list
+
+LIBDIRS= \
+   -L$(CERN_LIBRARY) -L$(X11)  -L$(ABSOFT)/lib
+
+#------------------------------------------------------------------#
+# add your object files and personal libraries to the end of this list
+
+OBJS_BATCH = \
+     gumain.o 
+
+OBJS_INTER = \
+    gxint321.o
+
+OBJS = \
+       	beaminit.o \
+	ghidet.o \
+	ghipmt.o \
+	ggscnt.o \
+        gudigi.o \
+        guhadr.o \
+        gukine.o \
+        gukine_full.o \
+        gukine_gbox.o \
+        gukine_mitray.o \
+        guout.o  \
+        guphad.o \
+	gureact.o \
+        gustep.o \
+	gustep_trgt.o \
+	gustep_mitray.o \
+	gustep_gbox.o \
+        gutrak.o \
+        gutrev.o \
+        uginit.o \
+        uvinit.o \
+        ugffgo.o \
+        uhinit.o \
+        ugmate.o \
+        ugmate_trgt.o \
+        ugstmed.o \
+        ugstmed_trgt.o \
+        ureact.o \
+        uglast.o \
+        ugeom.o \
+        ugeom_gbox.o \
+        ugeom_trgt.o \
+        ugeom_mitray.o \
+	ugeom_defin.o \
+        guswim.o \
+        grkuta.o \
+        guefld.o \
+        mitray_setup.o \
+        mitray_field.o \
+        mitray_dipole.o \
+        mitray_edipol.o \
+        mitray_solnd.o \
+        mitray_poles.o \
+        mitray_zone.o \
+        mitray_sasp.o \
+        neighborhood.o \
+        gthion.o \
+	geant_mod.o \
+        sig.o \
+        chmass.o \
+        gdeca2.o \
+        angdist.o \
+        gdecay.o \
+        interac.o \
+        hack.o \
+        hrndm1.o
+#
+
+#------------------------------------------------------------------#
+# add or delete the support libraries as you require them
+
+LIBS = -lgeant321 -lmathlib -lgrafX11 -lkernlib -lpacklib  -lgrafX11
+
+GLIBS = -lgeant321  -lpawlib -lgraflib -lgrafX11 -lpacklib -lmathlib -lkernlib    -llapack3   -lblas  
+ 
+
+FLIBS = -lU77 -lf90math -lf77math -lfio -lnsl  -lreadline -lncurses
+#------------------------------------------------------------------#
+# batch geant, suitable for long jobs.
+# Say "make" or "make dsbatch"
+
+# for linux
+dsbatch : $(OBJS_BATCH) $(OBJS) $(OBJECTS)
+	$(F90)   -o $(OUTPUT) $(F90FLAGS) $(LIBDIRS) $(OBJS_BATCH) $(OBJS) $(LIB) $(LIBS)   -lXm  -lXp -lXext -lXt -lX11 $(FLIBS) -lstdc++  
+
+#------------------------------------------------------------------#
+# interactive geant
+# Say "make dsinter"
+
+dsinter : $(OBJS_INTER) $(OBJS) $(OBJECTS)
+	$(F90)   -o $(DSBIN)/dsinter $(F90FLAGS)  $(LIBDIRS) $(OBJS_INTER) $(OBJS) $(LIB) $(GLIBS)  -lcrypt -ldl -lXm  -lXp -lXext -lXt -lX11 $(FLIBS)  -lstdc++
+
+
+#------------------------------------------------------------------#
+# standard rules and definitions just as found in
+# include $(TRIUMF_ROOT)/make.std
+#------------------------------------------------------------------#
+
+include $(DSROOT)/makef90.std
+

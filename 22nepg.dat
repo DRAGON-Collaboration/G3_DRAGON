@@ -1,0 +1,87 @@
+# Input namelist for 22Ne(p,g)23Na reaction
+#  C.Ruiz 03.10.2016
+# Note: All mass excesses in GeV
+#       All widths in MeV
+#       All elevels in MeV
+ $params
+  life = 15*1000.
+  level = 15*0.
+  beamtyp = '22Ne'
+  rectyp = '23Na'
+  zbeam = 10.
+  abeam = 22.
+  atarg = 1.
+  ztarg = 1.
+  zprod = 11.
+  beamlifetime = 1000.
+  beam_mass_excess = -8.0247E-03
+  recoil_mass_excess = -9.5298E-03
+  resenerg = 0.150
+  part_width = 0.000001
+  gam_width = 0.000001
+  spin_stat_fac = 1.0
+  ell = 0.
+  rstate = 8
+  level( 0) = 0.000
+  level( 1) = 0.440
+  level( 2) = 2.076
+  level( 3) = 2.391
+  level( 4) = 2.640
+  level( 5) = 2.982
+  level( 6) = 3.678
+  level( 7) = 3.914
+  level( 8) = 8.944
+  level( 9) = 9.252
+  life( 0) = 1000.
+  life( 1) = 1.24E-12
+  life( 2) = 24.0E-12
+  life( 3) = 594.0E-15
+  life( 4) = 58.0E-15
+  life( 5) = 2.5E-15
+  life( 6) = 24.0E-15
+  life( 7) = 1.0E-15
+  life( 8) = 21.0E-15
+  life( 9) = 1.0E-15
+  br(1,1) = 100.
+  md(1,1) = 0
+  br(2,1) = 91.7
+  md(2,1) = 1
+  br(2,2) = 8.3
+  md(2,2) = 0
+  br(3,1) = 65.7
+  md(3,1) = 0
+  br(3,2) = 34.3
+  md(3,2) = 1
+  br(4,1) = 100.
+  md(4,1) = 0
+  br(5,1) = 58.8
+  md(5,1) = 0
+  br(5,2) = 41.2
+  md(5,2) = 1
+  br(6,1) = 80.2
+  md(6,1) = 1
+  br(6,2) = 19.8
+  md(6,2) = 3
+  br(7,1) = 80.6
+  md(7,1) = 0
+  br(7,2) = 8.9
+  md(7,2) = 2
+  br(7,3) = 8.1
+  md(7,3) = 1
+  br(7,4) = 2.4
+  md(7,4) = 5
+  br(8,1) = 77.0
+  md(8,1) = 7
+  br(8,2) = 23.0
+  md(8,2) = 3
+  br(9,1) = 48.8
+  md(9,1) = 0
+  br(9,2) = 34.2
+  md(9,2) = 4
+  br(9,3) = 8.8
+  md(9,3) = 3
+  br(9,4) = 4.3
+  md(9,4) = 5
+  br(9,5) = 3.9
+  md(9,5) = 2
+$[end]

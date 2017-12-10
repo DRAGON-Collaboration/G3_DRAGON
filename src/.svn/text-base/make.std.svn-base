@@ -1,0 +1,62 @@
+#---------------------------------------------------------------------#
+#                                                                     #
+#                       standard E787 makefile                        #
+#                        Morgan Burke (TRIUMF)                        #
+#                           1992-January-24                           #
+#                                                                     #
+#  usage:                                                             #
+#                                                                     #
+#  LIB=libname.a                                                      #
+#  OBJS=$(LIB)(file1.o) $(LIB)(file2.o) $(LIB)(file3.o)               #
+#  include $(TRIUMF_ROOT)/make.std                                    #
+#                                                                     #
+#---------------------------------------------------------------------#
+#------------------------------linux needs ------------------------------#
+#
+# clear default suffix list
+
+.SUFFIXES:
+
+# define E787 suffix list
+
+.SUFFIXES: .F .cdf .f .c .o 
+
+# define targets
+
+library : $(OBJS)
+	ar ts $(LIB)
+
+clean :
+	@rm -f $(OUTPUT) $(LIB) *.o
+
+# define rules
+
+# NB: default compilation flags (FFLAGS and CFLAGS) can be defined on
+# the make command line, or passed as environment variables.
+
+# for .cdf files, do not remove .f cadavers if -g switch is on,
+# or else debuggers will not be able to display sources
+
+.F.a:
+	$(F77) $(FFLAGS) $(IFLAGS) $(DFLAGS) $<
+	ar r $@ $*.o
+	rm -f $*.o
+
+.f.a:
+	$(F77) $(FFLAGS) $(IFLAGS) $<
+	ar r $@ $*.o
+	rm -f $*.o
+
+.f.o:
+	$(F77) $(FFLAGS) $(IFLAGS) $<
+
+.F.o:
+	$(F77) $(FFLAGS) \
+	$(IFLAGS) $(DFLAGS) $<
+
+.c.a:
+	cc -c  $(DFLAGS) $(IFLAGS) $(CFLAGS) $<
+	ar r $@ $*.o
+
+.c.o:
+	cc -c  $(DFLAGS) $(IFLAGS) $(CFLAGS) $<

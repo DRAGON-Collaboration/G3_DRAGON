@@ -33,8 +33,8 @@ C == NRNDM ==   Initial value of random number seeds NRNDM(1), NRNDM(2).
 C          If NRNDM(2) is 0, the independent sequence NRNDM(1) is used.
 C          If NRNDM(1) is 0, the default sequence is used. (9876, 54321)
 C
-RNDM 3589793238 314159265
-C RNDM 0 0 
+CRNDM 3414567 18346136
+RNDM 0 0 
 C
 C ========= AUTO: IGAUTO =========
 C
@@ -258,7 +258,7 @@ TUNE 1.8885 19. 4.
 C    MTUN x(cm) y(cm) dx(rad) dy(rad) separator tune(%/100)
 C MTUN -0.0 -0.0 -0.000 -0.000 0.02
 C    BEAM incoming beam energy (MeV=MeV/u*BeamMass)
-C BEAM 10.207
+C BEAM 9.2082
 C SCAL  1.75898  2.30782 
 C
 C++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++C
@@ -452,5 +452,55 @@ C			gas cell in dimension z. Looking at cell negative
 C			numbers move blocks right, positive numbers left
 C PBPS 0.0
 STOP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

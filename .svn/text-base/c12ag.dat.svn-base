@@ -1,0 +1,130 @@
+# Input namelist for 12C(a,g)16O reaction
+#  C.Ruiz 22.07.2003
+# Note: All mass excesses in GeV
+#       All widths in MeV
+#       All elevels in MeV
+#
+# beam_mass_excess and recoil_mass_excess is energy difference from
+# (abeam or atarg)*(GeV/amu) to real value
+#
+# Resonant particle's mass/energy/level defined by resenerg, not level(rstate)
+# Resonant mass = Beam mass + Target mass + resenergy
+# level(rstate) value only "names" resonant state
+#
+# part_width/gam_width/spin_stat_fac/ell, define resonance width of rstate 
+#
+# rstate is the energy level that GEANT creates resonant particles at
+#
+# level(x), specifies energy of energy level x
+# life(x), specifies lifetime of level(x)
+#
+# Branching ratios:
+# br(x,z), sets branching ratio of level(x) decay mode z
+# md(x,z) = y, sets decay mode z, for level(x), to level(y)
+# example
+# br(2,1) = 100
+# md(2,1) = 0
+# sets braching ratio from level(2) to level index 1 to 100%
+# sets level index 1, for level(2), to level(0)
+# or, sets branching ratio from leve(2) to level(0) to 100%
+#
+ $params
+  life = 15*1000.
+  level = 15*0.
+  beamtyp = '12C'
+  rectyp = '16O'
+  zbeam = 6.
+  abeam = 12.
+  atarg = 4.
+  ztarg = 2.
+  zprod = 8.
+  beamlifetime = 1000.
+  beam_mass_excess = 0.0
+  recoil_mass_excess = -4736.998E-6
+  resenerg = 3.194
+  part_width = 0.027
+  gam_width = 0.0000000625
+  spin_stat_fac = 9.
+  ell = 1.
+  rstate = 8
+  level( 0) = 0.0
+  level( 1) = 6.0494
+  level( 2) = 6.12989
+  level( 3) = 6.9171
+  level( 4) = 7.11685
+  level( 5) = 8.8719
+  level( 6) = 9.585
+  level( 7) = 9.8445
+  level( 8) = 10.356
+  level( 9) = 10.957
+  level(10) = 11.080
+  level(11) = 11.0967
+  level(12) = 11.260
+  level(13) = 11.520
+  life( 0) = 1000.
+  life( 1) = 67.E-12
+  life( 2) = 18.4E-12
+  life( 3) = 4.7E-15
+  life( 4) = 8.3E-15
+  life( 5) = 125.E-15
+  life( 6) = 1.6E-21
+  life( 7) = 1.06E-18
+  life( 8) = 2.53E-20
+  life( 9) = 5.5E-15
+  life(10) = 5.5E-20
+  life(11) = 2.4E-18
+  life(12) = 2.6E-22
+  br(1,1) = 100.
+  md(1,1) = 0
+  br(2,1) = 100.
+  md(2,1) = 0
+  br(3,1) = 99.97
+  md(3,1) = 0
+  br(3,2) = 0.027
+  md(3,2) = 1
+  br(3,3) = 0.008
+  md(3,3) = 2
+  br(4,1) = 99.93
+  md(4,1) = 0
+  br(4,2) = 0.07
+  md(4,2) = 2
+  br(5,1) = 7.22
+  md(5,1) = 0
+  br(5,2) = 0.12
+  md(5,2) = 1
+  br(5,3) = 77.67
+  md(5,3) = 2
+  br(5,4) = 3.57
+  md(5,4) = 3
+  br(5,5) = 11.42
+  md(5,5) = 4
+  br(6,1) = 89.29
+  md(6,1) = 0
+  br(6,2) = 10.71
+  md(6,2) = 3
+  br(7,1) = 60.98
+  md(7,1) = 0
+  br(7,2) = 18.29
+  md(7,2) = 1
+  br(7,3) = 20.73
+  md(7,3) = 3
+  br(8,1) = 1.57
+  md(8,1) = 2
+  br(8,2) = 98.43
+  md(8,2) = 3
+  br(9,1) = 100.
+  md(9,1) = 4
+  br(11,1) = 55.25
+  md(11,1) = 2
+  br(11,2) = 44.75
+  md(11,2) = 3
+  br(13,1) = 90.99
+  md(13,1) = 0
+  br(13,2) = 4.19
+  md(13,2) = 1
+  br(13,3) = 4.00
+  md(13,3) = 3
+  br(13,4) = 0.82
+  md(13,4) = 4  
+$[end]
+  

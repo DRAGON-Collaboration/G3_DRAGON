@@ -46,9 +46,9 @@ void z_recon()
 {
   const Double_t c = 29.9792458; // cm/ns
   const Double_t amu = 931.494; // MeV/c**2
-  Double_t Ebeam = 10.078; // MeV
-  Double_t Stopping = 0.00336; // MeV/cm
-  Double_t Mass = 26.; // amu
+  Double_t Ebeam = 11.593; // MeV
+  Double_t Stopping = 0.0295; // MeV/cm
+  Double_t Mass = 23.; // amu
   Double_t Vbeam = c*TMath::Sqrt(2.*Ebeam/(Mass*amu));
   Double_t Vout = c*TMath::Sqrt(2.*(Ebeam-Stopping*12.3)/(Mass*amu));
   
@@ -106,7 +106,7 @@ void z_recon()
 
   Double_t Dist_scint = -87.912;
   Double_t t0 = (TMath::Abs(Dist_scint)-6.15)/(c*TMath::Sqrt(2.*Ebeam/(Mass*amu)));
-  //cout << t0 << endl;
+  cout << t0 << endl;
 
   TH1F *hz0 = new TH1F("hz0","",100,-15,15);
   TH1F *hz1 = new TH1F("hz1","",100,-15,15);
@@ -119,7 +119,9 @@ void z_recon()
   f1->SetParameter(0,t0);
   f1->SetParameter(1,p0);
   f1->SetParameter(2,p1);
-  //h1001->Draw("(gammatof*29.9792458*TMath::Sqrt(2.*10.078/(26.*931.494))+Dist_scint)>>hz","gammatof!=0");
+  
+ 
+//h1001->Draw("(gammatof*29.9792458*TMath::Sqrt(2.*10.078/(26.*931.494))+Dist_scint)>>hz","gammatof!=0");
   //h1001->Draw("gammatof","gammatof!=0");
   //h1001->Draw(f1,"gammatof!=0");
   //cout << f1->Eval(102) << endl;
@@ -188,7 +190,7 @@ void z_recon()
 
   /*
   
-  //TCanvas *canv = new TCanvas("canv","canv",200,10,700,500);
+  TCanvas *canv = new TCanvas("canv","canv",200,10,700,500);
   //canv->SetLogx(1);
   
   // Find true mean

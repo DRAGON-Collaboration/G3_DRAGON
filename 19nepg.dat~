@@ -1,0 +1,63 @@
+# Input namelist for 19Ne(p,g)20Na reaction
+#  C.Ruiz 20.10.2016
+# Note: All mass excesses in GeV
+#       All widths in MeV
+#       All elevels in MeV
+ $params
+  life = 15*1000.
+  level = 15*0.
+  beamtyp = '19Ne'
+  rectyp = '20Na'
+  zbeam = 10.
+  abeam = 19.
+  atarg = 1.
+  ztarg = 1.
+  zprod = 11.
+  beamlifetime = 17.22
+  beam_mass_excess = 1.7520E-03
+  recoil_mass_excess = 6.8502E-03
+  resenerg = 0.457
+  part_width = 0.000001
+  gam_width = 0.000001
+  spin_stat_fac = 1.0
+  ell = 0.
+  rstate = 8
+  level( 0) = 0.000
+  level( 1) = 0.596
+  level( 2) = 0.802
+  level( 3) = 0.984
+  level( 4) = 1.346
+  level( 5) = 1.837
+  level( 6) = 1.992
+  level( 7) = 2.057
+  level( 8) = 2.645
+  level( 9) = 2.849
+  life( 0) = 0.448
+  life( 1) = 1.0E-12
+  life( 2) = 1.0E-12
+  life( 3) = 1.0E-15
+  life( 4) = 1.0E-15
+  life( 5) = 1.0E-15
+  life( 6) = 1.0E-15
+  life( 7) = 1.0E-15
+  life( 8) = 1.0E-15
+  life( 9) = 1.0E-15
+  br(1,1) = 100.
+  md(1,1) = 0
+  br(2,1) = 100.
+  md(2,1) = 0
+  br(3,1) = 100.
+  md(3,1) = 0
+  br(4,1) = 100.
+  md(4,1) = 0
+  br(5,1) = 100.
+  md(5,1) = 0
+  br(6,1) = 100.
+  md(6,1) = 0
+  br(7,1) = 100.
+  md(7,1) = 0
+  br(8,1) = 100.
+  md(8,1) = 0
+  br(9,1) = 100.
+  md(9,1) = 0
+$[end]
