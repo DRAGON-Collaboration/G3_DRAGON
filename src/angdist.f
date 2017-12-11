@@ -1,4 +1,4 @@
-c----67---- gamma angular distribution
+c---- 67---- gamma angular distribution
 
       REAL FUNCTION angdist(X)
 
@@ -12,9 +12,5 @@ C     A dipole angular distribution for gammas
 C     angdist = (3./(8.*pi))*(1.-X**2)
 C     A quadrupole angular distribution for gammas
 C     angdist = (15./(8.*pi))*(1.-X**2)*X**2
-
-
-
-
 
       END
