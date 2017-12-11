@@ -1,4 +1,4 @@
-*-- Author :
+*--   Author :
       PROGRAM GXINT
 *
 *     GEANT main program. To link with the MOTIF user interface

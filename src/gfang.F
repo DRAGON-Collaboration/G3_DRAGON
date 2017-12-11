@@ -1,37 +1,37 @@
 *
-* $Id: gfang.F,v 1.1.1.1 2003-09-25 22:25:18 dragoncvs Exp $
+*     $Id: gfang.F,v 1.1.1.1 2003-09-25 22:25:18 dragoncvs Exp $
 *
-* $Log: not supported by cvs2svn $
-* Revision 1.1.1.1  1995/10/24 10:21:24  cernlib
-* Geant
+*     $Log: not supported by cvs2svn $
+*     Revision 1.1.1.1  1995/10/24 10:21:24  cernlib
+*     Geant
 *
 *
 #include "geant321/pilot.h"
-*CMZ :  3.21/02 06/07/94  18.28.55  by  S.Giani
-*-- Author :
+*     CMZ :  3.21/02 06/07/94  18.28.55  by  S.Giani
+*--   Author :
       SUBROUTINE GFANG(P,COSTH,SINTH,COSPH,SINPH,ROTATE)
-C.
-C.    ******************************************************************
-C.    *                                                                *
-C.    *  Finds theta-phi angles for a particle with director cosines P *
-C.    *  The logical flag ROTATE indicates whether the the director    *
-C.    *  cosines are along the Z axis (.FALSE.) or not (.TRUE.).       *
-C.    *                                                                *
-C.    *    ==>Called by :                                              *
-C.    *       Author    F.Carminati  *********                         *
-C.    *                                                                *
-C.    *                                                                *
-C.    ******************************************************************
-C.
+C     .
+C     .    ******************************************************************
+C     .    *                                                                *
+C     .    *  Finds theta-phi angles for a particle with director cosines P *
+C     .    *  The logical flag ROTATE indicates whether the the director    *
+C     .    *  cosines are along the Z axis (.FALSE.) or not (.TRUE.).       *
+C     .    *                                                                *
+C     .    *    ==>Called by :                                              *
+C     .    *       Author    F.Carminati  *********                         *
+C     .    *                                                                *
+C     .    *                                                                *
+C     .    ******************************************************************
+C     .
       DIMENSION P(*)
-#if !defined(CERNLIB_SINGLE)
+#if                             !defined(CERNLIB_SINGLE)
       DOUBLE PRECISION DUX, DUY, DUZ, DSITH2, ONE, DNORM
 #endif
       LOGICAL ROTATE
       PARAMETER (ONE=1)
-C.
-C.    ------------------------------------------------------------------
-C.
+C     .
+C     .    ------------------------------------------------------------------
+C     .
       DUX      = P(1)
       DUY      = P(2)
       DUZ      = P(3)

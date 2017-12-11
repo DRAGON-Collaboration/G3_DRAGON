@@ -33,7 +33,7 @@ C.
 C.--> Decay number
 C.
       Nodec = Nodec + 1
-      
+
 C.
 C.    ------------------------------------------------------------------
 C.
@@ -65,7 +65,7 @@ C    - HBOOK functions are used to generate angular distributions,
 C      Histograms 250-300 will be reserved for these.
 C
 C      test for histogram for current decay (set to 250 for test)
-       
+
        If (Hexist(250) .AND. IPART.EQ.81) then
         COSTH = HRNDM1(250)
         SINTH = SQRT((1.-COSTH)*(1.+COSTH))
@@ -99,13 +99,3 @@ C
 C
 C
       END
-
-
-
-
-
-
-
-
-
-
