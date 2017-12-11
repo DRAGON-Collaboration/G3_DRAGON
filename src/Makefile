@@ -7,7 +7,7 @@
 #  usage examples:                                                 #
 #                                                                  #
 #  % make                                                          #
-#  % make dsbatch                                                  #
+#  % make dsbatch                                                   #
 #------------------------------------------------------------------#
 # 09-feb-1998 Renee - Fix the make file : add IFLAGS, add rules    #
 # 10-feb-1998 Renee - adapt for Linux                              #

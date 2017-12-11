@@ -1,25 +1,25 @@
-C     .
+C.
       SUBROUTINE guskip(iskip)
-C     .
+C.
 CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
-C     C
+C                                                                      C
 C     Routine is called from GSSTAK                                    C
-C     C
+C                                                                      C
 C     Note: Decisions can only be based on the following variables     C
-C     in (temporary) GCKINE: TOFG, IPART, VERT and PVERT         C
-C     C
+C           in (temporary) GCKINE: TOFG, IPART, VERT and PVERT         C
+C                                                                      C
 CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
-C     .
+C.
       IMPLICIT none
-C     .
+C.
       INTEGER iskip
-C     .
-      include 'gckine.inc'      !geant
-C     .
+C.
+      include 'gckine.inc'          !geant
+C.
       iskip = 0
-C     .
+C.
       If(ipart.eq.4)iskip = 1
-C     .
+C.
       RETURN
       END
 

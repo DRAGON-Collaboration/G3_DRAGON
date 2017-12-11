@@ -42,7 +42,7 @@ C center of target
         CALL gfpart(80,state,itrktyp,beammass,beamz,tlif,ubuf,nubuf)
         CALL gfpart(81,state,itrktyp,resmass,resz,tlif,ubuf,nubuf)
         print*, '***', targmass, resmass, beammass, resenerg, prodm
-        eres0 = (prodm/targmass)*.001 !! non-relativistic transformation from lab to CM
+        eres0 = (prodm/targmass)*.001 !! non-relativistic transformation from lab to CM 
         print*, prodm,targmass,prodm/targmass,eres0
         e0beam = (resmass-beammass-targmass)*(resmass+beammass+targmass)
      &   /(2.0*targmass)
@@ -51,7 +51,7 @@ C center of target
         e0recoil=(resmass**2+prodm**2)*(etot+targmass)/(2*resmass**2)
      &    - prodm   !ErecoilCM * gamma = value for 90deg CM gamma
 !  This is the place any angular distribution equations would come in.
-!  Lorentz boosts need to be made for each angle in 3-d kinematics.
+!  Lorentz boosts need to be made for each angle in 3-d kinematics. 
 !
 !  Now corrections for energy loss in the target gas
         imate  = mtarg
@@ -63,26 +63,26 @@ c        eloss = 0.
 c        beamenerg = e0beam
 c        DO i = 1, 100
 c           beamenerg = beamenerg + eloss
-
+          
            CALL gftmat(imate,partid,'LOSS',1,e0beam,dedx,pcut,ixst)
 c           eloss = (entdens/100.)*dedx * 0.001
-
+           
 c        ENDDO
 c        beamenerg = beamenerg*1000.
 
-
+        
 C.==
 C.=     entdens - The gas thickness to target center
 C.=     beamenerg, dedx in MeV/cm , e0beam in GeV
 C.==
-
+        
 c        If(beamenerg.ne.0.)then
 c         continue
 c        Else
 
         beamenerg = e0beam*1000. + dedx * entdens
 c        Endif
-        beammom=sqrt(beamenerg*(beamenerg+2000.*beammass))  !in Mev/c
+        beammom=sqrt(beamenerg*(beamenerg+2000.*beammass))  !in Mev/c        
         beamvel = clight*beammom*.001/beammass
         gamma = 1.0/sqrt(1.0 - (beamvel/clight)**2)
         betagamma = beamvel/clight*gamma  !sign wrong on original?
@@ -131,14 +131,14 @@ C.
         recoilenerg = e0recoil*1000.    !in MeV
         recoilenerg = recoilenerg*(1.+energscale)
         recoilmom = sqrt(recoilenerg*(recoilenerg+2000.*prodm))
-        write(6,*) '++++++++++++++++RECOIL+++++++++++++++++++++++'
+        write(6,*) '++++++++++++++++RECOIL+++++++++++++++++++++++' 
         write(6,*)'Recoil Mean Energy from reaction',
      +            e0rec*1000.,' MeV'
         write(6,*)  'Gas half thickness',exitdens,' cm'
         write(6,*)   'dE/dx in target   ',dedx   ,' MeV/cm'
         write(6,*)'++++++++++++++++++++++++++++++++++++++++++++++++'
         write(6,*) 'Recoil Mean Energy leaving target ',e0recoil*1000.,
-     + ' MeV',   ' Momentum',recoilmom,' MeV/c'
+     + ' MeV',   ' Momentum',recoilmom,' MeV/c' 
         write(6,*) 'Recoil energy tuned to ', recoilenerg,' MeV'
 !
 !  Determine scaling parameters for this reaction c/w the reference tune
@@ -149,10 +149,10 @@ C.
         bscale = recoilmom/fkine(2)/ (refmom/refq)
         escale = recoilenerg*refq/(refenerg*fkine(2))*
      +     (1+etatune)/(1+2*etatune)*(1+2*etaref)/(1+etaref)
-C. ----- Trick to make beam particles get through if needed
+C. ----- Trick to make beam particles get through if needed 
 C. ----- (rescale Electric Dipoles)
 C.       escale = escale*prodm/beammass
-C. -----
+C. ----- 
         write(6,*)'++++++++++++++++++++++++++++++++++++++++++++++++'
         write(6,*) 'Magnetic element scale factor ',bscale
         write(6,*) 'Electric element scale factor ',escale
@@ -163,7 +163,7 @@ C. -----
               print*, '--------- alpha source ----------'
             CALL gfpart(80,state,itrktyp,beammass,beamz,tlif,ubuf,nubuf)
               beammom=sqrt(beamenerg*(beamenerg+2000.*beammass))
-
+              
               prodm = beammass
               recoilenerg = beamenerg*(1.+energscale)
               recoilmom = sqrt(recoilenerg*(recoilenerg+2000.*prodm))
@@ -203,7 +203,7 @@ C.
          write(6,*) '+++++++++++++++++++++++++++++++++++++++++++++++'
 C.
 C.       Initial beam distribution parameters
-C.
+C.       
          sigx = delx/2.
          sigy = dely/2.
 C.
@@ -249,14 +249,14 @@ c        print*, momm, betacm, gamcm, erec, trec
         treco = trec - 0.001*dedx*exitdens
         treco = treco*(1.+energscale)
         recoilmom = 1000*(sqrt((treco + prodm)**2 - prodm**2))
-        write(6,*) '++++++++++++++++RECOIL+++++++++++++++++++++++'
+        write(6,*) '++++++++++++++++RECOIL+++++++++++++++++++++++' 
         write(6,*)'Recoil Mean Energy at target centre (90 deg gamma)',
      +            trec*1000.,' MeV'
         write(6,*)  'Gas half thickness',exitdens,' cm'
         write(6,*)   'dE/dx in target   ',dedx   ,' MeV/cm'
         write(6,*)'++++++++++++++++++++++++++++++++++++++++++++++++'
         write(6,*)   'Recoil Mean Energy leaving target', treco*1000.,
-     + ' MeV',   'Momentum',recoilmom,' MeV/c'
+     + ' MeV',   'Momentum',recoilmom,' MeV/c' 
         recoilenerg = treco*1000.
 !
 !  Determine scaling parameters for this reaction c/w the reference tune
@@ -267,10 +267,10 @@ c        print*, momm, betacm, gamcm, erec, trec
         bscale = recoilmom/fkine(2)/ (refmom/refq)
         escale = recoilenerg*refq/(refenerg*fkine(2))*
      +     (1+etatune)/(1+2*etatune)*(1+2*etaref)/(1+etaref)
-C.----- Trick to make beam particles get through if needed
+C.----- Trick to make beam particles get through if needed 
 C.  ----- (rescale Electric Dipoles)
 C.        escale = escale*prodm/beammass
-C. -----
+C. ----- 
         write(6,*)'++++++++++++++++++++++++++++++++++++++++++++++++'
         write(6,*) 'Magnetic element scale factor ',bscale
         write(6,*) 'Electric element scale factor ',escale
@@ -280,3 +280,28 @@ C. -----
         print*, 'beaminit,f'
         return
         end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

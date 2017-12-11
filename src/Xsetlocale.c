@@ -11,7 +11,7 @@
 
  g77|gcc ...  -lXm -lXt -lX11 -Wl,-rpath,/usr/i486-linux-libc5/lib libc.so.5
 
- From Renee Poutissou : I tried using the previous version but it did not work
+ From Renee Poutissou : I tried using the previous version but it did not work 
  for me. Let's use the dummy routine
 */
 

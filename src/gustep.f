@@ -1,40 +1,43 @@
-C     .
+C.
       SUBROUTINE gustep
-C     .
+C.
 ************************************************************************
-*     *
+*                                                                      *
 *     GEANT3 user routine called at the end of each tracking step      *
-*     *
+*                                                                      *
 ************************************************************************
-C     .
+C.
       IMPLICIT none
-C     .
-      include 'gckine.inc'      !geant
-      include 'gcvolu.inc'      !geant
-      include 'gctmed.inc'      !geant
-      include 'gctrak.inc'      !geant        ! istop
-C     .
+C.
+      include 'gckine.inc'          !geant
+      include 'gcvolu.inc'          !geant
+      include 'gctmed.inc'          !geant
+      include 'gctrak.inc'          !geant        ! istop
+C.
       CHARACTER*4 chname_2level, chname_pres
-C     .
+C.
       CALL uhtoc(names(2),4,chname_2level,4)
       CALL uhtoc(names(3),4,chname_pres,4)
 
-C     Store traking points for graphics
+C        Store traking points for graphics
 C
       CALL GSXYZ
-c     CALL GPCXYZ
+c      CALL GPCXYZ
 C
-C     .
+C.
       If(ipart.ge.80)then
-         If(chname_2level.eq.'DETE' ) then
-            CALL gustep_trgt
-         Else
-            CALL gustep_mitray
-         Endif
+        If(chname_2level.eq.'DETE' ) then
+          CALL gustep_trgt
+        Else
+          CALL gustep_mitray
+        Endif
       Else
-CCC   istop = 1
-         CALL gustep_gbox
+CCC        istop = 1
+        CALL gustep_gbox
       Endif
-C     .
+C.
       RETURN
       END
+
+
+

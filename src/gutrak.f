@@ -1,26 +1,26 @@
-C     .
+C.
       SUBROUTINE gutrak
-C     .
-C     .    ******************************************************************
-C     .    *                                                                *
-C     .    *       User routine to control tracking of one track            *
-C     .    *                                                                *
-C     .    *    ==>Called by : GTREVE                                       *
-C     .    *                                                                *
-C     .    ******************************************************************
-C     .
+C.
+C.    ******************************************************************
+C.    *                                                                *
+C.    *       User routine to control tracking of one track            *
+C.    *                                                                *
+C.    *    ==>Called by : GTREVE                                       *
+C.    *                                                                *
+C.    ******************************************************************
+C.
       IMPLICIT none
-C     .
-      include 'mitray_diag.inc' !local
-      include 'diagnostic.inc'  !local
-C     .
-C     .    ------------------------------------------------------------------
-C     .
+C.
+      include 'mitray_diag.inc'         !local
+      include 'diagnostic.inc'          !local
+C.
+C.    ------------------------------------------------------------------
+C.
       jstop  = 0
       jslit  = 0
-C     .
+C.
       CALL gtrack
-C     .
+C.
       RETURN
       END
-C     .
+C.
